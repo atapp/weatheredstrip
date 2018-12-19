@@ -1,0 +1,109 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const request = require("request");
+const artoo = require("artoo-js");
+const cheerio = require('cheerio');
+
+artoo.bootstrap(cheerio);
+
+function getMetar(station, callback) {
+  var options = {
+    method: 'POST',
+    url: 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi',
+    headers: { 'cache-control': 'no-cache' },
+    form: {
+      NoSession: 'NS_Inconnu',
+      Stations: station,
+      format: 'raw',
+      Langue: 'anglais',
+      Region: 'can',
+      Location: '',
+      undefined: undefined
+    }
+  };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    // scrapping for METAR itself.
+    var $ = cheerio.load(body);
+    var data = $('div[style="text-indent:-1.5em;margin-left:1.5em"]').scrape('text');
+    metar = data.map(daton => daton.slice(1, daton.indexOf('=')))
+    taf = metar.pop()
+    callback({METAR: metar, TAF: taf})
+  });
+}
+
+function getNotam(station, callback) {
+  var options = {
+    method: 'POST',
+    url: 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/notam.cgi',
+    headers: {
+      'cache-control': 'no-cache',
+    },
+    form: {
+      Langue: 'anglais',
+      TypeBrief: 'N',
+      NoSession: 'NS_Inconnu',
+      Stations: station,
+      Location: '',
+      ni_File: 'on',
+      undefined: undefined
+    }
+  };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    var $ = cheerio.load(body);
+    var data = $('#notam_print_item > pre').scrape('text');
+    data = data.map(notam => {
+      // add a filter for extra '\n' that cause impromptu line return
+      return notam.substring(1, notam.length - 2)
+    })
+    callback(data)
+  });
+}
+
+function getInfo(airport, callback) {
+  getNotam(airport, res1 => {
+    getMetar(airport, res2 => {
+      callback({
+        Station: airport,
+        Timestamp: new Date(),
+        NOTAM: res1,
+        ...res2
+      })
+    })
+  })
+}
+
+var app = express();
+var router = express.Router();
+var port = process.env.API_PORT || 3001;
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+
+  //and remove cacheing so we get the most recent genes
+  res.setHeader('Cache-Control', 'no-cache');
+  next();
+});
+router.get('/', function(req, res) {
+  res.json({ message: 'API Initialized!'});
+});
+app.use('/', router);
+app.listen(port, function() {
+  console.log(`api running on port ${port}`);
+});
+
+router.route('/airport')
+  .get(function(req, res) {
+    console.log(`A request was made for : ${req.query}`)
+    getInfo(req.query.q, data => {
+      console.log(data)
+      res.json(data)
+    })
+  });
