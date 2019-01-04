@@ -20,19 +20,23 @@ class Content extends Component {
     console.log(data[this.state.stationSelection].TAF)
     return (
       <div className="Content">
-        <div className="Selector">
-          <StationNav data={data} selected={this.state.stationSelection} onClick={this.handleStationSelect}/>
-        </div>
-        <div className="SelectedContent">
-          <div className="Col">
-            <div className="subtitle">METAR</div>
-            <Metars data={data[this.state.stationSelection].METAR} />
-            <div className="subtitle">TAF</div>
-            <Tafs data={data[this.state.stationSelection].TAF}/>
+        <div className="Timestamp">Data Timestamp: {data[this.state.stationSelection].Timestamp}</div>
+        <div className="Timestamp current">Current Timestamp: *To be completed* </div>
+        <div className="UserContent">
+          <div className="Selector">
+            <StationNav data={data} selected={this.state.stationSelection} onClick={this.handleStationSelect}/>
           </div>
-          <div className="Col">
-            <div className="subtitle">NOTAM</div>
-            <Notams data={data[this.state.stationSelection].NOTAM} />
+          <div className="SelectedContent">
+            <div className="Col">
+              <div className="subtitle">METAR</div>
+              <Metars data={data[this.state.stationSelection].METAR} />
+              <div className="subtitle">TAF</div>
+              <Tafs data={data[this.state.stationSelection].TAF}/>
+            </div>
+            <div className="Col">
+              <div className="subtitle">NOTAM</div>
+              <Notams data={data[this.state.stationSelection].NOTAM} />
+            </div>
           </div>
         </div>
       </div>
