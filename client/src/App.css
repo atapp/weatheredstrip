@@ -11,8 +11,15 @@
   background-color: #282c34;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+.App-header-content {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .App-Title {
@@ -22,7 +29,14 @@
 }
 
 .searchbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 200px;
+}
 
+.searchbox-input{
+  font-size: 0.7em;
 }
 
 .App-link {
@@ -38,28 +52,57 @@
   }
 }
 
-.Selected {
-  color: red;
-}
-
-.Selector {
-  width: 50px;
-  display: flex;
-  flex-direction: column;
+body {
+  background-color: #EAEAEA;
 }
 
 .Content {
-  width: 80%;
+  background-color: #FFF;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.Selector {
+  flex: 70px 0 0;
+  padding-top: 55px;
   display: flex;
   flex-direction: column;
+  background-color: #EAEAEA;
+  border-right: 1px black solid;
+}
+
+.Station {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
-  margin: 30px auto;
+  color: #000;
+  height: 1.8em;
 }
 
 .UserContent {
+  flex: 100% 1 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-content: center;
+  border-right: 1px black solid;
+  border-bottom: 1px black solid;
+  padding: 10px 20px;
+}
+
+.Selected {
+  position: relative;
+  left: 1px;
+  vertical-align: center;
+  text-align: center;
+  border: 1px black solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: 1px white solid;
+  background-color: #FFF;
 }
 
 .NotifText {

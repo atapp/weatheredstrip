@@ -17,15 +17,15 @@ class Content extends Component {
 
   render() {
     const { data } = this.props
-    
+
     return (
       <div className="Content">
-        <div className="Timestamp">Data Timestamp: {data[this.state.stationSelection].Timestamp}</div>
-        <div className="Timestamp current">Current Timestamp: *To be completed* </div>
+        <div className="Selector">
+          <StationNav data={data} selected={this.state.stationSelection} onClick={this.handleStationSelect}/>
+        </div>
         <div className="UserContent">
-          <div className="Selector">
-            <StationNav data={data} selected={this.state.stationSelection} onClick={this.handleStationSelect}/>
-          </div>
+          <div className="Timestamp">Data Timestamp: {data[this.state.stationSelection].Timestamp}</div>
+          <div className="Timestamp current">Current Timestamp: *To be completed* </div>
           <div className="SelectedContent">
             <div className="Col">
               <div className="subtitle">METAR</div>

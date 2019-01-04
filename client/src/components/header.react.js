@@ -25,10 +25,12 @@ class Header extends Component {
   render() {
     return (
       <header className="App-header">
-        <div className="App-Title">
-          Weathered Strip
+        <div className="App-header-content">
+          <div className="App-Title">
+            Weathered Strip
+          </div>
+          <SearchBox stationSearch={this.props.stationSearch}/>
         </div>
-        <SearchBox stationSearch={this.props.stationSearch}/>
       </header>
     )
   }
