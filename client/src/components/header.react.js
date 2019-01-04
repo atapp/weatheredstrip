@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBox from './searchbox.react';
 
 class Header extends Component {
   constructor(props) {
@@ -27,10 +28,7 @@ class Header extends Component {
         <div className="App-Title">
           Weathered Strip
         </div>
-        <div className="searchbox">
-          <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={this.state.searchValue} onChange={ this.handleSearchChange}></input>
-          <button className="searchbox-button" onClick={this.handleSearchSubmit}>Get Info</button>
-        </div>
+        <SearchBox stationSearch={this.props.stationSearch}/>
       </header>
     )
   }

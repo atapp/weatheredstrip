@@ -9,12 +9,12 @@ function Notams({
 
   if (data) {
     notams = data.map((notam, index) => {
-      return (<div key={index}>{notam}</div>)
+      return (<div className="NotifText" key={index}>{notam}</div>)
     })
   }
-  
+
   return (
-    <div className="Notams NotifText">{notams}</div>
+    <div className="Notams">{notams}</div>
   )
 }
 

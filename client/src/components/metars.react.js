@@ -9,12 +9,12 @@ function Metars({
 
   if (data) {
     metars = data.map((metar, index) => {
-      return (<div key={index}>{metar}</div>)
+      return (<div className="NotifText" key={index}>{metar}</div>)
     })
   }
 
   return (
-    <div className="Metars NotifText">{metars}</div>
+    <div className="Metars">{metars}</div>
   )
 }
 

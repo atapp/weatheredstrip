@@ -65,6 +65,7 @@
 .NotifText {
   font-size: .8em;
   text-align: left;
+  margin-bottom: 5px;
 }
 
 .subtitle {
