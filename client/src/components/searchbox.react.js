@@ -23,10 +23,10 @@ class SearchBox extends Component {
 
   render() {
     return (
-      <div className="searchbox">
+      <form className="searchbox">
         <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={this.state.searchValue} onChange={ this.handleSearchChange}></input>
-        <button className="searchbox-button" onClick={this.handleSearchSubmit}>Get Info</button>
-      </div>
+        <button type="submit" className="searchbox-button" onClick={this.handleSearchSubmit}>Get Info</button>
+      </form>
     )
   }
 }
