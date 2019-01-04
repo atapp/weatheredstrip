@@ -7,7 +7,7 @@ const cheerio = require('cheerio');
 artoo.bootstrap(cheerio);
 
 function getMetar(station, callback) {
-  var options = {
+  const options = {
     method: 'POST',
     url: 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi',
     headers: { 'cache-control': 'no-cache' },
@@ -17,16 +17,15 @@ function getMetar(station, callback) {
       format: 'raw',
       Langue: 'anglais',
       Region: 'can',
-      Location: '',
-      undefined: undefined
+      Location: ''
     }
   };
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
     // scrapping for METAR itself.
-    var $ = cheerio.load(body);
-    var data = $('div[style="text-indent:-1.5em;margin-left:1.5em"]').scrape('text');
+    let $ = cheerio.load(body);
+    const data = $('div[style="text-indent:-1.5em;margin-left:1.5em"]').scrape('text');
     metar = data.map(daton => daton.slice(1, daton.indexOf('=')))
     taf = metar.pop()
     callback({METAR: metar, TAF: taf})
@@ -34,7 +33,7 @@ function getMetar(station, callback) {
 }
 
 function getNotam(station, callback) {
-  var options = {
+  const options = {
     method: 'POST',
     url: 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/notam.cgi',
     headers: {
@@ -46,20 +45,19 @@ function getNotam(station, callback) {
       NoSession: 'NS_Inconnu',
       Stations: station,
       Location: '',
-      ni_File: 'on',
-      undefined: undefined
+      ni_File: 'on'
     }
   };
 
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
-    var $ = cheerio.load(body);
-    var data = $('#notam_print_item > pre').scrape('text');
-    data = data.map(notam => {
+    let $ = cheerio.load(body);
+    let data = $('#notam_print_item > pre').scrape('text');
+    let notams = data.map(notam => {
       // add a filter for extra '\n' that cause impromptu line return
       return notam.substring(1, notam.length - 2)
     })
-    callback(data)
+    callback({ NOTAM: notams })
   });
 }
 
@@ -69,7 +67,7 @@ function getInfo(airport, callback) {
       callback({
         Station: airport,
         Timestamp: new Date(),
-        NOTAM: res1,
+        ...res1,
         ...res2
       })
     })

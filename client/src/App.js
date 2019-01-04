@@ -47,8 +47,7 @@ class App extends Component {
   }
 
   render() {
-    this.getInfo(["CYMX", "CYUL", "CYBG", "CYOD"])
-    console.log(`Data: ${this.state.data}`)
+    this.getInfo(["CYMX", "CYUL"])
 
     return (
       <div className="App">
