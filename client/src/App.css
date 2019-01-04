@@ -10,12 +10,19 @@
 .App-header {
   background-color: #282c34;
   display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.App-Title {
   font-size: calc(30px + 2vmin);
   color: white;
   text-align: left;
+}
+
+.searchbox {
+
 }
 
 .App-link {

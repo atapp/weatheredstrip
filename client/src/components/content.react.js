@@ -17,7 +17,7 @@ class Content extends Component {
 
   render() {
     const { data } = this.props
-    console.log(data[this.state.stationSelection].TAF)
+    
     return (
       <div className="Content">
         <div className="Timestamp">Data Timestamp: {data[this.state.stationSelection].Timestamp}</div>

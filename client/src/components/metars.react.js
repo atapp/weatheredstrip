@@ -13,7 +13,6 @@ function Metars({
     })
   }
 
-  console.log(metars)
   return (
     <div className="Metars NotifText">{metars}</div>
   )

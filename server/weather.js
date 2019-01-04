@@ -65,7 +65,7 @@ function getInfo(airport, callback) {
   getNotam(airport, res1 => {
     getMetar(airport, res2 => {
       callback({
-        Station: airport,
+        Station: airport.toUpperCase(),
         Timestamp: new Date(),
         ...res1,
         ...res2

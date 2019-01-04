@@ -12,8 +12,7 @@ function Notams({
       return (<div key={index}>{notam}</div>)
     })
   }
-
-  console.log(notams)
+  
   return (
     <div className="Notams NotifText">{notams}</div>
   )

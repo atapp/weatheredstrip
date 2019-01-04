@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 // Import of Components
-import { Content, Metars, Notams, Tafs, StationNav } from './components';
+import { Content, Header, Metars, Notams, Tafs, StationNav } from './components';
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +10,8 @@ class App extends Component {
     this.state = {
       data: null,
     };
+    this.serverRequest = this.serverRequest.bind(this)
+    this.getInfo = this.getInfo.bind(this)
   }
 
   serverRequest(station, callback) {
@@ -32,8 +34,9 @@ class App extends Component {
   }
 
   getInfo(stations) {
-    if (this.state.data === null) {
-      let data = []
+    let data = []
+    console.log(stations)
+    if (stations) {
       stations.forEach(station => {
         this.serverRequest(station, res => {
           data.push(res)
@@ -47,13 +50,9 @@ class App extends Component {
   }
 
   render() {
-    this.getInfo(["CYMX", "CYUL"])
-
     return (
       <div className="App">
-        <header className="App-header">
-          Weathered Strip
-        </header>
+        <Header stationSearch={this.getInfo}/>
         {
           this.state.data ?
           <Content data={this.state.data} /> : null
