@@ -26,8 +26,13 @@ function getMetar(station, callback) {
     // scrapping for METAR itself.
     let $ = cheerio.load(body);
     const data = $('div[style="text-indent:-1.5em;margin-left:1.5em"]').scrape('text');
+
     metar = data.map(daton => daton.slice(1, daton.indexOf('=')))
-    taf = metar.pop()
+
+    // 're' is a regex to strip the correct line returns from the inline TAF info
+    const re = /\n\s*(?=BECMG|FM\d{6}|RMK)/
+    const taf = metar.pop().split(re)
+
     callback({METAR: metar, TAF: taf})
   });
 }
@@ -55,7 +60,12 @@ function getNotam(station, callback) {
     let data = $('#notam_print_item > pre').scrape('text');
     let notams = data.map(notam => {
       // add a filter for extra '\n' that cause impromptu line return
-      return notam.substring(1, notam.length - 2)
+      const trimmedNotam = notam.substring(1, notam.length - 2)
+      const titleEnd = trimmedNotam.indexOf("\n")
+      return {
+        title: trimmedNotam.slice(0, titleEnd),
+        notam: trimmedNotam.slice(titleEnd + 1)
+      }
     })
     callback({ NOTAM: notams })
   });

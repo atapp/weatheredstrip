@@ -5,8 +5,16 @@ function Tafs({
   className,
   data,
 }) {
+  let tafs;
+
+  if (data) {
+    tafs = data.map((taf, index) => {
+      return (<div className="NotifText" key={index}>{taf}</div>)
+    })
+  }
+
   return (
-    <div className="Tafs NotifText">{data}</div>
+    <div className="tafs">{tafs}</div>
   )
 }
 
