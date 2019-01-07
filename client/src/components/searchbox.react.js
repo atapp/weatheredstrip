@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router';
 
 class SearchBox extends Component {
   constructor(props) {
@@ -16,9 +17,8 @@ class SearchBox extends Component {
 
   handleSearchSubmit(event) {
     event.preventDefault()
-    const stations = this.state.searchValue.toUpperCase().split(" ")
-    console.log(stations)
-    this.props.stationSearch(stations)
+    console.log(window.location)
+    window.location.href = window.location.origin + '/?stations=' + this.state.searchValue.toUpperCase()
   }
 
   render() {

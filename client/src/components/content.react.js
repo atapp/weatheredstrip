@@ -18,8 +18,7 @@ class Content extends Component {
   render() {
     const { data } = this.props
 
-    return (
-      <div className="Content">
+    const content = data ? <div className="Content">
         <StationNav data={data} selected={this.state.stationSelection} onClick={this.handleStationSelect}/>
         <div className="UserContent">
           <div className="Timestamp">Data Timestamp: {data[this.state.stationSelection].Timestamp}</div>
@@ -41,7 +40,15 @@ class Content extends Component {
           </div>
         </div>
       </div>
-    )
+      :
+      <div className="Content">
+        <div className="UserContent fullborder">
+          <p>Please use the searchbox to initate a search.</p>
+        </div>
+      </div>
+
+
+    return content
   }
 }
 

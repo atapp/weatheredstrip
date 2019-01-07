@@ -130,7 +130,9 @@ app.listen(port, function() {
 
 router.route('/airport')
   .get(function(req, res) {
-    console.log(`A request was made for : ${req.query}`)
+    const timestamp = new Date()
+
+    console.log(`${timestamp}: \t a request was made for : ${req.query.q}`)
     getInfo(req.query.q, data => {
       res.json(data)
     })
