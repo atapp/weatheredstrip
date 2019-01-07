@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 function StationNav({
   children,
@@ -11,7 +11,7 @@ function StationNav({
     const divClass = (selected === index ? "Station Selected" : "Station");
     return <div className={divClass} key={index} onClick={() => onClick(index)}>{airport.Station}</div>
   })
-  return (<div className="Selector">stations</div>)
+  return (<div className="Selector">{stations}</div>)
 }
 
 export default StationNav;

@@ -134,3 +134,9 @@ body {
   font-family: monospace;
   font-size: 30px;
 }
+
+.fullborder {
+  border-right: 1px black solid;
+  border-bottom: 1px black solid;
+  border-left: 1px black solid;
+}

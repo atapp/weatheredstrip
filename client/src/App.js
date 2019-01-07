@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 // Import of Components
-import { Content, Header, Metars, Notams, Tafs, StationNav } from './components';
+import { Content, Header } from './components';
 
 class App extends Component {
   constructor(props) {
@@ -55,7 +55,12 @@ class App extends Component {
         <Header stationSearch={this.getInfo}/>
         {
           this.state.data ?
-          <Content data={this.state.data} /> : null
+          <Content data={this.state.data} /> :
+          <div className="Content">
+            <div className="UserContent fullborder">
+              <p>Please use the searchbox to initate a search.</p>
+            </div>
+          </div>
         }
       </div>
     );

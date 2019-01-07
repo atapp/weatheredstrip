@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StationNav, Metars, Tafs, Notams } from "../components";
+import { StationNav, Metars, Tafs, Notams, Rvr } from "../components";
 
 class Content extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Content extends Component {
           <div className="Timestamp current">Current Timestamp: *To be completed* </div>
           <div className="SelectedContent">
             <div className="TopPortion">
-              <img id="RVR" height="300" width="300" src={data[this.state.stationSelection].RVR} />
+              <Rvr data={data[this.state.stationSelection].RVR} />
               <div className="Col">
                 <div className="subtitle">METAR</div>
                 <Metars data={data[this.state.stationSelection].METAR} />

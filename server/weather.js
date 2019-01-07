@@ -51,7 +51,7 @@ function getRVR(station, callback) {
     if (error) throw new Error(error);
     let $ = cheerio.load(body);
     const url = $('img[alt="Aerodrome chart"]').scrapeOne('src');
-    callback({ RVR: baseURL + url })
+    callback(url === undefined ? { RVR: null } : { RVR: baseURL + url })
   });
 }
 
