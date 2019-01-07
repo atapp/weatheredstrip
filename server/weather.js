@@ -37,6 +37,24 @@ function getMetar(station, callback) {
   });
 }
 
+function getRVR(station, callback) {
+  const baseURL = 'http://atm.navcanada.ca'
+  const options = {
+    method: 'GET',
+    url: baseURL + '/atm/iwv/' + station,
+    headers: {
+      'cache-control': 'no-cache',
+    },
+  };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    let $ = cheerio.load(body);
+    const url = $('img[alt="Aerodrome chart"]').scrapeOne('src');
+    callback({ RVR: baseURL + url })
+  });
+}
+
 function getNotam(station, callback) {
   const options = {
     method: 'POST',
@@ -74,11 +92,14 @@ function getNotam(station, callback) {
 function getInfo(airport, callback) {
   getNotam(airport, res1 => {
     getMetar(airport, res2 => {
-      callback({
-        Station: airport.toUpperCase(),
-        Timestamp: new Date(),
-        ...res1,
-        ...res2
+      getRVR(airport, res3 => {
+        callback({
+          Station: airport.toUpperCase(),
+          Timestamp: new Date(),
+          ...res1,
+          ...res2,
+          ...res3
+        })
       })
     })
   })
@@ -111,7 +132,6 @@ router.route('/airport')
   .get(function(req, res) {
     console.log(`A request was made for : ${req.query}`)
     getInfo(req.query.q, data => {
-      console.log(data)
       res.json(data)
     })
   });

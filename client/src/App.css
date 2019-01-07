@@ -36,7 +36,7 @@
 }
 
 .searchbox-input{
-  font-size: 0.7em;
+  font-size: 0.75em;
 }
 
 .App-link {
@@ -53,7 +53,7 @@
 }
 
 body {
-  background-color: #EAEAEA;
+  background-color: #73b2fb;
 }
 
 .Content {
@@ -70,7 +70,7 @@ body {
   padding-top: 55px;
   display: flex;
   flex-direction: column;
-  background-color: #EAEAEA;
+  background-color: #73b2fb;
   border-right: 1px black solid;
 }
 
@@ -79,8 +79,24 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  position: relative;
+  left: 1px;
+  background-color: #F1F1F1;
   color: #000;
   height: 1.8em;
+  border: 1px black solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.TopPortion {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#RVR {
+  display: flex;
+  flex-shrink: 0;
 }
 
 .UserContent {
@@ -94,8 +110,6 @@ body {
 }
 
 .Selected {
-  position: relative;
-  left: 1px;
   vertical-align: center;
   text-align: center;
   border: 1px black solid;
@@ -109,6 +123,10 @@ body {
   font-size: .8em;
   text-align: left;
   margin-bottom: 5px;
+}
+
+.Col {
+  flex: 100% 1 1;
 }
 
 .subtitle {

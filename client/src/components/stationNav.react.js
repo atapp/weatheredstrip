@@ -11,7 +11,7 @@ function StationNav({
     const divClass = (selected === index ? "Station Selected" : "Station");
     return <div className={divClass} key={index} onClick={() => onClick(index)}>{airport.Station}</div>
   })
-  return stations
+  return (<div className="Selector">stations</div>)
 }
 
 export default StationNav;
