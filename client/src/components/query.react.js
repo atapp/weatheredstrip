@@ -30,7 +30,7 @@ class Query extends Component {
       }
     });
 
-    xhr.open("GET", `http://localhost:3001/airport?q=${station}`);
+    xhr.open("GET", `http://192.168.92.196:3001/airport?q=${station}`);
     xhr.send(data);
   }
 
@@ -38,7 +38,10 @@ class Query extends Component {
     let data = []
 
     if (stations !== this.state.stations) {
-      const stationsArray = stations.split(' ')
+      const stationsArray = stations.split(/(\s|,)/).filter(item => item !== " " && item !== ",")
+
+      console.log(stationsArray)
+
       stationsArray.forEach(station => {
         this.serverRequest(station, res => {
           data.push(res)
@@ -56,6 +59,7 @@ class Query extends Component {
     const { url } = this.props
     if (url.search) {
       let stations = queryString.parse(url.search).stations;
+      console.log(stations)
       this.getInfo(stations)
     }
 

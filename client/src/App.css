@@ -39,6 +39,10 @@
   font-size: 0.75em;
 }
 
+.searchbox-button {
+  background-color: #FFF
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -56,16 +60,27 @@ body {
   background-color: #73b2fb;
 }
 
+.sticky + .UserContent {
+  padding-top: 40px;
+}
+
 .Content {
   background-color: #FFF;
   width: 90%;
+  min-width: 440px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: auto;
 }
 
-.Selector {
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#navbar {
   flex: 70px 0 0;
   padding-top: 55px;
   display: flex;
@@ -89,14 +104,23 @@ body {
   border-bottom-left-radius: 5px;
 }
 
-.TopPortion {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 #RVR {
   display: flex;
   flex-shrink: 0;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.TopPortion {
+  display: flex;
+}
+
+.Selected {
+  vertical-align: center;
+  text-align: center;
+  border: 1px black solid;
+  border-right: 1px white solid;
+  background-color: #FFF;
 }
 
 .UserContent {
@@ -107,16 +131,6 @@ body {
   border-right: 1px black solid;
   border-bottom: 1px black solid;
   padding: 10px 20px;
-}
-
-.Selected {
-  vertical-align: center;
-  text-align: center;
-  border: 1px black solid;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-right: 1px white solid;
-  background-color: #FFF;
 }
 
 .NotifText {
@@ -139,4 +153,71 @@ body {
   border-right: 1px black solid;
   border-bottom: 1px black solid;
   border-left: 1px black solid;
+}
+
+@media only screen and (max-width: 440px) {
+  .App-header-content {
+    flex-direction: column;
+  }
+
+  .Content {
+    flex-direction: column;
+    width: 100%;
+    min-width: inherit;
+  }
+
+  .searchbox {
+    margin-bottom: 10px;
+  }
+
+  .Selected {
+    border: none;
+  }
+
+  .Station {
+    left: 0px;
+    flex: 1 0 80px;
+    border: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .UserContent {
+    border: none;
+  }
+
+  #navbar {
+    background-color: #F1F1F1;
+    padding-top: 0px;
+    border: none;
+    flex: 100% 1 1;
+    flex-direction: row;
+    overflow: auto;
+    white-space: nowrap;
+    justify-content: left;
+  }
+
+  #RVR {
+    flex: none;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .TopPortion {
+    display: flex;
+    flex-direction: column;
+  }
+  #RVR {
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .TopPortion {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
 }

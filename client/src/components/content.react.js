@@ -5,10 +5,43 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stationSelection: 0
+      stationSelection: 0,
+      navSticky: false,
     }
 
+    this.sticky = null
+
     this.handleStationSelect = this.handleStationSelect.bind(this)
+    this.handleScroll = this.handleScroll.bind(this)
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    if (this.sticky === null) {
+      this.sticky = document.getElementById('navbar').offsetTop;
+    }
+
+    if (window.pageYOffset >= this.sticky) {
+      if (!this.state.navSticky) {
+        this.setState({
+          navSticky: true
+        })
+      }
+    } else {
+      console.log('small')
+      if (this.state.navSticky) {
+        this.setState({
+          navSticky: false
+        })
+      }
+    }
   }
 
   handleStationSelect(value) {
@@ -19,10 +52,12 @@ class Content extends Component {
     const { data } = this.props
 
     const content = data ? <div className="Content">
-        <StationNav data={data} selected={this.state.stationSelection} onClick={this.handleStationSelect}/>
+        <StationNav data={data} selected={this.state.stationSelection} onClick={this.handleStationSelect} sticky={this.state.navSticky}/>
         <div className="UserContent">
-          <div className="Timestamp">Data Timestamp: {data[this.state.stationSelection].Timestamp}</div>
-          <div className="Timestamp current">Current Timestamp: *To be completed* </div>
+          <div className="timestamp">
+            <div>Data Timestamp: {data[this.state.stationSelection].Timestamp}</div>
+            <div>Current Timestamp: *To be completed* </div>
+          </div>
           <div className="SelectedContent">
             <div className="TopPortion">
               <Rvr data={data[this.state.stationSelection].RVR} />
