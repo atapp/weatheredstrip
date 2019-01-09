@@ -15,7 +15,7 @@ class Query extends Component {
     this.getInfo = this.getInfo.bind(this)
   }
 
-  serverRequest(station, callback) {
+  serverRequest(stations, callback) {
     var data = null;
 
     var xhr = new XMLHttpRequest();
@@ -30,26 +30,18 @@ class Query extends Component {
       }
     });
 
-    xhr.open("GET", `http://192.168.92.196:3001/airport?q=${station}`);
+    xhr.open("GET", `http://192.168.92.196:3001/airport?q=${stations}`);
     xhr.send(data);
   }
 
   getInfo(stations) {
-    let data = []
-
     if (stations !== this.state.stations) {
-      const stationsArray = stations.split(/(\s|,)/).filter(item => item !== " " && item !== ",")
+      console.log(stations)
 
-      console.log(stationsArray)
-
-      stationsArray.forEach(station => {
-        this.serverRequest(station, res => {
-          data.push(res)
-          if (data.length === stationsArray.length) {
-            this.setState({data: data, selectedStationIndex: 0, stations: stations})
-          }
-        })
-      });
+      this.serverRequest(stations, res => {
+        const data = res
+        this.setState({data: data, selectedStationIndex: 0, stations: stations})
+      })
     } else {
       // The station has not changes, no update is to be done.
     }

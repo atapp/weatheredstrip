@@ -9,7 +9,7 @@ const { URLSearchParams } = require('url');
 
 artoo.bootstrap(cheerio);
 
-const getMetar = async function(station) {
+const getMetar = async station => {
   const params = new URLSearchParams({
     NoSession: 'NS_Inconnu',
     Stations: station,
@@ -48,7 +48,7 @@ const getMetar = async function(station) {
   }
 }
 
-const getRVR = async function (station) {
+const getRVR = async station => {
   const baseURL = 'http://atm.navcanada.ca'
   const rvrParser = 'img[alt="Aerodrome chart"]'
   try {
@@ -74,7 +74,7 @@ const getRVR = async function (station) {
   // });
 }
 
-const getNotam = async function(station, callback) {
+const getNotam = async station => {
   const params = new URLSearchParams({
     Langue: 'anglais',
     TypeBrief: 'N',
@@ -116,16 +116,25 @@ const getNotam = async function(station, callback) {
   }
 }
 
-const getInfo = async function(airport) {
-  const airportInfo = {
-    ...await getMetar(airport),
-    ...await getNotam(airport),
-    ...await getRVR(airport),
-    Station: airport.toUpperCase(),
-    Timestamp: new Date()
-  }
+getAirport = async airport => {
+  const metars = await getMetar(airport);
+  const notams = await getNotam(airport);
+  const rvr = await getRVR(airport);
 
-  return airportInfo
+  return {
+    ...metars,
+    ...notams,
+    ...rvr,
+    Station: airport.toUpperCase(),
+    Timestamp: new Date(),
+  }
+}
+
+const getInfo = async airport => {
+  const airportsArray = airport.split(/(\s|,)/).filter(item => item !== " " && item !== ",")
+  console.log(airportsArray)
+
+  return await Promise.all(airportsArray.map(airport => getAirport(airport)))
 }
 
 var app = express();
