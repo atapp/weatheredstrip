@@ -4,79 +4,102 @@ const request = require("request");
 const artoo = require("artoo-js");
 const cheerio = require('cheerio');
 
+const fetch = require('node-fetch');
+const { URLSearchParams } = require('url');
+
 artoo.bootstrap(cheerio);
 
-function getMetar(station, callback) {
+const getMetar = async function(station) {
+  const params = new URLSearchParams({
+    NoSession: 'NS_Inconnu',
+    Stations: station,
+    format: 'raw',
+    Langue: 'anglais',
+    Region: 'can',
+    Location: ''
+  })
+
   const options = {
     method: 'POST',
-    url: 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi',
-    headers: { 'cache-control': 'no-cache' },
-    form: {
-      NoSession: 'NS_Inconnu',
-      Stations: station,
-      format: 'raw',
-      Langue: 'anglais',
-      Region: 'can',
-      Location: ''
-    }
+    body: params
   };
 
-  request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-    // scrapping for METAR itself.
-    let $ = cheerio.load(body);
-    const data = $('div[style="text-indent:-1.5em;margin-left:1.5em"]').scrape('text');
+  const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi'
+  const MetarParser = 'div[style="text-indent:-1.5em;margin-left:1.5em"]'
 
-    metar = data.map(daton => daton.slice(1, daton.indexOf('=')))
+  try {
+    console.log('Sending METAR request...')
+    const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+    const body = await response.text()
+    let $ = await cheerio.load(body);
+    const data = await $(MetarParser).scrape('text');
 
-    // 're' is a regex to strip the correct line returns from the inline TAF info
+    // trim whitespace at 0 and remove '=' at the end of each line
+    const metar = await data.map(daton => daton.slice(1, daton.indexOf('=')))
+
+    // A regex to strip the correct line returns from the inline TAF info
     const re = /\n\s*(?=BECMG|FM\d{6}|RMK)/
-    const taf = metar.pop().split(re)
-
-    callback({METAR: metar, TAF: taf})
-  });
+    const taf = await metar.pop().split(re)
+    console.log('METAR parsed.')
+    return { METAR: metar, TAF: taf }
+  } catch (err) {
+    console.log(err)
+    return null
+  }
 }
 
-function getRVR(station, callback) {
+const getRVR = async function (station) {
   const baseURL = 'http://atm.navcanada.ca'
-  const options = {
-    method: 'GET',
-    url: baseURL + '/atm/iwv/' + station,
-    headers: {
-      'cache-control': 'no-cache',
-    },
-  };
+  const rvrParser = 'img[alt="Aerodrome chart"]'
+  try {
+    console.log('Sending RVR request...')
+    const response = await fetch(baseURL + '/atm/iwv/' + station)
+    const body = await response.text()
+    let $ = await cheerio.load(body);
+    const data = await $('img[alt="Aerodrome chart"]').scrapeOne('src');
 
-  request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-    let $ = cheerio.load(body);
-    const url = $('img[alt="Aerodrome chart"]').scrapeOne('src');
-    callback(url === undefined ? { RVR: null } : { RVR: baseURL + url })
-  });
+    const RVR = data === undefined ? { RVR: null } : { RVR: baseURL + data }
+    console.log('RVR parsed.')
+    return RVR
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+
+  // request(options, function (error, response, body) {
+  //   if (error) throw new Error(error);
+  //   let $ = cheerio.load(body);
+  //   const url = $('img[alt="Aerodrome chart"]').scrapeOne('src');
+  //   callback(url === undefined ? { RVR: null } : { RVR: baseURL + url })
+  // });
 }
 
-function getNotam(station, callback) {
+const getNotam = async function(station, callback) {
+  const params = new URLSearchParams({
+    Langue: 'anglais',
+    TypeBrief: 'N',
+    NoSession: 'NS_Inconnu',
+    Stations: station,
+    Location: '',
+    ni_File: 'on'
+  })
+
   const options = {
     method: 'POST',
-    url: 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/notam.cgi',
-    headers: {
-      'cache-control': 'no-cache',
-    },
-    form: {
-      Langue: 'anglais',
-      TypeBrief: 'N',
-      NoSession: 'NS_Inconnu',
-      Stations: station,
-      Location: '',
-      ni_File: 'on'
-    }
+    body: params
   };
 
-  request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-    let $ = cheerio.load(body);
-    let data = $('#notam_print_item > pre').scrape('text');
-    let notams = data.map(notam => {
+  const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/notam.cgi'
+  const NotamParser = '#notam_print_item > pre'
+
+  try {
+    console.log('Sending NOTAM request...')
+    const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+    const body = await response.text()
+    let $ = await cheerio.load(body);
+    const data = await $(NotamParser).scrape('text');
+
+    const notams = await data.map(notam => {
       // add a filter for extra '\n' that cause impromptu line return
       const trimmedNotam = notam.substring(1, notam.length - 2)
       const titleEnd = trimmedNotam.indexOf("\n")
@@ -85,24 +108,24 @@ function getNotam(station, callback) {
         notam: trimmedNotam.slice(titleEnd + 1)
       }
     })
-    callback({ NOTAM: notams })
-  });
+    console.log('NOTAM parsed.')
+    return ({ NOTAM: notams })
+  } catch (err) {
+    console.log(err)
+    return null
+  }
 }
 
-function getInfo(airport, callback) {
-  getNotam(airport, res1 => {
-    getMetar(airport, res2 => {
-      getRVR(airport, res3 => {
-        callback({
-          Station: airport.toUpperCase(),
-          Timestamp: new Date(),
-          ...res1,
-          ...res2,
-          ...res3
-        })
-      })
-    })
-  })
+const getInfo = async function(airport) {
+  const airportInfo = {
+    ...await getMetar(airport),
+    ...await getNotam(airport),
+    ...await getRVR(airport),
+    Station: airport.toUpperCase(),
+    Timestamp: new Date()
+  }
+
+  return airportInfo
 }
 
 var app = express();
@@ -121,7 +144,7 @@ app.use(function(req, res, next) {
   next();
 });
 router.get('/', function(req, res) {
-  res.json({ message: 'API Initialized!'});
+  res.json({ message: 'API currently running, please use "/airport" to access the data!'});
 });
 app.use('/', router);
 app.listen(port, function() {
@@ -129,11 +152,11 @@ app.listen(port, function() {
 });
 
 router.route('/airport')
-  .get(function(req, res) {
+  .get(async function(req, res) {
     const timestamp = new Date()
 
-    console.log(`${timestamp}: \t a request was made for : ${req.query.q}`)
-    getInfo(req.query.q, data => {
-      res.json(data)
-    })
+    console.log(`${timestamp}: \t A request was made for : ${req.query.q}`)
+    const airportInfo = await getInfo(req.query.q)
+    console.log(airportInfo)
+    res.json(airportInfo)
   });
