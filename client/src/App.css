@@ -1,3 +1,7 @@
+body {
+  background-color: #73b2fb;
+}
+
 .App {
   text-align: center;
 }
@@ -22,10 +26,50 @@
   justify-content: space-between;
 }
 
+.App-link {
+  color: #61dafb;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .App-Title {
   font-size: calc(30px + 2vmin);
   color: white;
   text-align: left;
+}
+
+.Col {
+  flex: 100% 1 1;
+}
+
+.Content {
+  background-color: #FFF;
+  width: 90%;
+  min-width: 440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.fullborder {
+  border-right: 1px black solid;
+  border-bottom: 1px black solid;
+  border-left: 1px black solid;
+}
+
+.NotifText {
+  font-size: .8em;
+  text-align: left;
+  margin-bottom: 5px;
 }
 
 .searchbox {
@@ -43,40 +87,12 @@
   background-color: #FFF
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body {
-  background-color: #73b2fb;
-}
-
-.Content {
+.Selected {
+  vertical-align: center;
+  text-align: center;
+  border: 1px black solid;
+  border-right: 1px white solid;
   background-color: #FFF;
-  width: 90%;
-  min-width: 440px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: auto;
-}
-
-#navbar {
-  flex: 70px 0 0;
-  padding-top: 55px;
-  display: flex;
-  flex-direction: column;
-  background-color: #73b2fb;
-  border-right: 1px black solid;
 }
 
 .Station {
@@ -94,45 +110,6 @@ body {
   border-bottom-left-radius: 5px;
 }
 
-#RVR {
-  display: flex;
-  flex-shrink: 0;
-  max-height: 300px;
-  max-width: 300px;
-}
-
-.TopPortion {
-  display: flex;
-}
-
-.Selected {
-  vertical-align: center;
-  text-align: center;
-  border: 1px black solid;
-  border-right: 1px white solid;
-  background-color: #FFF;
-}
-
-.UserContent {
-  flex: 100% 1 1;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  border-right: 1px black solid;
-  border-bottom: 1px black solid;
-  padding: 10px 20px;
-}
-
-.NotifText {
-  font-size: .8em;
-  text-align: left;
-  margin-bottom: 5px;
-}
-
-.Col {
-  flex: 100% 1 1;
-}
-
 /* .sticky {
   position: fixed;
   flex: 70px 0 0;
@@ -148,10 +125,34 @@ body {
   font-size: 30px;
 }
 
-.fullborder {
+.TopPortion {
+  display: flex;
+}
+
+.UserContent {
+  flex: 100% 1 1;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   border-right: 1px black solid;
   border-bottom: 1px black solid;
-  border-left: 1px black solid;
+  padding: 10px 20px;
+}
+
+#navbar {
+  flex: 70px 0 0;
+  padding-top: 55px;
+  display: flex;
+  flex-direction: column;
+  background-color: #73b2fb;
+  border-right: 1px black solid;
+}
+
+#RVR {
+  display: flex;
+  flex-shrink: 0;
+  max-height: 300px;
+  max-width: 300px;
 }
 
 @media only screen and (max-width: 440px) {
