@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const request = require("request");
 const artoo = require("artoo-js");
 const cheerio = require('cheerio');
 
@@ -9,6 +8,8 @@ const { URLSearchParams } = require('url');
 
 artoo.bootstrap(cheerio);
 
+/*  Makes a request to NAV Canada for the specified station METAR webpage. Then
+    returns the METARs and TAFs as an object. */
 const getMetar = async station => {
   const params = new URLSearchParams({
     NoSession: 'NS_Inconnu',
@@ -28,7 +29,6 @@ const getMetar = async station => {
   const MetarParser = 'div[style="text-indent:-1.5em;margin-left:1.5em"]'
 
   try {
-    console.log('Sending METAR request...')
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     const body = await response.text()
     let $ = await cheerio.load(body);
@@ -40,7 +40,6 @@ const getMetar = async station => {
     // A regex to strip the correct line returns from the inline TAF info
     const re = /\n\s*(?=BECMG|FM\d{6}|RMK)/
     const taf = await metar.pop().split(re)
-    console.log('METAR parsed.')
     return { METAR: metar, TAF: taf }
   } catch (err) {
     console.log(err)
@@ -48,32 +47,28 @@ const getMetar = async station => {
   }
 }
 
+
+/*  Makes a request to NAV Canada for the specified station RVR webpage. Then
+    returns the RVR image link as an object */
 const getRVR = async station => {
   const baseURL = 'http://atm.navcanada.ca'
   const rvrParser = 'img[alt="Aerodrome chart"]'
   try {
-    console.log('Sending RVR request...')
     const response = await fetch(baseURL + '/atm/iwv/' + station)
     const body = await response.text()
     let $ = await cheerio.load(body);
     const data = await $('img[alt="Aerodrome chart"]').scrapeOne('src');
 
     const RVR = data === undefined ? { RVR: null } : { RVR: baseURL + data }
-    console.log('RVR parsed.')
     return RVR
   } catch (err) {
     console.log(err)
     return null
   }
-
-  // request(options, function (error, response, body) {
-  //   if (error) throw new Error(error);
-  //   let $ = cheerio.load(body);
-  //   const url = $('img[alt="Aerodrome chart"]').scrapeOne('src');
-  //   callback(url === undefined ? { RVR: null } : { RVR: baseURL + url })
-  // });
 }
 
+/*  Makes a request to NAV Canada for the specified station NOTAM webpage. Then
+    returns the NOTAMs as an object. */
 const getNotam = async station => {
   const params = new URLSearchParams({
     Langue: 'anglais',
@@ -93,7 +88,6 @@ const getNotam = async station => {
   const NotamParser = '#notam_print_item > pre'
 
   try {
-    console.log('Sending NOTAM request...')
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     const body = await response.text()
     let $ = await cheerio.load(body);
@@ -108,7 +102,6 @@ const getNotam = async station => {
         notam: trimmedNotam.slice(titleEnd + 1)
       }
     })
-    console.log('NOTAM parsed.')
     return ({ NOTAM: notams })
   } catch (err) {
     console.log(err)
@@ -116,25 +109,31 @@ const getNotam = async station => {
   }
 }
 
+/*  Request all reports from all the get[...] functions. Then returns a
+    consolidated object if all are returned without error. */
 getAirport = async airport => {
   const metars = await getMetar(airport);
   const notams = await getNotam(airport);
   const rvr = await getRVR(airport);
 
-  return {
-    ...metars,
-    ...notams,
-    ...rvr,
-    Station: airport.toUpperCase(),
-    Timestamp: new Date(),
+  // Check that all reports contain info.
+  if (metars && notams && rvr) {
+    return {
+      ...metars,
+      ...notams,
+      ...rvr,
+      Station: airport.toUpperCase(),
+      Timestamp: new Date(),
+    }
+  } else {
+    return null;
   }
 }
 
-const getInfo = async airport => {
-  const airportsArray = airport.split(/(\s|,)/).filter(item => item !== " " && item !== ",")
-  console.log(airportsArray)
-
-  return await Promise.all(airportsArray.map(airport => getAirport(airport)))
+/*  Transform the provided array into a list containing a Promises for each
+    airport.  */
+const getInfo = async airports => {
+  return await Promise.all(airports.map(airport => getAirport(airport)))
 }
 
 var app = express();
@@ -148,24 +147,41 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
-  //and remove cacheing so we get the most recent genes
+  // Remove cacheing so we get the most recent reports
   res.setHeader('Cache-Control', 'no-cache');
   next();
 });
+
+/* This is the API entry point, it can be used to ensure the server is up and running. */
 router.get('/', function(req, res) {
   res.json({ message: 'API currently running, please use "/airport" to access the data!'});
 });
+
 app.use('/', router);
+
 app.listen(port, function() {
-  console.log(`api running on port ${port}`);
+  console.log(`API running on port ${port}\nWaiting for requests...`);
 });
 
+/* This is the actual API request route.*/
 router.route('/airport')
   .get(async function(req, res) {
-    const timestamp = new Date()
+    // Mark a time
+    const requestReceived = new Date()
 
-    console.log(`${timestamp}: \t A request was made for : ${req.query.q}`)
-    const airportInfo = await getInfo(req.query.q)
-    console.log(airportInfo)
-    res.json(airportInfo)
+    const airportsRequest = req.query.q.split(/(\s|,)/).filter(item => item !== " " && item !== ",")
+
+    console.log(`A request was made for : ${req.query.q}`)
+    const airportsInfo = await getInfo(airportsRequest)
+
+    // Ensure requested number of items are all present in the report.
+    if (airportsInfo.length !== airportsRequest.length) {
+      console.warn(`A request was made for ${airportsRequest}, but only ${airportsInfo.map(airport => airport["Station"])} was returned.`)
+    } else {
+      console.log('Response Check: Passed')
+    }
+
+    const requestSent = new Date()
+    console.log(`Request took ${requestSent - requestReceived} ms`)
+    res.json(airportsInfo)
   });
