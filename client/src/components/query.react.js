@@ -15,7 +15,7 @@ class Query extends Component {
     this.getInfo = this.getInfo.bind(this)
   }
 
-  static serverRequest(stations, callback) {
+  serverRequest(stations, callback) {
     const data = null;
 
     var xhr = new XMLHttpRequest();
