@@ -1,5 +1,5 @@
 {
-  "name": "WeatherX Client",
+  "name": "weathered-strip",
   "version": "0.1.0",
   "dependencies": {
     "async": "^2.6.1",
