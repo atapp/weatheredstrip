@@ -1,5 +1,5 @@
 {
-  "name": "WeatherX",
+  "name": "Weatheredstrip",
   "description": "A weather client/server which provide Aerodrome status by providing METARs/TAFs as well as NOTAMs scrapped from NAV Canada Flight Planning webpages.",
   "version": "1.0.0",
   "main": "weather.js",
