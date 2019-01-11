@@ -30,7 +30,7 @@ class Query extends Component {
       }
     });
 
-    xhr.open('GET', `http://greghamel.com:3001/airport?q=${ stations }`);
+    xhr.open('GET', `http://www.greghamel.com:3001/airport?q=${ stations }`);
     xhr.send(data);
   }
 
