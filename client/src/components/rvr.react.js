@@ -4,7 +4,7 @@ function Rvr({
   data,
 }) {
   return ( data ?
-    <img id="RVR" src={data} alt="Aerodrome Chart"/> : null
+      <img id="RVR" src={ data } alt="Aerodrome Chart"/> : null
   )
 }
 

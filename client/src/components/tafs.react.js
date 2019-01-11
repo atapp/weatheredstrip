@@ -9,7 +9,7 @@ function Tafs({
 
   if (data) {
     tafs = data.map((taf, index) => {
-      return (<div className="NotifText" key={index}>{taf}</div>)
+      return (<div className="NotifText" key={ index }>{ taf }</div>)
     })
   }
 

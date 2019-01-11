@@ -5,7 +5,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: ""
+      searchValue: ''
     }
     this.handleSearchChange = this.handleSearchChange.bind(this)
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
@@ -17,7 +17,7 @@ class Header extends Component {
 
   handleSearchSubmit(event) {
     event.preventDefault()
-    const stations = this.state.searchValue.toUpperCase().split(" ")
+    const stations = this.state.searchValue.toUpperCase().split(' ')
     console.log(stations)
     this.props.stationSearch(stations)
   }
@@ -29,7 +29,7 @@ class Header extends Component {
           <div className="App-Title">
             Weathered Strip
           </div>
-          <SearchBox stationSearch={this.props.stationSearch}/>
+          <SearchBox stationSearch={ this.props.stationSearch }/>
         </div>
       </header>
     )

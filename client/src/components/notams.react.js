@@ -10,7 +10,7 @@ function Notams({
   if (data) {
     notams = data.map((notam, index) => {
       return (
-        <div className="NotifText" key={index}>
+        <div className="NotifText" key={ index }>
           <div><strong>{notam.title}</strong></div>
           <div>{notam.notam}</div>
         </div>

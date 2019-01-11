@@ -4,7 +4,7 @@ class SearchBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: ""
+      searchValue: ''
     }
     this.handleSearchChange = this.handleSearchChange.bind(this)
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
@@ -23,8 +23,8 @@ class SearchBox extends Component {
   render() {
     return (
       <form className="searchbox">
-        <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={this.state.searchValue} onChange={ this.handleSearchChange}></input>
-        <button type="submit" className="searchbox-button" onClick={this.handleSearchSubmit}>Get Info</button>
+        <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={ this.state.searchValue } onChange={ this.handleSearchChange }></input>
+        <button type="submit" className="searchbox-button" onClick={ this.handleSearchSubmit }>Get Info</button>
       </form>
     )
   }
