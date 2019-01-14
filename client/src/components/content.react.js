@@ -56,7 +56,7 @@ class Content extends Component {
         <div className="UserContent">
           <div className="timestamp">
             <div>Data Timestamp: {data[ this.state.stationSelection ].Timestamp}</div>
-            <div>Current Timestamp: *To be completed* </div>
+            {/* <div>Current Timestamp: *To be completed* </div> */}
           </div>
           <div className="SelectedContent">
             <div className="TopPortion">
