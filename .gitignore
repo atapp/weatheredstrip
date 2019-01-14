@@ -1,5 +1,8 @@
-# server dependencies
+# Server Dependencies
 /node_modules
 
-# client dependencies
+# Client Dependencies
 /client/node_modules
+
+# Logs
+*.log
