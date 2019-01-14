@@ -35,7 +35,6 @@ class Content extends Component {
         })
       }
     } else {
-      console.log('small')
       if (this.state.navSticky) {
         this.setState({
           navSticky: false

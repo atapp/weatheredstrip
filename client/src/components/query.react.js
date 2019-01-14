@@ -36,14 +36,12 @@ class Query extends Component {
 
   getInfo(stations) {
     if (stations !== this.state.stations) {
-      console.log(stations)
-
       this.serverRequest(stations, res => {
         const data = res
         this.setState({ data: data, selectedStationIndex: 0, stations: stations })
       })
     } else {
-      // The station has not changes, no update is to be done.
+      // The station has not changed, no update is to be done.
     }
   }
 
@@ -51,7 +49,6 @@ class Query extends Component {
     const { url } = this.props
     if (url.search) {
       const stations = queryString.parse(url.search).stations;
-      console.log(stations)
       this.getInfo(stations)
     }
 

@@ -18,7 +18,6 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-curly-spacing": [ 2, "always" ],
     "react/jsx-indent": [ 2, 2 ],
-    "class-methods-use-this": [ 1 ],
     "no-undefined": [ 1 ],
     "no-case-declarations": [ 1 ],
     "no-return-assign": [ 1 ],
