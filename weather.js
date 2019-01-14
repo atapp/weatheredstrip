@@ -168,20 +168,21 @@ router.route('/airport')
   .get(async function(req, res) {
     // Mark a time
     const requestReceived = new Date()
-
+    let isResponseGood = false;
     const airportsRequest = req.query.q.split(/(\s|,)/).filter(item => item !== " " && item !== ",")
-
-    console.log(`A request was made for : ${req.query.q}`)
     const airportsInfo = await getInfo(airportsRequest)
 
     // Ensure requested number of items are all present in the report.
-    if (airportsInfo.length !== airportsRequest.length) {
-      console.warn(`A request was made for ${airportsRequest}, but only ${airportsInfo.map(airport => airport["Station"])} was returned.`)
-    } else {
-      console.log('Response Check: Passed')
+    if (airportsInfo.length === airportsRequest.length) {
+      isResponseGood = true;
     }
 
     const requestSent = new Date()
-    console.log(`Request took ${requestSent - requestReceived} ms`)
+    console.log(`${requestReceived.toUTCString()}\tRequest received for: ${req.query.q} [${isResponseGood ? 'PASS' : 'FAIL'}] - ${requestSent - requestReceived}ms`)
+
+    if (!isResponseGood) {
+      console.warn(`${requestSent.toUTCString()}\t[WARN]Request made for ${airportsRequest}, but only ${airportsInfo.map(airport => airport["Station"])} returned.`)
+    }
+
     res.json(airportsInfo)
   });
