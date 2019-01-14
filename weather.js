@@ -95,7 +95,7 @@ const getNotam = async station => {
 
     const notams = await data.map(notam => {
       // add a filter for extra '\n' that cause impromptu line return
-      const trimmedNotam = notam.substring(1, notam.length - 2)
+      const trimmedNotam = notam.substring(1, notam.length - 1)
       const titleEnd = trimmedNotam.indexOf("\n")
       return {
         title: trimmedNotam.slice(0, titleEnd),
