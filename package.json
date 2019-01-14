@@ -20,7 +20,9 @@
   },
   "scripts": {
     "commitmsg": "commitlint -E $GIT_PARAMS",
-    "cm": "git-cz"
+    "cm": "git-cz",
+    "pushit": "git push origin master",
+    "deploy": "git push deploy master"
   },
   "config": {
     "commitizen": {
