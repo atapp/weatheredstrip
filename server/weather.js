@@ -7,6 +7,11 @@ const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
 
 artoo.bootstrap(cheerio);
+/* Add a timestamp to all logs. */
+const logger = (log) => {
+  const timestamp = new Date();
+  console.log(`${timestamp.toUTCString()}\t${log}`)
+}
 
 /*  Makes a request to NAV Canada for the specified station METAR webpage. Then
     returns the METARs and TAFs as an object. */
@@ -42,7 +47,7 @@ const getMetar = async station => {
     const taf = await metar.pop().split(re)
     return { METAR: metar, TAF: taf }
   } catch (err) {
-    console.log(err)
+    logger(err)
     return null
   }
 }
@@ -62,7 +67,7 @@ const getRVR = async station => {
     const RVR = data === undefined ? { RVR: null } : { RVR: baseURL + data }
     return RVR
   } catch (err) {
-    console.log(err)
+    logger(err)
     return null
   }
 }
@@ -104,7 +109,7 @@ const getNotam = async station => {
     })
     return ({ NOTAM: notams })
   } catch (err) {
-    console.log(err)
+    logger(err)
     return null
   }
 }
@@ -126,6 +131,7 @@ getAirport = async airport => {
       Timestamp: new Date(),
     }
   } else {
+    logger("[ERROR] GetAirport did not receive all its info.")
     return null;
   }
 }
@@ -161,8 +167,8 @@ app.use('/', router);
 
 app.listen(port, function() {
   const time = new Date()
-  console.log(`${time.toUTCString()}\t###   SERVER START   ###`)
-  console.log(`${time.toUTCString()}\tAPI running on port ${port}`);
+  logger(`###   SERVER START   ###`)
+  logger(`API running on port ${port}`);
 });
 
 /* This is the actual API request route.*/
@@ -180,10 +186,10 @@ router.route('/airport')
     }
 
     const requestSent = new Date()
-    console.log(`${requestReceived.toUTCString()}\tRequest received for: ${req.query.q} [${isResponseGood ? 'PASS' : 'FAIL'}] - ${requestSent - requestReceived}ms`)
+    logger(`Request received for: ${req.query.q} [${isResponseGood ? 'PASS' : 'FAIL'}] - ${requestSent - requestReceived}ms`)
 
     if (!isResponseGood) {
-      console.warn(`${requestSent.toUTCString()}\t[WARN]Request made for ${airportsRequest}, but only ${airportsInfo.map(airport => airport["Station"])} returned.`)
+      logger(`[WARN]Request made for ${airportsRequest}, but only ${airportsInfo.map(airport => airport["Station"])} returned.`)
     }
 
     res.json(airportsInfo)
