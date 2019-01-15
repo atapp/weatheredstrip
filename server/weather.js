@@ -160,7 +160,9 @@ router.get('/', function(req, res) {
 app.use('/', router);
 
 app.listen(port, function() {
-  console.log(`API running on port ${port}\nWaiting for requests...`);
+  const time = new Date()
+  console.log(`${time.toUTCString()}\t###   SERVER START   ###`)
+  console.log(`${time.toUTCString()}\tAPI running on port ${port}`);
 });
 
 /* This is the actual API request route.*/
