@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 // Import of Components
-import { Header, Query } from './components';
+import { Header, Query, Footer } from './components';
 
 class App extends Component {
   render() {
@@ -10,6 +10,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Query url={ this.props.url } />
+        <Footer />
       </div>
     );
   }

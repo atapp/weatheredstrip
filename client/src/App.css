@@ -60,6 +60,30 @@ body {
   margin: auto;
 }
 
+.Footer {
+  padding: 5px 0px;
+  color: #fff;
+  font-size: 0.7em;
+  background-color: #282c34;
+}
+
+.Footer a {
+  color: #fff;
+}
+
+.Footer a:hover {
+  color: #DDD;
+}
+
+.Footer-content {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
 .fullborder {
   border-right: 1px black solid;
   border-bottom: 1px black solid;
@@ -140,7 +164,6 @@ body {
   flex-direction: column;
   align-content: center;
   border-right: 1px black solid;
-  border-bottom: 1px black solid;
   padding: 10px 20px;
 }
 
@@ -169,6 +192,19 @@ body {
     flex-direction: column;
     width: 100%;
     min-width: inherit;
+  }
+
+  .Footer-content {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .Footer-item {
+    margin: 2px 0px;
   }
 
   .searchbox {

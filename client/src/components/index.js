@@ -6,3 +6,4 @@ export { default as Query } from './query.react';
 export { default as Rvr } from './rvr.react';
 export { default as StationNav } from './stationNav.react';
 export { default as Tafs } from './tafs.react';
+export { default as Footer } from './footer.react';
