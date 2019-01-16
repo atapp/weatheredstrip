@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StationNav, Metars, Tafs, Notams, Rvr } from '../components';
+import { StationNav, Metars, Tafs, Notams, Rvr, Timestamp } from '../components';
 
 class Content extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Content extends Component {
     this.sticky = null
 
     this.handleStationSelect = this.handleStationSelect.bind(this)
-    this.handleScroll = this.handleScroll.bind(this)
+    // this.handleScroll = this.handleScroll.bind(this)
   }
 
   componentDidMount() {
@@ -23,25 +23,25 @@ class Content extends Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll() {
-    if (this.sticky === null) {
-      this.sticky = document.getElementById('navbar').offsetTop;
-    }
-
-    if (window.pageYOffset >= this.sticky) {
-      if (!this.state.navSticky) {
-        this.setState({
-          navSticky: true
-        })
-      }
-    } else {
-      if (this.state.navSticky) {
-        this.setState({
-          navSticky: false
-        })
-      }
-    }
-  }
+  // handleScroll() {
+  //   if (this.sticky === null) {
+  //     this.sticky = document.getElementById('navbar').offsetTop;
+  //   }
+  //
+  //   if (window.pageYOffset >= this.sticky) {
+  //     if (!this.state.navSticky) {
+  //       this.setState({
+  //         navSticky: true
+  //       })
+  //     }
+  //   } else {
+  //     if (this.state.navSticky) {
+  //       this.setState({
+  //         navSticky: false
+  //       })
+  //     }
+  //   }
+  // }
 
   handleStationSelect(value) {
     this.setState({ ...this.state, stationSelection: value })
@@ -54,12 +54,12 @@ class Content extends Component {
       <div className="Content">
         <StationNav data={ data } selected={ this.state.stationSelection } onClick={ this.handleStationSelect } sticky={ this.state.navSticky }/>
         <div className="UserContent">
-          <div className="timestamp">
-            <div>Data Timestamp: {data[ this.state.stationSelection ].Timestamp}</div>
-            {/* <div>Current Timestamp: *To be completed* </div> */}
+          <div className="Content-Header">
+            <div className="StationName">{ data[ this.state.stationSelection ].Station }</div>
+            <Timestamp dataTime={ data[ this.state.stationSelection ].Timestamp } />
           </div>
           <div className="SelectedContent">
-            <div className="TopPortion">
+            <div className="Metar-RVR">
               <Rvr data={ data[ this.state.stationSelection ].RVR } />
               <div className="Col">
                 <div className="subtitle">METAR</div>
