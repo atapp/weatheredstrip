@@ -31,9 +31,9 @@ class Query extends Component {
     });
 
     if (process.env.NODE_ENV === 'production') {
-      xhr.open('GET', `http://www.greghamel.com:3001/airport?q=${ stations }`);
+      xhr.open('GET', `/api/airport?q=${ stations }`);
     } else if (process.env.NODE_ENV === 'development') {
-      xhr.open('GET', `http://localhost:3001/airport?q=${ stations }`);
+      xhr.open('GET', `/airport?q=${ stations }`);
     }
 
     xhr.send(data);

@@ -5,10 +5,12 @@
   "license": "MIT",
   "dependencies": {
     "async": "^2.6.1",
+    "moment": "^2.23.0",
     "query-string": "^6.2.0",
     "react": "^16.6.3",
     "react-app-polyfill": "^0.2.0",
     "react-dom": "^16.6.3",
+    "react-live-clock": "^3.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
@@ -24,5 +26,6 @@
     "not dead",
     "not op_mini all"
   ],
-  "homepage": "http://www.greghamel.com/weatheredstrip"
+  "homepage": "http://www.greghamel.com/weatheredstrip",
+  "proxy": "http://localhost:3001/"
 }
