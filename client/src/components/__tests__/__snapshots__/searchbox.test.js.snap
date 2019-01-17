@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`searchbox renders properly 1`] = `
+<form
+  class="searchbox"
+>
+  <input
+    class="searchbox-input"
+    placeholder="CYMX CYUL..."
+    type="text"
+    value=""
+  />
+  <button
+    class="searchbox-button"
+    type="submit"
+  >
+    Get Info
+  </button>
+</form>
+`;

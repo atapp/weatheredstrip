@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content without renders properly 1`] = `
+<div
+  class="Content"
+>
+  <div
+    class="UserContent fullborder"
+  >
+    <p>
+      Please use the searchbox to initate a search.
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rvr renders properly 1`] = `
+<img
+  alt="Aerodrome Chart"
+  id="RVR"
+  src="http://atm.navcanada.ca/images/iwv/CYMX.png"
+/>
+`;

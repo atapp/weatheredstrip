@@ -1,0 +1,941 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`notam renders properly 1`] = `
+<div
+  class="Notams"
+>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        000000 CYMX MONTREAL INTL (MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX RSC 06/24 100 PCT BARE AND DRY. 1901172104
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180368 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX AMEND CFS: COMM: GND ADV: TO READ MIRABEL 121.8 (E)
+(EMERGENCY ONLY 450-476-3141)
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180479 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX WEF 2018 AUG 16 1200 AMEND PUB: PRO: ADD:
+THE MINISTER HAS AUTH SPECIFIC OPR RESTRICTIONS REGARDING COM
+INTENDED FOR THE MF, AS WELL AS THE INTRODUCTION OF A GROUND
+ADVISORY FREQ (GND ADV) PURSUANT TO CAR 602.97 (2), 602.98 (1)
+AND 602.99.
+DEP PROC: TO READ: PRIOR TO TAXI FOR DEP: CTC GND ADV ON 121.8
+FOR CLR AND INITIAL ADVISORY INFO. AFTER RECEIVING INITIAL
+ADVISORY INFO, GND ADV WILL INITIATE COM TRANSFER TO RDO 119.1
+PRIOR TO ENTERING THE RUNWAY/DEP SURFACE.
+PILOTS ARE REQUIRED TO ASCERTAIN THAT THERE IS NO LIKELIHOOD OF
+COLLISION WITH ANOTHER ACFT OR A VEHICLE PRIOR TO DEP. (AS
+STATED IN CAR 602.96, 2A AND B)
+ADD: ARR PROC: AFTER EXITING THE RWY/ARR SURFACE AND REPORTING
+CLEAR ON THE RDO FREQ, PILOTS WILL BE DIRECTED TO CTC GND ADV
+ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180713 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX TWY A CLSD BTN TWY H AND A5 1811051355 TIL 1902042100
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180759 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX REDL 11/29 U/S
+1811222050 TIL 1902221600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180760 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX PAPI 29 U/S
+1811222050 TIL 1902221600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180768 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX VOR/DME RWY 11 APCH: VOR/DME STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1811281320 TIL 1902022000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180769 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX ILS RWY 11 APCH: ILS AND LOC STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1811291321 TIL 1902022000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180770 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX RNAV(GNSS) RWY 11 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1811281321 TIL 1902022000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180771 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX RNAV(GNSS) RWY 29 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1811281322 TIL 1902022000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180806 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX OBST LGT U/S TOWER 454214N 740759W (APRX 4 NM NW AD) 249 FT
+AGL 577 MSL
+1812101630 TIL 1902102359
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190013 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX MOBILE CRANE APRX 197 FT BFR THR 06 AND 3000 FT LEFT
+EXTENDED RCL. 100 FT AGL 359 MSL. LGTD AND PAINTED.
+1200-2300 DLY
+1901071200 TIL 1902282300
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190042 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX RWY 11/29 CLSD
+JAN 10 1030-2000 SS-SR
+JAN 11 1300-1400 2100-2200
+JAN 11-MAR 28 SS-SR
+1901101030 TIL 1903281100
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190046 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX RWY 11/29 AVBL FOR MIL ACFT ONLY
+AVBL AS TWY FOR ALL ACFT
+JAN 10 1820-SS
+JAN 11 SR-1300 2200-SS
+JAN 12-MAR 28 SR-SS
+1901101820 TIL 1903282300
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190054 CYMX MONTREAL INTL(MIRABEL)
+      </strong>
+    </div>
+    <div>
+      CYMX MULTIPLE CRANES RADIUS 200 FT CENTRE 454103N 740057W
+(APRX 4584 FT BEYOND THR 06 AND 2515 FT LEFT OF RCL)
+120 FT AGL 363 MSL. LGTD AND PAINTED.
+1901141100 TIL 1903300500
+    </div>
+  </div>
+</div>
+`;
+
+exports[`notam renders properly 2`] = `
+<div
+  class="Notams"
+>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        000000 CYUL LACHUTE
+      </strong>
+    </div>
+    <div>
+      CSE4 RSC 10/28 100 PCT DRY SN 3 INS. CLEARING TO 100 FT EXP TO START
+AT 1407 EXP TO BE CLRD BY 1700. 1901161337
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        000000 CYUL ST-JEAN
+      </strong>
+    </div>
+    <div>
+      CYJN RSC 02/20 90 PCT BARE AND DRY, 10 PCT FROST. 1901171930
+CYJN RSC 11/29 100 PCT BARE AND DRY. 1901171930
+NEXT OBS SKED FOR 1901181600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        000000 CYUL MONTREAL/PIERRE-ELLIOTT-TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL RSC 06L/24R 10 PCT BARE AND DAMP, 90 PCT BARE AND DRY.
+1901172101
+CYUL RSC 06R/24L 10 PCT BARE AND WET, 30 PCT BARE AND DAMP, 60 PCT
+BARE AND DRY. RMK: AIRCRAFT DEICE FLUID 24L TO A1. 1901172101
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        000000 CYUL BROMONT (ROLAND DESOURDY)
+      </strong>
+    </div>
+    <div>
+      CZBM RSC 05/23 75 PCT DRY SN OVER ICE TRACE, 5 PCT BARE AND DRY, 20
+PCT ICE. 4 INS SN BANK ON NORTH AND SOUTH RWY EDGE. 1901171400
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        160604 CYUL ST-ALPHONSE/LAC CLOUTIER(WATER)
+      </strong>
+    </div>
+    <div>
+      CTC2 AMEND PUB: NEW TOWER 461923N 733958W (APRX 8 NM NNE AD)
+312 FT AGL 1913 MSL LGTD AND PAINTED
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        170907 CYUL SOREL
+      </strong>
+    </div>
+    <div>
+      CSY3 AMEND PUB: DELETE CUSTOMS AND ASSOCIATED DATA
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        171090 CYUL ST-ALPHONSE/LAC CLOUTIER(WATER)
+      </strong>
+    </div>
+    <div>
+      CTC2 AMEND PUB: NEW TOWER 461047N 733601W (APRX 2 NM E AD) 315 FT
+AGL 1132 MSL LGTD AND NOT PAINTED
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        180201 CYUL ST-MICHEL-DE-NAPIERVILLE
+      </strong>
+    </div>
+    <div>
+      OBST AMEND PUB: NEW TOWER 450106N 734750W (APRX 15 NM SW AD) 333
+FT AGL 1481 MSL. LGTD, NOT PAINTED
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182111 CYUL MONTREAL EAST(AIM)(HELI)
+      </strong>
+    </div>
+    <div>
+      CSH9 OBST LGT U/S TOWER 453925N 732841W (APRX 4 NM E AD) 398 FT
+AGL 441 MSL 1810221515 TIL 1901222359
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182171 CYUL LA MACAZA/MONT-TREMBLANT INTL INC
+      </strong>
+    </div>
+    <div>
+      CYFJ OBST LGT U/S TOWER 462335N 745310W (APRX 5 NM W AD) 120 FT
+AGL, 1433 MSL 1810300420 TIL 1901292100
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182180 CYUL MONTREAL/LAVAL(ARTOPEX PLUS)(HELI)
+      </strong>
+    </div>
+    <div>
+      CLP2 AMEND PUB: HELI DATA TO READ: FATO/TLOF 62 FT DIA
+ASPH/COMPACTED SNOW. SAFETY AREA 83 FT DIA GRASS/COMPACTED SNOW.
+MAX HELI OVERALL LENGTH 41.5 FT
+PRO TO READ: ARR/DEP 248 DEG FR HELI (H3), ARR/DEP CURVED 108 DEG
+TO 061 DEG FR HELI (H3)
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182218 CYUL SALABERRY DE VALLEYFIELD
+      </strong>
+    </div>
+    <div>
+      CSD3 OBST LGT U/S TOWER 451321N 735934W (APRX 6 NM E AD)
+226 FT AGL 338 MSL
+1811072310 TIL 1902071700
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182345 CYUL LAC BEAUREGARD(WATER)
+      </strong>
+    </div>
+    <div>
+      OBST LGT U/S TOWER 470132N 742006W (APRX 23 NM E AD) 212 FT
+AGL 2137 MSL
+1811180550 TIL 1902180500
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182392 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL MULTIPLE CRANES IN AREA BOUNDED BY 452707N 734508W-
+452706N 734511W-452710N 734512W-452710N 734509W-452707N 734508W
+(CENTRE APRX 3440 FT BFR THR 06R AND 878 FT LEFT EXTENDED RCL)
+62 FT AGL 156 MSL. LGTD AND PAINTED
+1811222122 TIL 1902131100
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182395 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL MULTIPLE CRANES IN AREA BOUNDED BY 452705N 734523W-
+452704N 734527W-452706N 734527W-452706N 734523W-452705N 734523W
+(CENTRE APRX 4363 FT BFR THR 06R AND 1470 FT LEFT EXTENDED RCL)
+115 FT AGL 208 MSL, LGTD AND PAINTED
+1811222131 TIL 1902131100
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182396 CYUL ST-HYACINTHE
+      </strong>
+    </div>
+    <div>
+      CSU3 OBST LGT U/S TOWER 453138N 730013W (APRX 5 NM S AD)
+131 FT AGL 243 MSL
+1811231220 TIL 1901252359
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182418 CYUL MONTREAL EAST(AIM)(HELI)
+      </strong>
+    </div>
+    <div>
+      CSH9 OBST LGT U/S TOWER 453912N 732723W (APRX 5 NM E AD)
+398 FT AGL 441 MSL
+1811261608 TIL 1902261600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182419 CYUL MONTREAL EAST(AIM)(HELI)
+      </strong>
+    </div>
+    <div>
+      CSH9 OBST LGT U/S TOWER 453919N 732804W (APRX 4 NM E AD)
+398 FT AGL 441 MSL
+1811261610 TIL 1902261600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182486 CYUL BROMONT(ROLAND DESOURDY)
+      </strong>
+    </div>
+    <div>
+      CZBM OBST LGT U/S TOWER 451916N 723200W (APRX 9 NM E AD)
+196 FT AGL 1006 MSL
+1812041257 TIL 1903042359
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182515 CYUL ST-MATHIEU-DE-LAPRAIRIE
+      </strong>
+    </div>
+    <div>
+      CML8 OBST LGT U/S TOWER 452236N 733213W (APRX 4 NM NNE AD)
+158 FT AGL 233 MSL
+1812071935 TIL 1902121911
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182532 CYUL MONTREAL/ST-LAZARE
+      </strong>
+    </div>
+    <div>
+      CST3 OBST LGT U/S TOWER 452702N 741739W (APRX 8 NM NW AD)
+180 FT AGL 900 MSL
+1812091900 TIL 1902201700
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182576 CYUL LA MACAZA/MONT-TREMBLANT INTL INC
+      </strong>
+    </div>
+    <div>
+      CYFJ FUEL 100LL NOT AVBL
+1812151530 TIL 1902021400
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182588 CYUL ST-HYACINTHE
+      </strong>
+    </div>
+    <div>
+      CSU3 OBST LGT U/S TOWER 453640N 730548W (APRX 3 NM WNW AD)
+160 FT AGL 268 MSL
+1812171550 TIL 1903172359
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182598 CYUL BROMONT(ROLAND DESOURDY)
+      </strong>
+    </div>
+    <div>
+      CZBM OBST LGT U/S MULTIPLE TOWERS RADIUS APRX 1 NM CENTRE
+451847N 724255W (APRX 1.7 NM NNE AD) 189 FT AGL 602 MSL
+1812181553 TIL 1903132000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182611 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL ALS 10 U/S
+1812191325 TIL 1903151600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182612 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL TWY E CLSD BTN RWY 06L/24R AND TWY B
+1812191325 TIL 1903151600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182613 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL ILS 10 U/S
+1812191325 TIL 1903151600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182615 CYUL ST-JEAN
+      </strong>
+    </div>
+    <div>
+      CYJN RWY 06/24 CLSD
+1812211500 TIL 1903311500
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182625 CYUL RICHELIEU/MESSIER
+      </strong>
+    </div>
+    <div>
+      CRM3 OBST LGT U/S TOWER 452123N 730857W (APRX 4 NM SE AD)
+80 FT AGL 907 MSL
+1812202015 TIL 1902080459
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182629 CYUL MONTREAL/LES CEDRES
+      </strong>
+    </div>
+    <div>
+      CSS3 TWY A CLSD
+1812211820 TIL APRX 1902211800
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182636 CYUL MONTREAL/PASSPORT HELICO(HELI)
+      </strong>
+    </div>
+    <div>
+      CPP8 AMEND PUB: NEW TOWER 454321N 733831W (APRX 2 NM WNW AD)
+202 FT AGL 382 MSL LGTD NOT PAINTED
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        182638 CYUL MONT-TREMBLANT(LAC MASKINONGE)(WATER)
+      </strong>
+    </div>
+    <div>
+      CMT2 OBST LGT U/S TOWER 460723N 743820W (APRX 2 NM NNW AD)
+194 FT AGL 1500 MSL
+1812250640 TIL 1903252100
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190005 CYUL SOREL
+      </strong>
+    </div>
+    <div>
+      CSY3 PURSUANT TO SECTION 5.1 OF THE AERONAUTICS ACT, THE AIRSPACE
+WITHIN RADIUS 1 NM CENTRE 460149N 730440W (NEW SOREL PRISON, APRX
+3 NM NNW SOREL AD), SFC TO 1000 FT MSL, IS RESTRICTED. NO
+PERSON SHALL OPR AN ACFT INCLUDING AN UNMANNED AIR VEHICLE
+(UAV-DRONE) AND MODEL ACFT, WITHIN THE AREA DESCRIBED UNLESS AUTH
+BY THE SECURITY DIRECTOR, CORRECTIONAL SVC AT 514-864-8010
+EXT 50502, EXC IFR ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT
+1901031444 TIL APRX 1904092000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190006 CYUL MONTREAL EAST(AIM)(HELI)
+      </strong>
+    </div>
+    <div>
+      CSH9 PURSUANT TO SECTION 5.1 OF THE AERONAUTICS ACT, THE AIRSPACE
+WITHIN RADIUS 1 NM CENTRE 453937N 733211W (RIVIERE-DES-PRAIRIES
+PRISON, APRX 2 NM NE AD), EXC THE PORTION OVER THE RIVER, SFC TO
+1100 FT MSL, IS RESTRICTED. NO PERSON SHALL OPR AN ACFT,
+INCLUDING AN UNMANNED AIR VEHICLE (UAV-DRONE) AND MODEL ACFT,
+WITHIN THE AREA DESCRIBED UNLESS AUTH BY THE SECURITY DIRECTOR,
+CORRECTIONAL SVC AT 514-864-8010 EXT 50502 EXC IFR ACFT AUTH BY
+ATC, MEDEVAC AND STATE ACFT.
+1901031450 TIL APRX 1904092000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190007 CYUL ST-JEROME(HYDRO-QUEBEC)(HELI)
+      </strong>
+    </div>
+    <div>
+      CSZ6 PURSUANT TO SECTION 5.1 OF THE AERONAUTICS ACT, THE AIRSPACE
+WITHIN RADIUS 0.5 NM CENTRE 454810N 740103W (SAINT-JEROME PRISON,
+APRX 2 NM NNE ST-JEROME(HYDRO-QUEBEC)(HELI) AND APRX 2 NM ENE
+ST-JEROME AD), SFC TO 1400 FT MSL, IS RESTRICTED.
+NO PERSON SHALL OPR AN ACFT, INCLUDING AN UNMANNED AIR VEHICLE
+(UAV-DRONE) AND MODEL ACFT, WITHIN THE AREA DESCRIBED UNLESS AUTH
+BY THE SECURITY DIRECTOR, CORRECTIONAL SVC AT 514-864-8010
+EXT 50502 EXC IFR ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
+1901031452 TIL APRX 1904092000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190008 CYUL ST-JEROME
+      </strong>
+    </div>
+    <div>
+      CSN3 PURSUANT TO SECTION 5.1 OF THE AERONAUTICS ACT, THE AIRSPACE
+WITHIN RADIUS 0.5 NM CENTRE 454810N 740103W (SAINT-JEROME PRISON,
+APRX 2 NM NNE ST-JEROME(HYDRO-QUEBEC)(HELI) AND APRX 2 NM ENE
+ST-JEROME AD) SFC TO 1400 FT MSL, IS RESTRICTED. NO PERSON SHALL
+OPR AN ACFT, INCLUDING AN UNMANNED AIR VEHICLE (UAV-DRONE) AND
+MODEL ACFT, WITHIN THE AREA DESCRIBED UNLESS AUTH BY THE SECURITY
+DIRECTOR, CORRECTIONAL SVC AT 514-864-8010 EXT 50502, EXC IFR
+ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
+1901031457 TIL APRX 1904092000
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190019 CYUL ST-JEROME
+      </strong>
+    </div>
+    <div>
+      CSN3 OBST LGT U/S TOWER 455147N 740116W (APRX 5 NM NNE AD)
+335 FT AGL 1355 MSL
+1901071420 TIL 1904071600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190020 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL OBST LGT U/S TOWER 452345N 733632W (APRX 7 NM SE AD)
+197 FT AGL 285 MSL
+1901071420 TIL 1904071600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190021 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL OBST LGT U/S RADIUS 0.2 NM CENTRE 452334N 734154W
+(APRX 5 NM S AD) 287 FT AGL 410 MSL
+1901072100 TIL APRX 1904072100
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190047 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      YUL- VOR/DME 116.3/CH110 UNMONITORED
+1901111340 TIL 1901182359
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190055 CYUL ST-HYACINTHE
+      </strong>
+    </div>
+    <div>
+      OBST LGT U/S TOWER 454659N 730920W (APRX 12 NM NNW AD)
+249 FT AGL 299 MSL
+1901141349 TIL 1904142359
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190059 CYUL MONTREAL/KRUGER(HELI)
+      </strong>
+    </div>
+    <div>
+      CSN2 OBST LGT U/S TOWER 452807N 733643W (APRX 3 NM S AD)
+360 FT AGL 544 MSL
+1901151605 TIL 1903041700
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190061 CYUL MONTREAL/POINT ZERO(HELI)
+      </strong>
+    </div>
+    <div>
+      CPZ6 OBST LGT U/S TOWER 453157N 733926W (APRX 0.2 NM N AD)
+160 FT AGL 285 MSL
+1901151619 TIL 1903041700
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190067 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL RWY 10/28 CLSD AVBL AS TWY
+JAN 15 1923-JAN 17 0400
+JAN 17-19 1130-0400
+JAN 19 1130-FEB 07 1600
+1901151923 TIL 1902071600
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190070 CYUL JOLIETTE/ST-THOMAS
+      </strong>
+    </div>
+    <div>
+      CJO2 FIREWORKS ACT RADIUS 0.1 NM CENTRE 455257N 731623W
+(APRX 9 NM SSE AD) SFC TO 700 FT AGL
+1901190100 TIL 1901190200
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190072 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL RWY 06L/24R CLSD
+0400-1130 DLY
+1901180400 TIL 1901191130
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190073 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL TWY B1, TWY B3, HOLDING BAY 24R AND
+TWY B2 BTN RWY 06L/24R AND TWY B CLSD
+0400-1130 DLY
+1901180400 TIL 1901191130
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190074 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL TWY G CLSD
+0400-1130 DLY
+1901180400 TIL 1901191130
+    </div>
+  </div>
+  <div
+    class="NotifText"
+  >
+    <div>
+      <strong>
+        190075 CYUL MONTREAL/PIERRE ELLIOTT TRUDEAU INTL
+      </strong>
+    </div>
+    <div>
+      CYUL RWY 10/28 CLSD AVBL AS TWY BTN TWY F AND A
+0400-1130 DLY
+1901180400 TIL 1901191130
+    </div>
+  </div>
+</div>
+`;

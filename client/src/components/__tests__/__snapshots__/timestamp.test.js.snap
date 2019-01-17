@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`timestamp titles render properly 1`] = `
+<div
+  class="Timestamp-names"
+>
+  <div>
+    Data time:
+  </div>
+  <div>
+    Current time:
+  </div>
+</div>
+`;

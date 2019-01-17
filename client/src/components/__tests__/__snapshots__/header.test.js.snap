@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header renders properly 1`] = `
+<header
+  class="App-header"
+>
+  <div
+    class="App-header-content"
+  >
+    <div
+      class="App-Title"
+    >
+      Weathered Strip
+    </div>
+    <form
+      class="searchbox"
+    >
+      <input
+        class="searchbox-input"
+        placeholder="CYMX CYUL..."
+        type="text"
+        value=""
+      />
+      <button
+        class="searchbox-button"
+        type="submit"
+      >
+        Get Info
+      </button>
+    </form>
+  </div>
+</header>
+`;

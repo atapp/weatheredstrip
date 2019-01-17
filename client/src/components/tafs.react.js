@@ -1,8 +1,6 @@
 import React from 'react';
 
 function Tafs({
-  children,
-  className,
   data,
 }) {
   let tafs;

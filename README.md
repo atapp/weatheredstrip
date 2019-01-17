@@ -4,7 +4,7 @@
 ## Intro
 Weathered Strip was created to help gather all required flight planning documentation in one place. It provides NOTAMs, METARs/TAFs and live RVR for each requested airport.
 
-## Demo/Live version
+## Demo
 This is a live application which can be accessed at the following link: [Weathered Strip](https://www.greghamel.com/weatheredstrip)
 
 ## Limitations
