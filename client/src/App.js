@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Query url={ this.props.url } />
+        <Query url={ window.location } />
         <Footer />
       </div>
     );

@@ -5,7 +5,7 @@ function Footer() {
 
   return (
     <div className="Footer">
-      <div class="Footer-content">
+      <div className="Footer-content">
         <div className="Footer-item">Data taken directly from <a href="https://flightplanning.navcanada.ca">NAV CANADA</a>&#8480;</div>
         <div className="Footer-item">
           <div>
