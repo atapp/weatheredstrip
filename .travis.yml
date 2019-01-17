@@ -7,3 +7,4 @@ install:
   - yarn install
   - cd ../server
   - yarn install
+  - cd ..
