@@ -15,7 +15,6 @@
   "scripts": {
     "test": "cd ./client && yarn test",
     "start": "node server/weather.js",
-    "cm": "git-cz",
     "pushit": "git push origin master",
     "deploy": "git push deploy master"
   },
