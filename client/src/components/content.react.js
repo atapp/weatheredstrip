@@ -54,6 +54,7 @@ class Content extends Component {
           <h2>How to...</h2>
           <h3>First use</h3>
           <p>To use Weathered Strip, please enter the ICAO airport codes of each airport you'd like to assess in the seachbox located in the header.</p>
+          <p>Note: for multiple ICAO airport codes, separate them by either spaces or commas.</p>
           <h3>Report an issue</h3>
           <p>Weathered Strip is not perfect and its developer is always looking to improve its feel and squash nasty bugs which create unexpected behaviours.</p>
           <p>Please use the "Report an Issue" link located in the footer to request a new feature, make a suggestion, report a bug, etc.</p>
