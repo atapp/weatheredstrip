@@ -3,7 +3,7 @@
 exports[`Rvr renders properly 1`] = `
 <img
   alt="Aerodrome Chart"
-  id="RVR"
+  id="rvr"
   src="http://atm.navcanada.ca/images/iwv/CYMX.png"
 />
 `;

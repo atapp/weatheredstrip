@@ -25,11 +25,11 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="App-header">
-        <div className="App-header-content">
+      <header className="app-header">
+        <div className="app-header-content">
           <div id="app-info">
             <img id="app-logo" src={ logo } alt="App Logo"/>
-            <div className="App-Title">
+            <div className="app-title">
               Weathered Strip
             </div>
           </div>

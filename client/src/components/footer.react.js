@@ -4,10 +4,10 @@ function Footer() {
   const year = new Date()
 
   return (
-    <div className="Footer">
-      <div className="Footer-content">
-        <div className="Footer-item">Data taken directly from <a href="https://flightplanning.navcanada.ca">NAV CANADA</a>&#8480;</div>
-        <div className="Footer-item">
+    <div className="footer">
+      <div className="footer-content">
+        <div className="footer-item">Data from <a href="https://flightplanning.navcanada.ca">NAV CANADA</a>&#8480;</div>
+        <div className="footer-item">
           <div>
             <a href="https://github.com/GregoryHamel/weatheredstrip/issues">Report an Issue</a>
           </div>
@@ -15,7 +15,7 @@ function Footer() {
             &copy; <a href="http://www.greghamel.com">Greg Hamel - {year.getUTCFullYear()}</a>
           </div>
         </div>
-        <div className="Footer-item">Made in <span role="img" aria-label="Canada">🍁</span> with <span role="img" aria-label="love">❤️</span></div>
+        <div className="footer-item">Made in <span role="img" aria-label="Canada">🍁</span> with <span role="img" aria-label="love">❤️</span></div>
       </div>
     </div>
   )

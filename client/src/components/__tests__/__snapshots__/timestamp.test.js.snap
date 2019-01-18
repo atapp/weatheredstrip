@@ -2,7 +2,7 @@
 
 exports[`timestamp titles render properly 1`] = `
 <div
-  class="Timestamp-names"
+  class="timestamp-names"
 >
   <div>
     Data time:

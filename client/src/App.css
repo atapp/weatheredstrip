@@ -10,16 +10,11 @@ time {
   display: block;
 }
 
-#root {
-  position: relative;
-  min-height: 100%;
-}
-
-.App {
+.app {
 
 }
 
-.App-header {
+.app-header {
   background-color: #282c34;
   height: calc(40px + 2vmin);
   display: flex;
@@ -27,7 +22,7 @@ time {
   justify-content: center;
 }
 
-.App-header-content {
+.app-header-content {
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -43,26 +38,22 @@ time {
   height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 #app-logo {
   width: calc((2vmin + 30px) * 350 / 240);
   height: auto;
 }
 
-.App-Title {
+.app-title {
   font-size: calc(30px + 2vmin);
   color: white;
   text-align: left;
 }
 
-.Col {
+.col {
   flex: 100% 1 1;
 }
 
-.Content {
+.content {
   background-color: #73b2fb;
   width: 90%;
   min-width: 440px;
@@ -73,12 +64,12 @@ time {
   padding-bottom: 30px;
 }
 
-.Content-Header {
+.content-header {
   display: flex;
   flex-direction: row;
 }
 
-.Footer {
+.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -89,15 +80,15 @@ time {
   background-color: #282c34;
 }
 
-.Footer a {
+.footer a {
   color: #fff;
 }
 
-.Footer a:hover {
+.footer a:hover {
   color: #DDD;
 }
 
-.Footer-content {
+.footer-content {
   margin: auto;
   width: 90%;
   display: flex;
@@ -113,24 +104,47 @@ time {
   border-left: 1px black solid;
 }
 
-.Navbar-Content {
+h1 {
+  border-bottom: 1px #DDD solid;
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+.navbar-content {
   position: sticky;
   top: 30px;
   display: flex;
   flex-direction: column;
 }
 
-.NotifText {
+.notif-text {
   font-size: .8em;
   text-align: left;
   margin-bottom: 5px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+#root {
+  position: relative;
+  min-height: 100%;
 }
 
 .searchbox {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 200px;
+  width: 75vmin;
+  max-width: 300px;
   max-height: 30px;
 }
 
@@ -154,7 +168,7 @@ time {
   background-color: #DDD;
 }
 
-.Station {
+.station {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -170,7 +184,7 @@ time {
   z-index: 1;
 }
 
-.Selected {
+.station-selected {
   vertical-align: center;
   text-align: center;
   border: 1px black solid;
@@ -182,19 +196,10 @@ time {
   z-index: 2;
 }
 
-.StationName {
+.station-name {
   font-family: monospace;
   font-size: 40px;
 }
-
-/* .sticky {
-  position: fixed;
-  flex: 70px 0 0;
-  display: flex;
-  flex-direction: column;
-  background-color: #73b2fb;
-  border-right: 1px black solid;
-} */
 
 .subtitle {
   text-align: left;
@@ -202,7 +207,7 @@ time {
   font-size: 30px;
 }
 
-.Timestamp {
+.timestamp {
   margin: auto;
   position: relative;
   right: 5%;
@@ -211,20 +216,20 @@ time {
   z-index: 0;
 }
 
-.Timestamp-names {
+.timestamp-names {
   text-align: right;
   margin-right: 10px;
 }
 
-.Timestamp-time {
+.timestamp-time {
   text-align: left;
 }
 
-.Metar-RVR {
+.metar-rvr {
   display: flex;
 }
 
-.UserContent {
+.user-content {
   flex: 100% 1 1;
   display: flex;
   background-color: #FFF;
@@ -241,7 +246,7 @@ time {
   border-right: 1px black solid;
 }
 
-#RVR {
+#rvr {
   display: flex;
   flex-shrink: 0;
   max-height: 300px;
@@ -249,7 +254,7 @@ time {
 }
 
 @media only screen and (min-width: 801px) {
-  .Metar-RVR {
+  .metar-rvr {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -257,35 +262,35 @@ time {
 }
 
 @media only screen and (max-width: 800px) {
-  .Metar-RVR {
+  .metar-rvr {
     flex-direction: column;
   }
-  #RVR {
+  #rvr {
     margin: auto;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .Timestamp {
+  .timestamp {
     margin: auto;
     position: inherit;
   }
 
-  .Content-Header {
+  .content-header {
     display: flex;
     flex-direction: column;
   }
 }
 
 @media only screen and (max-width: 440px) {
-  .App-header-content {
+  .app-header-content {
     height: 100%;
     width: 100%;
     flex-direction: column;
     justify-content: space-evenly;
   }
 
-  .App-header {
+  .app-header {
     height: calc(10vmax);
   }
 
@@ -298,18 +303,18 @@ time {
     height: 100%;
   }
 
-  .App-Title {
+  .app-title {
     display: none;
   }
 
-  .Content {
+  .content {
     flex-direction: column;
     width: 100%;
     min-width: inherit;
     padding-bottom: 79px;
   }
 
-  .Footer-content {
+  .footer-content {
     margin: auto;
     width: 90%;
     flex-direction: column;
@@ -317,24 +322,16 @@ time {
     align-items: center;
   }
 
-  .Navbar-Content {
+  .footer-item {
+    margin: 2px 0px;
+  }
+
+  .navbar-content {
     display: flex;
     flex-direction: row;
   }
 
-  .Footer-item {
-    margin: 2px 0px;
-  }
-
-  .Selected {
-    font-weight: bold;
-    border: 0 0 2px 0 black solid;
-    -moz-box-shadow:    none;
-    -webkit-box-shadow: none;
-    box-shadow:         none;
-  }
-
-  .Station {
+  .station {
     left: 0px;
     flex: 1 0 80px;
     border: none;
@@ -342,11 +339,19 @@ time {
     border-bottom-left-radius: 0px;
   }
 
-  .StationName {
+  .station-name {
     display: none;
   }
 
-  .Timestamp {
+  .station-selected {
+    font-weight: bold;
+    border: 0 0 2px 0 black solid;
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    box-shadow:         none;
+  }
+
+  .timestamp {
     margin: auto;
     position: inherit;
     z-index: auto;
@@ -358,7 +363,7 @@ time {
     width: 100%;
   } */
 
-  .UserContent {
+  .user-content {
     border: none;
   }
 
@@ -375,7 +380,7 @@ time {
     justify-content: left;
   }
 
-  #RVR {
+  #rvr {
     flex: none;
     max-width: 100%;
     max-height: 100%;

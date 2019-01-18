@@ -2,10 +2,10 @@
 
 exports[`header renders properly 1`] = `
 <header
-  class="App-header"
+  class="app-header"
 >
   <div
-    class="App-header-content"
+    class="app-header-content"
   >
     <div
       id="app-info"
@@ -16,7 +16,7 @@ exports[`header renders properly 1`] = `
         src="logo.svg"
       />
       <div
-        class="App-Title"
+        class="app-title"
       >
         Weathered Strip
       </div>

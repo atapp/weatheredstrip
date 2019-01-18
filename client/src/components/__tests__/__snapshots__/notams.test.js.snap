@@ -5,7 +5,7 @@ exports[`notam renders properly 1`] = `
   class="Notams"
 >
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -17,7 +17,7 @@ exports[`notam renders properly 1`] = `
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -30,7 +30,7 @@ exports[`notam renders properly 1`] = `
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -56,7 +56,7 @@ ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -68,7 +68,7 @@ ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -81,7 +81,7 @@ ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -94,7 +94,7 @@ ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -108,7 +108,7 @@ SS-SR
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -122,7 +122,7 @@ SS-SR
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -137,7 +137,7 @@ SS-SR
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -152,7 +152,7 @@ SS-SR
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -166,7 +166,7 @@ AGL 577 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -181,7 +181,7 @@ EXTENDED RCL. 100 FT AGL 359 MSL. LGTD AND PAINTED.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -197,7 +197,7 @@ JAN 11-MAR 28 SS-SR
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -214,7 +214,7 @@ JAN 12-MAR 28 SR-SS
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -236,7 +236,7 @@ exports[`notam renders properly 2`] = `
   class="Notams"
 >
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -249,7 +249,7 @@ AT 1407 EXP TO BE CLRD BY 1700. 1901161337
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -263,7 +263,7 @@ NEXT OBS SKED FOR 1901181600
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -278,7 +278,7 @@ BARE AND DRY. RMK: AIRCRAFT DEICE FLUID 24L TO A1. 1901172101
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -291,7 +291,7 @@ PCT ICE. 4 INS SN BANK ON NORTH AND SOUTH RWY EDGE. 1901171400
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -304,7 +304,7 @@ PCT ICE. 4 INS SN BANK ON NORTH AND SOUTH RWY EDGE. 1901171400
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -316,7 +316,7 @@ PCT ICE. 4 INS SN BANK ON NORTH AND SOUTH RWY EDGE. 1901171400
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -329,7 +329,7 @@ AGL 1132 MSL LGTD AND NOT PAINTED
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -342,7 +342,7 @@ FT AGL 1481 MSL. LGTD, NOT PAINTED
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -355,7 +355,7 @@ AGL 441 MSL 1810221515 TIL 1901222359
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -368,7 +368,7 @@ AGL, 1433 MSL 1810300420 TIL 1901292100
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -384,7 +384,7 @@ TO 061 DEG FR HELI (H3)
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -398,7 +398,7 @@ TO 061 DEG FR HELI (H3)
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -412,7 +412,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -428,7 +428,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -444,7 +444,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -458,7 +458,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -472,7 +472,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -486,7 +486,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -500,7 +500,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -514,7 +514,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -528,7 +528,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -541,7 +541,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -555,7 +555,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -569,7 +569,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -582,7 +582,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -595,7 +595,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -608,7 +608,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -621,7 +621,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -635,7 +635,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -648,7 +648,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -661,7 +661,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -675,7 +675,7 @@ AGL 2137 MSL
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -694,7 +694,7 @@ EXT 50502, EXC IFR ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -714,7 +714,7 @@ ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -734,7 +734,7 @@ EXT 50502 EXC IFR ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -754,7 +754,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -768,7 +768,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -782,7 +782,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -796,7 +796,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -809,7 +809,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -823,7 +823,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -837,7 +837,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -851,7 +851,7 @@ ACFT AUTH BY ATC, MEDEVAC AND STATE ACFT.
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -867,7 +867,7 @@ JAN 19 1130-FEB 07 1600
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -881,7 +881,7 @@ JAN 19 1130-FEB 07 1600
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -895,7 +895,7 @@ JAN 19 1130-FEB 07 1600
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -910,7 +910,7 @@ TWY B2 BTN RWY 06L/24R AND TWY B CLSD
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>
@@ -924,7 +924,7 @@ TWY B2 BTN RWY 06L/24R AND TWY B CLSD
     </div>
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     <div>
       <strong>

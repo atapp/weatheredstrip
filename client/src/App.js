@@ -7,7 +7,7 @@ import { Header, Query, Footer } from './components';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Header />
         <Query url={ window.location } />
         <Footer />

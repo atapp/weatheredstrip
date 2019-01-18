@@ -5,32 +5,32 @@ exports[`taf renders properly 1`] = `
   class="tafs"
 >
   <div
-    class="NotifText"
+    class="notif-text"
   >
     TAF CYMX 171738Z 1718/1818 22006KT P6SM FEW250
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     BECMG 1719/1721 VRB03KT
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     FM180300 VRB03KT P6SM BKN100 OVC220
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     FM180900 05006KT 2SM -SN OVC020
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     BECMG 1816/1818 01005KT
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     RMK NXT FCST BY 180000Z
   </div>
@@ -42,32 +42,32 @@ exports[`taf renders properly 2`] = `
   class="tafs"
 >
   <div
-    class="NotifText"
+    class="notif-text"
   >
     TAF CYUL 172038Z 1721/1818 22006KT P6SM SCT220
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     BECMG 1721/1723 VRB03KT
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     FM180300 03006KT P6SM BKN100 OVC240
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     FM181000 02010KT 2SM -SN OVC020
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     BECMG 1815/1817 35007KT
   </div>
   <div
-    class="NotifText"
+    class="notif-text"
   >
     RMK NXT FCST BY 180000Z
   </div>

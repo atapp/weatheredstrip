@@ -5,15 +5,15 @@ exports[`stationNav renders properly 1`] = `
   id="navbar"
 >
   <div
-    class="Navbar-Content"
+    class="navbar-content"
   >
     <div
-      class="Station"
+      class="station"
     >
       CYMX
     </div>
     <div
-      class="Station"
+      class="station"
     >
       CYUL
     </div>
