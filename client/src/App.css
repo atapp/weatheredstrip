@@ -16,16 +16,12 @@ time {
 }
 
 .App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
 }
 
 .App-header {
   background-color: #282c34;
+  height: calc(40px + 2vmin);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -39,8 +35,21 @@ time {
   justify-content: space-between;
 }
 
+#app-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+#app-logo {
+  width: calc((2vmin + 30px) * 350 / 240);
+  height: auto;
 }
 
 .App-Title {
@@ -73,7 +82,7 @@ time {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 30px;
+  min-height: 30px;
   padding: 5px 0px;
   color: #fff;
   font-size: 0.7em;
@@ -95,6 +104,7 @@ time {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
 }
 
 .fullborder {
@@ -121,14 +131,27 @@ time {
   flex-direction: row;
   justify-content: space-between;
   width: 200px;
+  max-height: 30px;
 }
 
 .searchbox-input{
   font-size: 0.75em;
+  width: 60%;
 }
 
 .searchbox-button {
-  background-color: #FFF
+  background-color: #EEE;
+  width: 30%;
+  border-radius: 5px;
+  border: none;
+}
+
+.searchbox-button:hover {
+  background-color: #FFF;
+}
+
+.searchbox-button:active {
+  background-color: #DDD;
 }
 
 .Station {
@@ -225,6 +248,23 @@ time {
   max-width: 300px;
 }
 
+@media only screen and (min-width: 801px) {
+  .Metar-RVR {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .Metar-RVR {
+    flex-direction: column;
+  }
+  #RVR {
+    margin: auto;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .Timestamp {
     margin: auto;
@@ -239,19 +279,39 @@ time {
 
 @media only screen and (max-width: 440px) {
   .App-header-content {
+    height: 100%;
+    width: 100%;
     flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .App-header {
+    height: calc(10vmax);
+  }
+
+  #app-info {
+    height: calc(5vmax);
+    justify-content: center;
+  }
+
+  #app-logo {
+    height: 100%;
+  }
+
+  .App-Title {
+    display: none;
   }
 
   .Content {
     flex-direction: column;
     width: 100%;
     min-width: inherit;
+    padding-bottom: 79px;
   }
 
   .Footer-content {
     margin: auto;
     width: 90%;
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -264,10 +324,6 @@ time {
 
   .Footer-item {
     margin: 2px 0px;
-  }
-
-  .searchbox {
-    margin-bottom: 10px;
   }
 
   .Selected {
@@ -323,23 +379,5 @@ time {
     flex: none;
     max-width: 100%;
     max-height: 100%;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .Metar-RVR {
-    display: flex;
-    flex-direction: column;
-  }
-  #RVR {
-    margin: auto;
-  }
-}
-
-@media only screen and (min-width: 801px) {
-  .Metar-RVR {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
   }
 }

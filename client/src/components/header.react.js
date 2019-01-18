@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBox from './searchbox.react';
+import logo from './logo.svg';
 
 class Header extends Component {
   constructor(props) {
@@ -26,8 +27,11 @@ class Header extends Component {
     return (
       <header className="App-header">
         <div className="App-header-content">
-          <div className="App-Title">
-            Weathered Strip
+          <div id="app-info">
+            <img id="app-logo" src={ logo } alt="App Logo"/>
+            <div className="App-Title">
+              Weathered Strip
+            </div>
           </div>
           <SearchBox stationSearch={ this.props.stationSearch }/>
         </div>

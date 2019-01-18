@@ -8,9 +8,18 @@ exports[`header renders properly 1`] = `
     class="App-header-content"
   >
     <div
-      class="App-Title"
+      id="app-info"
     >
-      Weathered Strip
+      <img
+        alt="App Logo"
+        id="app-logo"
+        src="logo.svg"
+      />
+      <div
+        class="App-Title"
+      >
+        Weathered Strip
+      </div>
     </div>
     <form
       class="searchbox"
