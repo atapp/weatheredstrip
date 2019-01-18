@@ -2,21 +2,6 @@ import React, { Component } from 'react';
 import queryString from 'query-string';
 import Content from './content.react';
 
-if (!String.prototype.includes) {
-  String.prototype.includes = function(search, start) {
-    'use strict';
-    if (typeof start !== 'number') {
-      start = 0;
-    }
-
-    if (start + search.length > this.length) {
-      return false;
-    } else {
-      return this.indexOf(search, start) !== -1;
-    }
-  };
-}
-
 class Query extends Component {
   constructor(props) {
     super(props);
