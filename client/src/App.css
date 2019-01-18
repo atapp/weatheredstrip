@@ -45,7 +45,7 @@ time {
 
 .app-title {
   font-size: calc(30px + 2vmin);
-  min-width: 320px;
+  min-width: 315px;
   color: white;
   text-align: left;
 }
@@ -258,14 +258,13 @@ p {
   flex-shrink: 0;
   max-height: 300px;
   max-width: 300px;
+  margin-left: 10px;
 }
 
-@media only screen and (min-width: 801px) {
-  .metar-rvr {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-  }
+.metar-rvr {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 @media only screen and (max-width: 800px) {
@@ -282,16 +281,21 @@ p {
     height: calc(12vmax);
   }
 
+  .app-title {
+    min-width: 0;
+    width: 100%;
+  }
+
   #app-info {
-    height: calc(5vmax);
     justify-content: center;
+    height: calc(5vmax);
   }
 
   .app-header-content {
     height: 100%;
     width: 100%;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 }
 
@@ -308,22 +312,6 @@ p {
 }
 
 @media only screen and (max-width: 440px) {
-  .app-header {
-    height: calc(12vmax);
-  }
-
-  .app-header-content {
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-
-  #app-info {
-    height: calc(5vmax);
-    justify-content: center;
-  }
-
   #app-logo {
     height: 100%;
   }
