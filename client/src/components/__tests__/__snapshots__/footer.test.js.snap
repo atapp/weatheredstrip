@@ -2,15 +2,15 @@
 
 exports[`footer renders properly 1`] = `
 <div
-  class="Footer"
+  class="footer"
 >
   <div
-    class="Footer-content"
+    class="footer-content"
   >
     <div
-      class="Footer-item"
+      class="footer-item"
     >
-      Data taken directly from 
+      Data from 
       <a
         href="https://flightplanning.navcanada.ca"
       >
@@ -19,7 +19,7 @@ exports[`footer renders properly 1`] = `
       ℠
     </div>
     <div
-      class="Footer-item"
+      class="footer-item"
     >
       <div>
         <a
@@ -39,7 +39,7 @@ exports[`footer renders properly 1`] = `
       </div>
     </div>
     <div
-      class="Footer-item"
+      class="footer-item"
     >
       Made in 
       <span
