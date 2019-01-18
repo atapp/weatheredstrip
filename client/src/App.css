@@ -1,9 +1,18 @@
+html,
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   background-color: #73b2fb;
 }
 
 time {
   display: block;
+}
+
+#root {
+  position: relative;
+  min-height: 100%;
 }
 
 .App {
@@ -34,16 +43,6 @@ time {
   color: #61dafb;
 }
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .App-Title {
   font-size: calc(30px + 2vmin);
   color: white;
@@ -55,13 +54,14 @@ time {
 }
 
 .Content {
-  background-color: #FFF;
+  background-color: #73b2fb;
   width: 90%;
   min-width: 440px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: auto;
+  padding-bottom: 30px;
 }
 
 .Content-Header {
@@ -70,6 +70,10 @@ time {
 }
 
 .Footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
   padding: 5px 0px;
   color: #fff;
   font-size: 0.7em;
@@ -200,16 +204,17 @@ time {
 .UserContent {
   flex: 100% 1 1;
   display: flex;
+  background-color: #FFF;
   flex-direction: column;
   align-content: center;
   border-right: 1px black solid;
+  border-bottom: 1px black solid;
   padding: 10px 20px;
 }
 
 #navbar {
   flex: 70px 0 0;
   padding-top: 55px;
-  background-color: #73b2fb;
   border-right: 1px black solid;
 }
 
