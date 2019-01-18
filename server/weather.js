@@ -160,7 +160,7 @@ app.use(function(req, res, next) {
 
 /* This is the API entry point, it can be used to ensure the server is up and running. */
 router.get('/', function(req, res) {
-  res.json({ message: 'API currently running, please use "/airport" to access the data!'});
+  res.json({ message: 'API currently running, please use /api/airport to access the data!'});
 });
 
 app.use('/', router);
