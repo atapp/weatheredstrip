@@ -18,7 +18,7 @@ const logger = (log) => {
 const getMetar = async station => {
   const params = new URLSearchParams({
     NoSession: 'NS_Inconnu',
-    Stations: station,
+    Stations: station.toUpperCase(),
     format: 'raw',
     Langue: 'anglais',
     Region: 'can',
@@ -59,7 +59,7 @@ const getRVR = async station => {
   const baseURL = 'http://atm.navcanada.ca'
   const rvrParser = 'img[alt="Aerodrome chart"]'
   try {
-    const response = await fetch(baseURL + '/atm/iwv/' + station)
+    const response = await fetch(baseURL + '/atm/iwv/' + station.toUpperCase())
     const body = await response.text()
     let $ = await cheerio.load(body);
     const data = await $('img[alt="Aerodrome chart"]').scrapeOne('src');
@@ -79,7 +79,7 @@ const getNotam = async station => {
     Langue: 'anglais',
     TypeBrief: 'N',
     NoSession: 'NS_Inconnu',
-    Stations: station,
+    Stations: station.toUpperCase(),
     Location: '',
     ni_File: 'on'
   })
