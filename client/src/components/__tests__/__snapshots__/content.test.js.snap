@@ -22,6 +22,9 @@ exports[`Content without renders properly 1`] = `
     <p>
       To use Weathered Strip, please enter the ICAO airport codes of each airport you'd like to assess in the seachbox located in the header.
     </p>
+    <p>
+      Note: for multiple ICAO airport codes, separate them by either spaces or commas.
+    </p>
     <h3>
       Report an issue
     </h3>

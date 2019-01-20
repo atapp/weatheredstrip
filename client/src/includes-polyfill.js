@@ -1,3 +1,5 @@
+// These polyfills prevent the "Object includes..." error to happen in IE 9+
+
 if (!String.prototype.includes) {
   String.prototype.includes = function(search, start) {
     'use strict';

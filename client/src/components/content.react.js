@@ -18,6 +18,12 @@ class Content extends Component {
     this.setState({ ...this.state, stationSelection: value })
   }
 
+  errorExists = () => {
+    const { data } = this.props
+
+    return data[ this.state.stationSelection ].ERROR ? true : false
+  }
+
   render() {
     const { data } = this.props
 
@@ -30,19 +36,28 @@ class Content extends Component {
             <Timestamp dataTime={ data[ this.state.stationSelection ].Timestamp } />
           </div>
           <div className="SelectedContent">
-            <div className="metar-rvr">
-              <Rvr data={ data[ this.state.stationSelection ].RVR } />
-              <div className="col">
-                <div className="subtitle">METAR</div>
-                <Metars data={ data[ this.state.stationSelection ].METAR } />
-                <div className="subtitle">TAF</div>
-                <Tafs data={ data[ this.state.stationSelection ].TAF }/>
-              </div>
-            </div>
-            <div className="col">
-              <div className="subtitle">AERODROME NOTAM</div>
-              <Notams data={ data[ this.state.stationSelection ].NOTAM } />
-            </div>
+            { this.errorExists() ?
+              <React.Fragment>
+                <h2>Error...</h2>
+                <p>This ICAO identifier does not seem to be valid or it is an international identifier which are not currently supported.</p>
+              </React.Fragment>
+              :
+              <React.Fragment>
+                <div className="metar-rvr">
+                  <Rvr data={ data[ this.state.stationSelection ].RVR } />
+                  <div className="col">
+                    <div className="subtitle">METAR</div>
+                    <Metars data={ data[ this.state.stationSelection ].METAR } />
+                    <div className="subtitle">TAF</div>
+                    <Tafs data={ data[ this.state.stationSelection ].TAF }/>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="subtitle">AERODROME NOTAM</div>
+                  <Notams data={ data[ this.state.stationSelection ].NOTAM } />
+                </div>
+              </React.Fragment>
+            }
           </div>
         </div>
       </div>

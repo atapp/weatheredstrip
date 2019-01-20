@@ -18,7 +18,7 @@ const logger = (log) => {
 const getMetar = async station => {
   const params = new URLSearchParams({
     NoSession: 'NS_Inconnu',
-    Stations: station.toUpperCase(),
+    Stations: station,
     format: 'raw',
     Langue: 'anglais',
     Region: 'can',
@@ -31,13 +31,21 @@ const getMetar = async station => {
   };
 
   const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi'
-  const MetarParser = 'div[style="text-indent:-1.5em;margin-left:1.5em"]'
+  const metarParser = 'div[style="text-indent:-1.5em;margin-left:1.5em"]'
+  const errorParser = 'FONT:contains("Invalid or unknown aerodrome ID")'
 
   try {
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     const body = await response.text()
     let $ = await cheerio.load(body);
-    const data = await $(MetarParser).scrape('text');
+    const error = await $(errorParser).scrape('text');
+    const errorExists = error.length > 0 ? true : false;
+
+    if (errorExists) {
+      return { ERROR: "Invalid ICAO identifier" }
+    }
+
+    const data = await $(metarParser).scrape('text');
 
     // trim whitespace at 0 and remove '=' at the end of each line
     const metar = await data.map(daton => daton.slice(1, daton.indexOf('=')))
@@ -59,7 +67,7 @@ const getRVR = async station => {
   const baseURL = 'http://atm.navcanada.ca'
   const rvrParser = 'img[alt="Aerodrome chart"]'
   try {
-    const response = await fetch(baseURL + '/atm/iwv/' + station.toUpperCase())
+    const response = await fetch(baseURL + '/atm/iwv/' + station)
     const body = await response.text()
     let $ = await cheerio.load(body);
     const data = await $('img[alt="Aerodrome chart"]').scrapeOne('src');
@@ -79,7 +87,7 @@ const getNotam = async station => {
     Langue: 'anglais',
     TypeBrief: 'N',
     NoSession: 'NS_Inconnu',
-    Stations: station.toUpperCase(),
+    Stations: station,
     Location: '',
     ni_File: 'on'
   })
@@ -97,6 +105,12 @@ const getNotam = async station => {
     const body = await response.text()
     let $ = await cheerio.load(body);
     const data = await $(NotamParser).scrape('text');
+
+    const errorExists = data[0].indexOf('INVALID IDENTIFIER') > 0 ? true : false;
+
+    if (errorExists) {
+      return { ERROR: "Invalid ICAO identifier" }
+    }
 
     const notams = await data.map(notam => {
       // add a filter for extra '\n' that cause impromptu line return
@@ -121,13 +135,17 @@ getAirport = async airport => {
   const notams = await getNotam(airport);
   const rvr = await getRVR(airport);
 
+  const error = "Invalid ICAO identifier"
+
   // Check that all reports contain info.
-  if (metars && notams && rvr) {
+  if (metars.ERROR && notams.ERROR) {
+    return { ERROR: error, Station: airport, Timestamp: new Date() }
+  } else if (metars && notams && rvr) {
     return {
       ...metars,
       ...notams,
       ...rvr,
-      Station: airport.toUpperCase(),
+      Station: airport,
       Timestamp: new Date(),
     }
   } else {
@@ -139,7 +157,7 @@ getAirport = async airport => {
 /*  Transform the provided array into a list containing a Promises for each
     airport.  */
 const getInfo = async airports => {
-  return await Promise.all(airports.map(airport => getAirport(airport)))
+  return await Promise.all(airports.map(airport => getAirport(airport.toUpperCase())))
 }
 
 var app = express();
