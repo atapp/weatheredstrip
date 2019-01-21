@@ -1,21 +1,24 @@
 // These polyfills prevent the "Object includes..." error to happen in IE 9+
 
 if (!String.prototype.includes) {
-  String.prototype.includes = function(search, start) {
-    'use strict';
-    if (typeof start !== 'number') {
-      start = 0;
-    }
+  // eslint-disable-next-line
+  Object.defineProperty(String.prototype, 'includes', {
+    value: function(search, start) {
+      if (typeof start !== 'number') {
+        start = 0;
+      }
 
-    if (start + search.length > this.length) {
-      return false;
-    } else {
-      return this.indexOf(search, start) !== -1;
+      if (start + search.length > this.length) {
+        return false;
+      } else {
+        return this.indexOf(search, start) !== -1;
+      }
     }
-  };
+  })
 }
 
 if (!Array.prototype.includes) {
+  // eslint-disable-next-line
   Object.defineProperty(Array.prototype, 'includes', {
     value: function(valueToFind, fromIndex) {
 
