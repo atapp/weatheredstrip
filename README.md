@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/GregoryHamel/weatheredstrip.svg?branch=master)](https://travis-ci.com/GregoryHamel/weatheredstrip) [![Greenkeeper badge](https://badges.greenkeeper.io/GregoryHamel/weatheredstrip.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/GregoryHamel/weatheredstrip.svg?branch=master)](https://travis-ci.com/GregoryHamel/weatheredstrip) [![Greenkeeper badge](https://badges.greenkeeper.io/GregoryHamel/weatheredstrip.svg)](https://greenkeeper.io/) ![Codecov badge](https://img.shields.io/codecov/c/github/GregoryHamel/weatheredstrip.svg?label=Code%20Coverage&style=popout)
 
 # Weathered-Strip
 ## Intro
