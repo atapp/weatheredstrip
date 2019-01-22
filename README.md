@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/GregoryHamel/weatheredstrip.svg?branch=master)](https://travis-ci.com/GregoryHamel/weatheredstrip)
+[![Build Status](https://travis-ci.com/GregoryHamel/weatheredstrip.svg?branch=master)](https://travis-ci.com/GregoryHamel/weatheredstrip) [![Greenkeeper badge](https://badges.greenkeeper.io/GregoryHamel/weatheredstrip.svg)](https://greenkeeper.io/)
 
 # Weathered-Strip
 ## Intro
