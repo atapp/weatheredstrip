@@ -2,9 +2,12 @@ language: node_js
 node_js:
   - "node"
 install:
+  - yarn global add codecov
   - yarn install
   - cd ./client
   - yarn install
   - cd ../server
   - yarn install
   - cd ..
+script:
+  - yarn test && codecov

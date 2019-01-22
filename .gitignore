@@ -6,5 +6,8 @@ node_modules
 # Client Dependencies
 /client/node_modules
 
+# Code Coverage
+/client/coverage
+
 # Logs
 *.log
