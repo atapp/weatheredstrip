@@ -43,10 +43,16 @@ class App extends Component {
   }
 
   getInfo(stations, refresh=false) {
-    if (stations && stations !== this.state.stations || refresh) {
+    if (stations && (stations !== this.state.stations || refresh)) {
       this.serverRequest(stations, res => {
-        const data = res
-        this.setState({ data: data, selectedStationIndex: 0, stations: stations })
+        console.log(res)
+        if (res.length > 0) {
+          this.setState({
+            data: res,
+            selectedStationIndex: 0,
+            stations: stations
+          })
+        }
       })
     } else {
       // The station has not changed, no update is to be done.

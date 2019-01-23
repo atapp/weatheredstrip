@@ -48,7 +48,7 @@ getAirport = async airport => {
 /*  Transform the provided array into a list containing a Promises for each
     airport.  */
 const getInfo = async airports => {
-  return await Promise.all(airports.map(airport => getAirport(airport.toUpperCase())))
+  return await Promise.all(airports.filter(airport => airport.length === 4).map(airport => getAirport(airport.toUpperCase())))
 }
 
 var app = express();
