@@ -12,7 +12,6 @@ exports[`searchbox renders properly 1`] = `
   />
   <button
     class="searchbox-button"
-    type="submit"
   >
     Get Info
   </button>

@@ -29,6 +29,14 @@
     "not dead",
     "not op_mini all"
   ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/src/includes-polyfill.js",
+      "!<rootDir>/src/serviceWorker.js",
+      "!<rootDir>/node_modules/"
+    ]
+  },
   "homepage": "http://www.greghamel.com/weatheredstrip",
   "proxy": "http://localhost:3001/"
 }

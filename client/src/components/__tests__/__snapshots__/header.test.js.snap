@@ -32,7 +32,6 @@ exports[`header renders properly 1`] = `
       />
       <button
         class="searchbox-button"
-        type="submit"
       >
         Get Info
       </button>
