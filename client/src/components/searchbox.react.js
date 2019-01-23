@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import LinkButton from './linkbutton.react';
 
 class SearchBox extends Component {
@@ -19,7 +18,6 @@ class SearchBox extends Component {
 
   handleSearchSubmit(event) {
     event.preventDefault()
-    const searchPath = 'airports'
     const search = this.state.searchValue.toUpperCase()
     this.props.searchSubmit(search, true)
   }
