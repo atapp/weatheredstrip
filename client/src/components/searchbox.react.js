@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import LinkButton from './linkbutton.react';
 
 class SearchBox extends Component {
   constructor(props) {
@@ -8,6 +10,7 @@ class SearchBox extends Component {
     }
     this.handleSearchChange = this.handleSearchChange.bind(this)
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
+    this.getButtonText = this.getButtonText.bind(this)
   }
 
   handleSearchChange(event) {
@@ -16,15 +19,33 @@ class SearchBox extends Component {
 
   handleSearchSubmit(event) {
     event.preventDefault()
-    console.log(window.location)
-    window.location.href = window.location.origin + '/weatheredstrip/?stations=' + this.state.searchValue.toUpperCase()
+    const searchPath = 'airports'
+    const search = this.state.searchValue.toUpperCase()
+    this.props.searchSubmit(search, true)
+    console.log('done')
+  }
+
+  getButtonText() {
+    if (this.state.searchValue === this.props.currentResults) {
+      return 'Refresh'
+    } else {
+      return 'Get Info'
+    }
   }
 
   render() {
+    console.log('Results prop:')
+    console.log(this.props.currentResults)
     return (
       <form className="searchbox">
         <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={ this.state.searchValue } onChange={ this.handleSearchChange }></input>
-        <button type="submit" className="searchbox-button" onClick={ this.handleSearchSubmit }>Get Info</button>
+        <LinkButton
+          className="searchbox-button"
+          to={ {
+            pathname: '/airports',
+            search: `?stations=${ this.state.searchValue }`
+          } }
+          onClick={ (e) => this.handleSearchSubmit(e) }>{this.getButtonText()}</LinkButton>
       </form>
     )
   }

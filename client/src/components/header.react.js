@@ -3,27 +3,9 @@ import SearchBox from './searchbox.react';
 import logo from './logo.svg';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchValue: ''
-    }
-    this.handleSearchChange = this.handleSearchChange.bind(this)
-    this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
-  }
-
-  handleSearchChange(event) {
-    this.setState({ searchValue: event.target.value })
-  }
-
-  handleSearchSubmit(event) {
-    event.preventDefault()
-    const stations = this.state.searchValue.toUpperCase().split(' ')
-    console.log(stations)
-    this.props.stationSearch(stations)
-  }
-
   render() {
+    console.log(this.props)
+    console.log(typeof this.props.searchSubmit)
     return (
       <header className="app-header">
         <div className="app-header-content">
@@ -33,7 +15,7 @@ class Header extends Component {
               Weathered Strip
             </div>
           </div>
-          <SearchBox stationSearch={ this.props.stationSearch }/>
+          <SearchBox searchSubmit={ this.props.searchSubmit } currentResults={ this.props.currentResults }/>
         </div>
       </header>
     )

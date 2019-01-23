@@ -1,6 +1,7 @@
 export { default as Content } from './content.react';
 export { default as Footer } from './footer.react';
 export { default as Header } from './header.react';
+export { default as Home } from './home.react';
 export { default as Metars } from './metars.react';
 export { default as Notams } from './notams.react';
 export { default as Query } from './query.react';
