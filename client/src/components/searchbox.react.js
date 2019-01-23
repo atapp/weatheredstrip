@@ -22,7 +22,6 @@ class SearchBox extends Component {
     const searchPath = 'airports'
     const search = this.state.searchValue.toUpperCase()
     this.props.searchSubmit(search, true)
-    console.log('done')
   }
 
   getButtonText() {
@@ -34,8 +33,6 @@ class SearchBox extends Component {
   }
 
   render() {
-    console.log('Results prop:')
-    console.log(this.props.currentResults)
     return (
       <form className="searchbox">
         <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={ this.state.searchValue } onChange={ this.handleSearchChange }></input>
