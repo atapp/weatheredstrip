@@ -3,6 +3,7 @@ const artoo = require("artoo-js");
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
+const { logger } = require('./logger')
 
 artoo.bootstrap(cheerio);
 

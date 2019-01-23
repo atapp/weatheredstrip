@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
 const xmlParser = require('xml2json');
+const { logger } = require('./logger')
 
 artoo.bootstrap(cheerio);
 
