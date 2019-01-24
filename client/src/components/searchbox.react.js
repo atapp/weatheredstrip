@@ -12,16 +12,20 @@ class SearchBox extends Component {
     this.getButtonText = this.getButtonText.bind(this)
   }
 
+  //  Event handler for change in input.
   handleSearchChange(event) {
     this.setState({ searchValue: event.target.value })
   }
 
+  //  Event handler for form submit
   handleSearchSubmit(event) {
     event.preventDefault()
     const search = this.state.searchValue.toUpperCase()
     this.props.searchSubmit(search, true)
   }
 
+  /*  State based button text allowing the button to read refresh when the
+      query is the same as the currently shown data. */
   getButtonText() {
     if (this.state.searchValue === this.props.currentResults) {
       return 'Refresh'
@@ -31,7 +35,9 @@ class SearchBox extends Component {
   }
 
   render() {
+    // path variable allow to recognize the current web path of the app.
     const path = window.location.pathname.indexOf('airport')  > 0 ? window.location.pathname : window.location.pathname + 'airports'
+
     return (
       <form className="searchbox">
         <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={ this.state.searchValue } onChange={ this.handleSearchChange }></input>
