@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`empty notam renders error 1`] = `
+<div
+  class="Notams"
+/>
+`;
+
+exports[`empty notam renders error 2`] = `
+<div
+  class="Notams"
+/>
+`;
+
 exports[`notam renders properly 1`] = `
 <div
   class="Notams"

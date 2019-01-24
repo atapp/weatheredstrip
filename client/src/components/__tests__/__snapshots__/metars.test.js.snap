@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`empty metar renders nothing 1`] = `
+<div
+  class="Metars"
+/>
+`;
+
+exports[`empty metar renders nothing 2`] = `
+<div
+  class="Metars"
+/>
+`;
+
 exports[`metar renders properly 1`] = `
 <div
   class="Metars"

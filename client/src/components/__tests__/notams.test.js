@@ -15,6 +15,13 @@ testData.map(airport => {
 })
 
 it('empty notam renders error', () => {
-  const metar = []
+  const { container } = render(<Notams data={ [] }/>)
+  const notams = container.firstChild
+  expect(notams).toMatchSnapshot()
+})
 
+it('empty notam renders error', () => {
+  const { container } = render(<Notams />)
+  const notams = container.firstChild
+  expect(notams).toMatchSnapshot()
 })

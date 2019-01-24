@@ -14,7 +14,14 @@ testData.map(airport => {
   });
 })
 
-it('empty metar renders error', () => {
-  const metar = []
+it('empty metar renders nothing', () => {
+  const { container } = render(<Metars data={ [] }/>)
+  const metars = container.firstChild
+  expect(metars).toMatchSnapshot()
+})
 
+it('empty metar renders nothing', () => {
+  const { container } = render(<Metars />)
+  const metars = container.firstChild
+  expect(metars).toMatchSnapshot()
 })
