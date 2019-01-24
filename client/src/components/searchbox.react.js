@@ -31,13 +31,14 @@ class SearchBox extends Component {
   }
 
   render() {
+    const path = window.location.pathname.indexOf('airport')  > 0 ? window.location.pathname : window.location.pathname + 'airports'
     return (
       <form className="searchbox">
         <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={ this.state.searchValue } onChange={ this.handleSearchChange }></input>
         <LinkButton
           className="searchbox-button"
           to={ {
-            pathname: '/airports',
+            pathname: path,
             search: `?stations=${ this.state.searchValue }`
           } }
           onClick={ (e) => this.handleSearchSubmit(e) }>{this.getButtonText()}</LinkButton>
