@@ -1,13 +1,11 @@
 import React from 'react';
-import { render, cleanup } from 'react-testing-library'
+import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
 import Header from '../header.react';
 import { BrowserRouter } from 'react-router-dom';
 import 'jest-dom/extend-expect';
-afterEach(cleanup)
 
 it('header renders properly', () => {
-  const { container } = render(<BrowserRouter><Header /></BrowserRouter>)
-  const header = container.firstChild
+  const { header } = shallow(<Header />)
   expect(header).toMatchSnapshot()
 });

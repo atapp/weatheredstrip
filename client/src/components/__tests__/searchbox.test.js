@@ -12,9 +12,8 @@ const render = () => {
 }
 
 it('searchbox renders properly', () => {
-  const component = renderer.create(<BrowserRouter><Searchbox /></BrowserRouter>)
-  const tree = component.toJSON()
-  expect(tree).toMatchSnapshot()
+  const component = shallow(<Searchbox />)
+  expect(component).toMatchSnapshot()
 });
 
 it('searchbox data entry changes state', () => {

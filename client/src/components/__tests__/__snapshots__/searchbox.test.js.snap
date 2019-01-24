@@ -331,23 +331,167 @@ ShallowWrapper {
 `;
 
 exports[`searchbox renders properly 1`] = `
-<form
-  className="searchbox"
->
-  <input
-    className="searchbox-input"
-    onChange={[Function]}
-    placeholder="CYMX CYUL..."
-    type="text"
-    value=""
-  />
-  <button
-    className="searchbox-button"
-    onClick={[Function]}
-  >
-    Get Info
-  </button>
-</form>
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SearchBox />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          className="searchbox-input"
+          onChange={[Function]}
+          placeholder="CYMX CYUL..."
+          type="text"
+          value=""
+        />,
+        <withRouter(LinkButton)
+          className="searchbox-button"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/airports",
+              "search": "?stations=",
+            }
+          }
+        >
+          Get Info
+        </withRouter(LinkButton)>,
+      ],
+      "className": "searchbox",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "searchbox-input",
+          "onChange": [Function],
+          "placeholder": "CYMX CYUL...",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Get Info",
+          "className": "searchbox-button",
+          "onClick": [Function],
+          "to": Object {
+            "pathname": "/airports",
+            "search": "?stations=",
+          },
+        },
+        "ref": null,
+        "rendered": "Get Info",
+        "type": [Function],
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            className="searchbox-input"
+            onChange={[Function]}
+            placeholder="CYMX CYUL..."
+            type="text"
+            value=""
+          />,
+          <withRouter(LinkButton)
+            className="searchbox-button"
+            onClick={[Function]}
+            to={
+              Object {
+                "pathname": "/airports",
+                "search": "?stations=",
+              }
+            }
+          >
+            Get Info
+          </withRouter(LinkButton)>,
+        ],
+        "className": "searchbox",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "searchbox-input",
+            "onChange": [Function],
+            "placeholder": "CYMX CYUL...",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Get Info",
+            "className": "searchbox-button",
+            "onClick": [Function],
+            "to": Object {
+              "pathname": "/airports",
+              "search": "?stations=",
+            },
+          },
+          "ref": null,
+          "rendered": "Get Info",
+          "type": [Function],
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
 `;
 
 exports[`searchbutton report refresh 1`] = `
