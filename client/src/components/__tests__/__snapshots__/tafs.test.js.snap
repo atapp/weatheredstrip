@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`empty taf renders empty 1`] = `
+<div
+  class="tafs"
+/>
+`;
+
+exports[`no taf renders empty 1`] = `
+<div
+  class="tafs"
+/>
+`;
+
 exports[`taf renders properly 1`] = `
 <div
   class="tafs"

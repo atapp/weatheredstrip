@@ -9,12 +9,19 @@ afterEach(cleanup)
 testData.map(airport => {
   it('taf renders properly', () => {
     const { container } = render(<Tafs data={ airport[ 'TAF' ] }/>)
-    const metars = container.firstChild
-    expect(metars).toMatchSnapshot()
+    const tafs = container.firstChild
+    expect(tafs).toMatchSnapshot()
   });
 })
 
-it('empty taf renders error', () => {
-  const taf = []
+it('empty taf renders empty', () => {
+  const { container } = render(<Tafs data={ [] }/>)
+  const tafs = container.firstChild
+  expect(tafs).toMatchSnapshot()
+})
 
+it('no taf renders empty', () => {
+  const { container } = render(<Tafs />)
+  const tafs = container.firstChild
+  expect(tafs).toMatchSnapshot()
 })
