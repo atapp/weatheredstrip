@@ -20,3 +20,51 @@ exports[`stationNav renders properly 1`] = `
   </div>
 </div>
 `;
+
+exports[`stationNav renders properly 2`] = `
+<div
+  id="navbar"
+/>
+`;
+
+exports[`stationNav renders selected 1`] = `
+<div
+  id="navbar"
+>
+  <div
+    class="navbar-content"
+  >
+    <div
+      class="station station-selected"
+    >
+      CYMX
+    </div>
+    <div
+      class="station"
+    >
+      CYUL
+    </div>
+  </div>
+</div>
+`;
+
+exports[`stationNav renders selected 2`] = `
+<div
+  id="navbar"
+>
+  <div
+    class="navbar-content"
+  >
+    <div
+      class="station"
+    >
+      CYMX
+    </div>
+    <div
+      class="station station-selected"
+    >
+      CYUL
+    </div>
+  </div>
+</div>
+`;

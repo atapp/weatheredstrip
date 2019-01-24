@@ -12,4 +12,18 @@ it('stationNav renders properly', () => {
   expect(stationNav).toMatchSnapshot()
 });
 
+for (let i=0; i < testData.length; i++) {
+  it('stationNav renders selected', () => {
+    const { container } = render(<StationNav selected={ i } data={ testData }/>)
+    const stationNav = container.firstChild
+    expect(stationNav).toMatchSnapshot()
+  });
+}
+
+it('stationNav renders properly', () => {
+  const { container } = render(<StationNav />)
+  const stationNav = container.firstChild
+  expect(stationNav).toMatchSnapshot()
+});
+
 // Need function testing for selection of other stations.
