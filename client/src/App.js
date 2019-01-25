@@ -60,10 +60,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (window.location.search) {
-      const stations = queryString.parse(window.location.search).stations;
-      this.getInfo(stations)
-    }
+
   }
 
   render() {
@@ -71,10 +68,17 @@ class App extends Component {
       <Router>
         <div className="app">
           <Header searchSubmit={ (stations, refresh) => this.getInfo(stations, refresh) } currentResults={ this.state.stations }/>
-          <Route path="/weatheredstrip/" exact component={ Home } />
           <Route
-            path="/weatheredstrip/airports"
-            render={ props => <Content data={ this.state.data } /> }
+            path="/weatheredstrip/" exact
+            render={ props => {
+              const stations = queryString.parse(props.location.search).stations
+              if ( stations ) {
+                this.getInfo(stations)
+                return <Content data={ this.state.data } />
+              } else {
+                return <Home />
+              }
+            } }
           />
           <Footer />
         </div>

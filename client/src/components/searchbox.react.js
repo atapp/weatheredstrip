@@ -36,7 +36,7 @@ class SearchBox extends Component {
 
   render() {
     // path variable allow to recognize the current web path of the app.
-    const path = window.location.pathname.indexOf('airport')  > 0 ? window.location.pathname : window.location.pathname + 'airports'
+    const path = window.location.pathname
 
     return (
       <form className="searchbox">
