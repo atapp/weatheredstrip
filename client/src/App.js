@@ -71,9 +71,9 @@ class App extends Component {
       <Router>
         <div className="app">
           <Header searchSubmit={ (stations, refresh) => this.getInfo(stations, refresh) } currentResults={ this.state.stations }/>
-          <Route path="/" exact component={ Home } />
+          <Route path="/weatheredstrip/" exact component={ Home } />
           <Route
-            path="/airports"
+            path="/weatheredstrip/airports"
             render={ props => <Content data={ this.state.data } /> }
           />
           <Footer />
