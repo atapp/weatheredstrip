@@ -31,7 +31,7 @@ ShallowWrapper {
           onClick={[Function]}
           to={
             Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             }
           }
@@ -67,7 +67,7 @@ ShallowWrapper {
           "className": "searchbox-button",
           "onClick": [Function],
           "to": Object {
-            "pathname": "/airports",
+            "pathname": "/",
             "search": "?stations=",
           },
         },
@@ -97,7 +97,7 @@ ShallowWrapper {
             onClick={[Function]}
             to={
               Object {
-                "pathname": "/airports",
+                "pathname": "/",
                 "search": "?stations=",
               }
             }
@@ -133,7 +133,7 @@ ShallowWrapper {
             "className": "searchbox-button",
             "onClick": [Function],
             "to": Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             },
           },
@@ -202,7 +202,7 @@ ShallowWrapper {
           onClick={[Function]}
           to={
             Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             }
           }
@@ -238,7 +238,7 @@ ShallowWrapper {
           "className": "searchbox-button",
           "onClick": [Function],
           "to": Object {
-            "pathname": "/airports",
+            "pathname": "/",
             "search": "?stations=",
           },
         },
@@ -268,7 +268,7 @@ ShallowWrapper {
             onClick={[Function]}
             to={
               Object {
-                "pathname": "/airports",
+                "pathname": "/",
                 "search": "?stations=",
               }
             }
@@ -304,7 +304,7 @@ ShallowWrapper {
             "className": "searchbox-button",
             "onClick": [Function],
             "to": Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             },
           },
@@ -371,7 +371,7 @@ ShallowWrapper {
           onClick={[Function]}
           to={
             Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             }
           }
@@ -407,7 +407,7 @@ ShallowWrapper {
           "className": "searchbox-button",
           "onClick": [Function],
           "to": Object {
-            "pathname": "/airports",
+            "pathname": "/",
             "search": "?stations=",
           },
         },
@@ -437,7 +437,7 @@ ShallowWrapper {
             onClick={[Function]}
             to={
               Object {
-                "pathname": "/airports",
+                "pathname": "/",
                 "search": "?stations=",
               }
             }
@@ -473,7 +473,7 @@ ShallowWrapper {
             "className": "searchbox-button",
             "onClick": [Function],
             "to": Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             },
           },
@@ -542,7 +542,7 @@ ShallowWrapper {
           onClick={[Function]}
           to={
             Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             }
           }
@@ -578,7 +578,7 @@ ShallowWrapper {
           "className": "searchbox-button",
           "onClick": [Function],
           "to": Object {
-            "pathname": "/airports",
+            "pathname": "/",
             "search": "?stations=",
           },
         },
@@ -608,7 +608,7 @@ ShallowWrapper {
             onClick={[Function]}
             to={
               Object {
-                "pathname": "/airports",
+                "pathname": "/",
                 "search": "?stations=",
               }
             }
@@ -644,7 +644,7 @@ ShallowWrapper {
             "className": "searchbox-button",
             "onClick": [Function],
             "to": Object {
-              "pathname": "/airports",
+              "pathname": "/",
               "search": "?stations=",
             },
           },
