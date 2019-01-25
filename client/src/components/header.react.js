@@ -7,12 +7,14 @@ class Header extends Component {
     return (
       <header className="app-header">
         <div className="app-header-content">
-          <div id="app-info">
-            <img id="app-logo" src={ logo } alt="App Logo"/>
-            <div className="app-title">
-              Weathered Strip
+          <a href="/weatheredstrip/">
+            <div id="app-info">
+              <img id="app-logo" src={ logo } alt="App Logo"/>
+              <div className="app-title">
+                Weathered Strip
+              </div>
             </div>
-          </div>
+          </a>
           <SearchBox searchSubmit={ this.props.searchSubmit } currentResults={ this.props.currentResults }/>
         </div>
       </header>
