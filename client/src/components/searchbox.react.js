@@ -7,6 +7,10 @@ class SearchBox extends Component {
     this.state = {
       searchValue: ''
     }
+
+    // path variable allow to recognize the current web path of the app.
+    this.path = window.location.pathname
+
     this.handleSearchChange = this.handleSearchChange.bind(this)
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
     this.getButtonText = this.getButtonText.bind(this)
@@ -35,16 +39,13 @@ class SearchBox extends Component {
   }
 
   render() {
-    // path variable allow to recognize the current web path of the app.
-    const path = window.location.pathname
-
     return (
       <form className="searchbox">
         <input className="searchbox-input" type="text" placeholder="CYMX CYUL..." value={ this.state.searchValue } onChange={ this.handleSearchChange }></input>
         <LinkButton
           className="searchbox-button"
           to={ {
-            pathname: path,
+            pathname: this.path,
             search: `?stations=${ this.state.searchValue }`
           } }
           onClick={ (e) => this.handleSearchSubmit(e) }>{this.getButtonText()}</LinkButton>

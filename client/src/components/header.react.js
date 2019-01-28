@@ -3,11 +3,16 @@ import SearchBox from './searchbox.react';
 import logo from './logo.svg';
 
 class Header extends Component {
+  constructor(props) {
+    super(props)
+    this.path = window.location.pathname
+  }
+
   render() {
     return (
       <header className="app-header">
         <div className="app-header-content">
-          <a href="/weatheredstrip/">
+          <a href={ this.path }>
             <div id="app-info">
               <img id="app-logo" src={ logo } alt="App Logo"/>
               <div className="app-title">

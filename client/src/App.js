@@ -14,6 +14,8 @@ class App extends Component {
       stations: null,
     };
 
+    this.path = window.location.path
+
     this.serverRequest = this.serverRequest.bind(this)
     this.getInfo = this.getInfo.bind(this)
   }
@@ -69,7 +71,7 @@ class App extends Component {
         <div className="app">
           <Header searchSubmit={ (stations, refresh) => this.getInfo(stations, refresh) } currentResults={ this.state.stations }/>
           <Route
-            path="/weatheredstrip/" exact
+            path={ this.path } exact
             render={ props => {
               const stations = queryString.parse(props.location.search).stations
               if ( stations ) {
