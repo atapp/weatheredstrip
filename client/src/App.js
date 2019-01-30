@@ -47,7 +47,6 @@ class App extends Component {
   getInfo(stations, refresh=false) {
     if (stations && (stations !== this.state.stations || refresh)) {
       this.serverRequest(stations, res => {
-        console.log(res)
         if (res.length > 0) {
           this.setState({
             data: res,
