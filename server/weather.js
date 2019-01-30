@@ -9,10 +9,25 @@ const { getMetarCanada, getNotamCanada, getRvrCanada } = require('./lib/queryCan
 
 /*  Request all reports from all the get[...] functions. Then returns a
     consolidated object if all are returned without error. */
-getAirport = async airport => {
-  const isCanadian = airport && ( airport.slice(0, 2) === "CY" || airport.slice(0, 2) === "CZ" )
+getAirports = async airports => {
+  const metars = await getMetarCanada(airports.canada)
+  const notams = await getNotamCanada(airports.canada)
 
-  let metars, notams, rvr;
+  let flightPlanInfo = new Object()
+  airports.canada.forEach(airport => {
+    flightPlanInfo[airport] = {
+      ...metars[airport],
+      notam: notams["Aerodrome NOTAM file"][airport]
+    }
+  })
+
+  flightPlanInfo['other_notam'] = {
+    "fir": notams["FIR (Flight Information Region) NOTAM file"],
+    "cznb": notams["CZNB NOTAM file"]["CZNB"],
+    "national": notams["National NOTAM file"]["CYHQ"]
+  }
+
+  return flightPlanInfo
 
   if (isCanadian) {
     metars = await getMetarCanada(airport);
@@ -48,7 +63,12 @@ getAirport = async airport => {
 /*  Transform the provided array into a list containing a Promises for each
     airport.  */
 const getInfo = async airports => {
-  return await Promise.all(airports.filter(airport => airport.length === 4).map(airport => getAirport(airport.toUpperCase())))
+
+  const validAirports = airports.filter(airport => airport.length === 4)
+  const intlAirports = validAirports.filter(icao => icao.slice(0, 2) !== "CY" && icao.slice(0, 2) !== "CZ" )
+  const canadianAirports = validAirports.filter(icao => icao.slice(0, 2) === "CY" || icao.slice(0, 2) === "CZ" )
+
+  return await getAirports({intl: intlAirports, canada: canadianAirports})
 }
 
 var app = express();
@@ -88,14 +108,15 @@ router.route('/airport')
     let isResponseGood = false;
     const airportsRequest = req.query.q.split(/(\s|,)/).filter(item => item !== " " && item !== ",")
     const airportsInfo = await getInfo(airportsRequest)
-
     // Ensure requested number of items are all present in the report.
-    if (airportsInfo.length === airportsRequest.length) {
-      isResponseGood = true;
-    }
+    // if (airportsInfo.length === airportsRequest.length) {
+    //   isResponseGood = true;
+    // }
+
+    isResponseGood = true
 
     const requestSent = new Date()
-    logger(`Request received for: ${req.query.q} [${isResponseGood ? 'PASS' : 'FAIL'}] - ${requestSent - requestReceived}ms`)
+    logger(`Request received for: ${req.query.q} [${isResponseGood ? 'PASS' : 'FAIL'}] - ${requestSent - requestReceived}ms - IP: ${req.headers['x-forwarded-for']}`)
 
     if (!isResponseGood) {
       logger(`[WARN]Request made for ${airportsRequest}, but only ${airportsInfo.map(airport => airport["Station"])} returned.`)
