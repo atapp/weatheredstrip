@@ -4,60 +4,60 @@ const artoo = require("artoo-js");
 const cheerio = require('cheerio');
 
 const { logger } = require('./lib/logger')
-const { getTafIntl, getMetarIntl } = require('./lib/queryIntl');
+const { getTafIntl, getMetarIntl, getNotamIntl } = require('./lib/queryIntl');
 const { getMetarCanada, getNotamCanada, getRvrCanada } = require('./lib/queryCanada')
 
 /*  Request all reports from all the get[...] functions. Then returns a
-    consolidated object if all are returned without error. */
+    consolidated object. */
 getAirports = async airports => {
-  const metars = await getMetarCanada(airports.canada)
-  const notams = await getNotamCanada(airports.canada)
+  let metarsCAN
+  let notamsCAN
+  let metarsIntl
+  let tafsIntl
+  let notamsIntl
 
+  if (airports.canada.length > 0) {
+    metarsCAN = await getMetarCanada(airports.canada)
+    notamsCAN = await getNotamCanada(airports.canada)
+  }
+  if (airports.intl.length > 0) {
+    metarsIntl = await getMetarIntl(airports.intl)
+    tafsIntl = await getTafIntl(airports.intl)
+  }
+  // notamsIntl must alwasy be called to get KGPS notams.
+  notamsIntl = await getNotamIntl(airports.intl)
+
+  allAirports = [...airports.canada, ...airports.intl]
   let flightPlanInfo = new Object()
-  airports.canada.forEach(airport => {
-    flightPlanInfo[airport] = {
-      ...metars[airport],
-      notam: notams["Aerodrome NOTAM file"][airport]
+  allAirports.forEach(airport => {
+    if (airports.canada.indexOf(airport) > -1) {
+      flightPlanInfo[airport] = {
+        ...metarsCAN[airport],
+        notam: notamsCAN["Aerodrome NOTAM file"][airport]
+      }
+    } else {
+      flightPlanInfo[airport] = {
+        "metar": metarsIntl[airport],
+        "taf": tafsIntl[airport],
+        "notam": notamsIntl[airport]
+      }
     }
   })
 
-  flightPlanInfo['other_notam'] = {
-    "fir": notams["FIR (Flight Information Region) NOTAM file"],
-    "cznb": notams["CZNB NOTAM file"]["CZNB"],
-    "national": notams["National NOTAM file"]["CYHQ"]
+  flightPlanInfo['other_notam'] = {}
+  if (airports.canada.length > 0) {
+    flightPlanInfo['other_notam'] = {
+      'fir': notamsCAN["FIR (Flight Information Region) NOTAM file"] ? notamsCAN["FIR (Flight Information Region) NOTAM file"] : null,
+      'cznb': notamsCAN["CZNB NOTAM file"]["CZNB"] ? notamsCAN["CZNB NOTAM file"]["CZNB"] : null,
+      'national': notamsCAN["National NOTAM file"]["CYHQ"] ? notamsCAN["National NOTAM file"]["CYHQ"] : null
+    }
   }
+
+  flightPlanInfo['other_notam'].KGPS = notamsIntl['other_notam'].KGPS ? notamsIntl['other_notam'].KGPS : null
+
+  flightPlanInfo.Timestamp = new Date()
 
   return flightPlanInfo
-
-  if (isCanadian) {
-    metars = await getMetarCanada(airport);
-    notams = await getNotamCanada(airport);
-    rvr = await getRvrCanada(airport);
-  } else {
-    metars = await getMetarIntl([airport]);
-    tafs = await getTafIntl([airport]);
-    metars = { ...metars, ...tafs }
-    notams = { NOTAM: [{ title: null, notam: null }] }
-    rvr = { RVR: null }
-  }
-
-  const error = "Invalid ICAO identifier"
-
-  // Check that all reports contain info.
-  if (metars.ERROR && notams.ERROR) {
-    return { ERROR: "Invalid ICAO identifier", Station: airport, Timestamp: new Date() }
-  } else if (metars && notams && rvr) {
-    return {
-      ...metars,
-      ...notams,
-      ...rvr,
-      Station: airport,
-      Timestamp: new Date(),
-    }
-  } else {
-    logger("[ERROR] GetAirport did not receive all its info.")
-    return null;
-  }
 }
 
 /*  Transform the provided array into a list containing a Promises for each

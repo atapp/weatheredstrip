@@ -43,7 +43,7 @@ const getMetarCanada = async stations => {
       return { ERROR: "Invalid ICAO identifier" }
     }
 
-    const taf_reg = /\n\s*(?=BECMG|FM\d{6}|RMK|PROB)/
+    const taf_reg = /\n\s*(?=FM\d{6}|RMK|PROB)/
 
     const stationName = await $(stationNameParser).scrape('text');
     const metarData = await $(metarParser).scrape('html');
@@ -66,7 +66,7 @@ const getMetarCanada = async stations => {
 
     return metarInfo
   } catch (err) {
-    logger(err)
+    logger(`GetMetarData: ${err}`)
     return null
   }
 }
@@ -106,7 +106,7 @@ const getNotamCanada = async stations => {
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     body = await response.text()
   } catch (err) {
-    logger(err)
+    logger(`GetNotamData: ${err}`)
     return null
   }
 
@@ -142,7 +142,7 @@ const getNotamCanada = async stations => {
 
     return data
   } catch (err) {
-    console.log(err)
+    logger(`GetNotamData: ${err}`)
   }
 }
 
@@ -160,7 +160,7 @@ const getRvrCanada = async station => {
     const RVR = data === undefined ? { RVR: null } : { RVR: baseURL + data }
     return RVR
   } catch (err) {
-    logger(err)
+    logger(`GetRVRData: ${err}`)
     return null
   }
 }
