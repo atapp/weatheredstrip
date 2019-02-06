@@ -6,9 +6,11 @@ import 'jest-dom/extend-expect';
 import testData from './test_data.json';
 afterEach(cleanup)
 
-testData.map(airport => {
+const airports = Object.keys(testData)
+
+airports.map(airport => {
   it('metar renders properly', () => {
-    const { container } = render(<Metars data={ airport[ 'METAR' ] }/>)
+    const { container } = render(<Metars data={ testData[ airport ].metar }/>)
     const metars = container.firstChild
     expect(metars).toMatchSnapshot()
   });

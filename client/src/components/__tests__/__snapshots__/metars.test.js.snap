@@ -19,17 +19,22 @@ exports[`metar renders properly 1`] = `
   <div
     class="notif-text"
   >
-    METAR CYMX 172100Z 18005KT 170V230 35SM FEW250 M17/M24 A3033 RMK CI2 SLP280
+    METAR CYMX 012000Z 24011G19KT 45SM DRSN FEW250 M14/M23 A3024 RMK CI2 SLP251
   </div>
   <div
     class="notif-text"
   >
-    METAR CYMX 172000Z 21005KT 180V260 35SM FEW250 M16/M24 A3034 RMK CI2 SLP286
+    METAR CYMX 011900Z 24012G22KT 45SM DRSN FEW240 M14/M23 A3023 RMK CI1 SLP247
   </div>
   <div
     class="notif-text"
   >
-    METAR CYMX 171900Z 19007KT 45SM FEW220 FEW280 M17/M24 A3036 RMK CI1CI1 CI TR CI TR SLP292
+    METAR CYMX 011800Z 24010G19KT 45SM FEW240 M15/M22 A3024 RMK CI1 SLP250
+  </div>
+  <div
+    class="notif-text"
+  >
+    METAR CYMX 011800Z CCA 24010G19KT 45SM DRSN FEW240 M15/M22 A3024 RMK CI1 SLP250
   </div>
 </div>
 `;
@@ -41,17 +46,43 @@ exports[`metar renders properly 2`] = `
   <div
     class="notif-text"
   >
-    METAR CYUL 172100Z VRB02KT 30SM FEW160 SCT240 M15/M24 A3035 RMK AC1CI3 SLP282
+    METAR EGPK 012020Z 00000KT 9999 SCT040 M01/M02 Q1002
   </div>
   <div
     class="notif-text"
   >
-    METAR CYUL 172000Z 22006KT 30SM FEW240 M15/M23 A3037 RMK CI2 SLP290
+    METAR EGPK 011950Z 00000KT 8000 FEW020 SCT045 M01/M01 Q1002
   </div>
   <div
     class="notif-text"
   >
-    METAR CYUL 171900Z 24007KT 30SM FEW240 M15/M23 A3039 RMK CI1 SLP297
+    METAR EGPK 011920Z 00000KT 8000 FEW020 SCT030 M00/M01 Q1001
+  </div>
+  <div
+    class="notif-text"
+  >
+    METAR EGPK 011850Z 00000KT 8000 SCT030 00/M01 Q1001 RESN
+  </div>
+  <div
+    class="notif-text"
+  >
+    METAR EGPK 011820Z 00000KT 9999 -SHSN SCT035 M01/M02 Q1001
+  </div>
+  <div
+    class="notif-text"
+  >
+    METAR EGPK 011750Z 00000KT 9999 SCT035 M01/M03 Q1001
+  </div>
+  <div
+    class="notif-text"
+  >
+    METAR EGPK 011720Z 00000KT 9999 FEW025 00/M03 Q1000
   </div>
 </div>
+`;
+
+exports[`metar renders properly 3`] = `
+<div
+  class="Metars"
+/>
 `;

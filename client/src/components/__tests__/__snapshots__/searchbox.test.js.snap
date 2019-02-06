@@ -35,6 +35,7 @@ ShallowWrapper {
               "search": "?stations=",
             }
           }
+          type="submit"
         >
           Get Info
         </withRouter(LinkButton)>,
@@ -70,6 +71,7 @@ ShallowWrapper {
             "pathname": "/",
             "search": "?stations=",
           },
+          "type": "submit",
         },
         "ref": null,
         "rendered": "Get Info",
@@ -101,6 +103,7 @@ ShallowWrapper {
                 "search": "?stations=",
               }
             }
+            type="submit"
           >
             Get Info
           </withRouter(LinkButton)>,
@@ -136,6 +139,7 @@ ShallowWrapper {
               "pathname": "/",
               "search": "?stations=",
             },
+            "type": "submit",
           },
           "ref": null,
           "rendered": "Get Info",
@@ -206,6 +210,7 @@ ShallowWrapper {
               "search": "?stations=",
             }
           }
+          type="submit"
         >
           Get Info
         </withRouter(LinkButton)>,
@@ -241,6 +246,7 @@ ShallowWrapper {
             "pathname": "/",
             "search": "?stations=",
           },
+          "type": "submit",
         },
         "ref": null,
         "rendered": "Get Info",
@@ -272,6 +278,7 @@ ShallowWrapper {
                 "search": "?stations=",
               }
             }
+            type="submit"
           >
             Get Info
           </withRouter(LinkButton)>,
@@ -307,6 +314,7 @@ ShallowWrapper {
               "pathname": "/",
               "search": "?stations=",
             },
+            "type": "submit",
           },
           "ref": null,
           "rendered": "Get Info",
@@ -375,6 +383,7 @@ ShallowWrapper {
               "search": "?stations=",
             }
           }
+          type="submit"
         >
           Get Info
         </withRouter(LinkButton)>,
@@ -410,6 +419,7 @@ ShallowWrapper {
             "pathname": "/",
             "search": "?stations=",
           },
+          "type": "submit",
         },
         "ref": null,
         "rendered": "Get Info",
@@ -441,6 +451,7 @@ ShallowWrapper {
                 "search": "?stations=",
               }
             }
+            type="submit"
           >
             Get Info
           </withRouter(LinkButton)>,
@@ -476,6 +487,7 @@ ShallowWrapper {
               "pathname": "/",
               "search": "?stations=",
             },
+            "type": "submit",
           },
           "ref": null,
           "rendered": "Get Info",
@@ -546,6 +558,7 @@ ShallowWrapper {
               "search": "?stations=",
             }
           }
+          type="submit"
         >
           Get Info
         </withRouter(LinkButton)>,
@@ -581,6 +594,7 @@ ShallowWrapper {
             "pathname": "/",
             "search": "?stations=",
           },
+          "type": "submit",
         },
         "ref": null,
         "rendered": "Get Info",
@@ -612,6 +626,7 @@ ShallowWrapper {
                 "search": "?stations=",
               }
             }
+            type="submit"
           >
             Get Info
           </withRouter(LinkButton)>,
@@ -647,6 +662,7 @@ ShallowWrapper {
               "pathname": "/",
               "search": "?stations=",
             },
+            "type": "submit",
           },
           "ref": null,
           "rendered": "Get Info",

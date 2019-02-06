@@ -19,32 +19,33 @@ exports[`taf renders properly 1`] = `
   <div
     class="notif-text"
   >
-    TAF CYMX 171738Z 1718/1818 22006KT P6SM FEW250
+    TAF CYMX 011742Z 0118/0218 25012G22KT P6SM SCT250
   </div>
   <div
     class="notif-text"
   >
-    BECMG 1719/1721 VRB03KT
+    BECMG 0122/0124 25007KT
   </div>
   <div
     class="notif-text"
   >
-    FM180300 VRB03KT P6SM BKN100 OVC220
+    FM021000 24007KT P6SM BKN180
   </div>
   <div
     class="notif-text"
   >
-    FM180900 05006KT 2SM -SN OVC020
+    FM021200 24008KT P6SM BKN050
   </div>
   <div
     class="notif-text"
   >
-    BECMG 1816/1818 01005KT
+    FM021400 23012G22KT 4SM -SN BLSN BKN020 OVC040 PROB30 0214/0218
+     21/2SM -SN BLSN
   </div>
   <div
     class="notif-text"
   >
-    RMK NXT FCST BY 180000Z
+    RMK NXT FCST BY 020000Z
   </div>
 </div>
 `;
@@ -56,32 +57,13 @@ exports[`taf renders properly 2`] = `
   <div
     class="notif-text"
   >
-    TAF CYUL 172038Z 1721/1818 22006KT P6SM SCT220
-  </div>
-  <div
-    class="notif-text"
-  >
-    BECMG 1721/1723 VRB03KT
-  </div>
-  <div
-    class="notif-text"
-  >
-    FM180300 03006KT P6SM BKN100 OVC240
-  </div>
-  <div
-    class="notif-text"
-  >
-    FM181000 02010KT 2SM -SN OVC020
-  </div>
-  <div
-    class="notif-text"
-  >
-    BECMG 1815/1817 35007KT
-  </div>
-  <div
-    class="notif-text"
-  >
-    RMK NXT FCST BY 180000Z
+    TAF AMD EGPK 011833Z 0118/0218 VRB04KT 9999 SCT040 TEMPO 0118/0121 4000 SHSN BKN008
   </div>
 </div>
+`;
+
+exports[`taf renders properly 3`] = `
+<div
+  class="tafs"
+/>
 `;
