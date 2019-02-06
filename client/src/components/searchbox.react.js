@@ -5,7 +5,8 @@ class SearchBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: ''
+      searchValue: '',
+      loading: false
     }
 
     // path variable allow to recognize the current web path of the app.
@@ -24,6 +25,7 @@ class SearchBox extends Component {
   //  Event handler for form submit
   handleSearchSubmit(event) {
     event.preventDefault()
+    this.setState({ loading: true })
     const search = this.state.searchValue.toUpperCase()
     this.props.searchSubmit(search, true)
   }
@@ -31,10 +33,30 @@ class SearchBox extends Component {
   /*  State based button text allowing the button to read refresh when the
       query is the same as the currently shown data. */
   getButtonText() {
-    if (this.state.searchValue === this.props.currentResults) {
-      return 'Refresh'
+    if (this.state.loading) {
+      return (
+        <div style={ { display: 'flex', flexDirection: 'row', justifyContent: 'center' } }>
+          <div className="dot-loader"></div>
+          <div className="dot-loader"></div>
+          <div className="dot-loader"></div>
+        </div>
+      )
     } else {
-      return 'Get Info'
+      if (this.state.searchValue === this.props.currentResults) {
+        return 'Refresh'
+      } else {
+        return 'Get Info'
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.loading) {
+      /*  This is a little hack to make the state reset. Everytime a re-render
+          is called after a click has been activated, the loading state will be cleared. */
+      this.setState({
+        loading: false
+      })
     }
   }
 
@@ -48,7 +70,8 @@ class SearchBox extends Component {
             pathname: this.path,
             search: `?stations=${ this.state.searchValue }`
           } }
-          onClick={ (e) => this.handleSearchSubmit(e) }>{this.getButtonText()}</LinkButton>
+          type='submit'
+          onClick={ this.handleSearchSubmit }>{this.getButtonText()}</LinkButton>
       </form>
     )
   }

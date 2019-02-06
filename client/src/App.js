@@ -47,21 +47,15 @@ class App extends Component {
   getInfo(stations, refresh=false) {
     if (stations && (stations !== this.state.stations || refresh)) {
       this.serverRequest(stations, res => {
-        if (res.length > 0) {
           this.setState({
             data: res,
-            selectedStationIndex: 0,
             stations: stations
           })
         }
-      })
+      )
     } else {
       // The station has not changed, no update is to be done.
     }
-  }
-
-  componentDidMount() {
-
   }
 
   render() {
@@ -73,9 +67,11 @@ class App extends Component {
             path={ this.path } exact
             render={ props => {
               const stations = queryString.parse(props.location.search).stations
-              if ( stations ) {
+              if ( !this.state.stations ) {
                 this.getInfo(stations)
-                return <Content data={ this.state.data } />
+                return <Content data={ this.state.data }/>
+              } else if (stations) {
+                return <Content data={ this.state.data }/>
               } else {
                 return <Home />
               }

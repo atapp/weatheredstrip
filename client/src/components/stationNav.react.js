@@ -6,9 +6,9 @@ function StationNav({
   onClick,
 }) {
   if (data) {
-    const stations = data.map((airport, index) => {
-      const divClass = (selected === index ? 'station station-selected' : 'station');
-      return <div className={ divClass } key={ index } onClick={ () => onClick(index) }>{ airport.Station }</div>
+    const stations = Object.keys(data).filter(title => title !== 'other_notam' && title !== 'Timestamp').map(airport => {
+      const divClass = (selected === airport ? 'station station-selected' : 'station');
+      return <div className={ divClass } key={ airport } onClick={ () => onClick(airport) }>{ airport }</div>
     })
     return (
       <div id="navbar">

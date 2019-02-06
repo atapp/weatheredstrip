@@ -5,11 +5,8 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stationSelection: 0,
-      navSticky: false,
+      stationSelection: null
     }
-
-    this.sticky = null
 
     this.handleStationSelect = this.handleStationSelect.bind(this)
   }
@@ -21,7 +18,23 @@ class Content extends Component {
   errorExists = () => {
     const { data } = this.props
 
-    return data[ this.state.stationSelection ].ERROR ? true : false
+    if (data[ this.state.stationSelection ]) {
+      return data[ this.state.stationSelection ].ERROR ? true : false
+    } else {
+      return false;
+    }
+  }
+
+  componentDidUpdate() {
+    const { data } = this.props
+    if (data) {
+      const airports = Object.keys(data)
+      if (airports.indexOf(this.state.stationSelection) < 0) {
+        this.setState({
+          stationSelection: airports[ 0 ]
+        })
+      }
+    }
   }
 
   render() {
@@ -29,13 +42,13 @@ class Content extends Component {
 
     const content =
       <div className="content">
-        { data ?
+        { data && data[ this.state.stationSelection ] ?
           <React.Fragment>
-            <StationNav data={ data } selected={ this.state.stationSelection } onClick={ this.handleStationSelect } sticky={ this.state.navSticky }/>
+            <StationNav data={ data } selected={ this.state.stationSelection } onClick={ this.handleStationSelect } />
             <div className="user-content">
               <div className="content-header">
-                <div className="station-name">{ data[ this.state.stationSelection ].Station }</div>
-                <Timestamp dataTime={ data[ this.state.stationSelection ].Timestamp } />
+                <div className="station-name">{ this.state.stationSelection }</div>
+                <Timestamp dataTime={ data.Timestamp } />
               </div>
               <div className="SelectedContent">
                 { this.errorExists() ?
@@ -49,14 +62,14 @@ class Content extends Component {
                       <Rvr data={ data[ this.state.stationSelection ].RVR } />
                       <div className="col">
                         <div className="subtitle">METAR</div>
-                        <Metars data={ data[ this.state.stationSelection ].METAR } />
+                        <Metars data={ data[ this.state.stationSelection ].metar } />
                         <div className="subtitle">TAF</div>
-                        <Tafs data={ data[ this.state.stationSelection ].TAF }/>
+                        <Tafs data={ data[ this.state.stationSelection ].taf }/>
                       </div>
                     </div>
                     <div className="col">
                       <div className="subtitle">AERODROME NOTAM</div>
-                      <Notams data={ data[ this.state.stationSelection ].NOTAM } />
+                      <Notams data={ data[ this.state.stationSelection ].notam } />
                     </div>
                   </React.Fragment>
                 }
