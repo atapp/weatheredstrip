@@ -54,6 +54,7 @@ class App extends Component {
         }
       )
     } else if (!stations) {
+      // if an empty searchbox is searched for.
       this.setState({
         stations: null
       })
@@ -70,10 +71,10 @@ class App extends Component {
           <Route
             path={ this.path } exact
             render={ props => {
-              const stations = queryString.parse(props.location.search).stations.toUpperCase()
+              const stations = queryString.parse(props.location.search).stations
               if ( !this.state.stations && stations) {
                 // first initialization with GET request
-                this.getInfo(stations)
+                this.getInfo(stations.toUpperCase())
                 return <Content data={ this.state.data }/>
               } else if (stations) {
                 // GET Request after first initialization
