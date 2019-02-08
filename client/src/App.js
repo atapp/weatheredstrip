@@ -53,6 +53,10 @@ class App extends Component {
           })
         }
       )
+    } else if (!stations) {
+      this.setState({
+        stations: null
+      })
     } else {
       // The station has not changed, no update is to be done.
     }
@@ -66,13 +70,16 @@ class App extends Component {
           <Route
             path={ this.path } exact
             render={ props => {
-              const stations = queryString.parse(props.location.search).stations
-              if ( !this.state.stations ) {
+              const stations = queryString.parse(props.location.search).stations.toUpperCase()
+              if ( !this.state.stations && stations) {
+                // first initialization with GET request
                 this.getInfo(stations)
                 return <Content data={ this.state.data }/>
               } else if (stations) {
+                // GET Request after first initialization
                 return <Content data={ this.state.data }/>
               } else {
+                // anything else.
                 return <Home />
               }
             } }
