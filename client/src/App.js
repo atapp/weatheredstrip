@@ -53,6 +53,11 @@ class App extends Component {
           })
         }
       )
+    } else if (!stations) {
+      // if an empty searchbox is searched for.
+      this.setState({
+        stations: null
+      })
     } else {
       // The station has not changed, no update is to be done.
     }
@@ -67,12 +72,15 @@ class App extends Component {
             path={ this.path } exact
             render={ props => {
               const stations = queryString.parse(props.location.search).stations
-              if ( !this.state.stations ) {
-                this.getInfo(stations)
+              if ( !this.state.stations && stations) {
+                // first initialization with GET request
+                this.getInfo(stations.toUpperCase())
                 return <Content data={ this.state.data }/>
               } else if (stations) {
+                // GET Request after first initialization
                 return <Content data={ this.state.data }/>
               } else {
+                // anything else.
                 return <Home />
               }
             } }

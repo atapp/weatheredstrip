@@ -51,7 +51,7 @@ class SearchBox extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.loading) {
+    if (prevState.loading || (!this.props.currentResults && prevProps.currentResults)) {
       /*  This is a little hack to make the state reset. Everytime a re-render
           is called after a click has been activated, the loading state will be cleared. */
       this.setState({
