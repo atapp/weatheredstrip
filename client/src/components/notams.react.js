@@ -4,8 +4,15 @@ function Notams({
   children,
   className,
   data,
+  selectedType,
+  onTypeSelection,
 }) {
   let notams;
+  const types = [
+    'Aerodrome',
+    // 'FIR',
+    'GPS'
+  ]
 
   if (data) {
     notams = data.map((notam, index) => {
@@ -18,8 +25,35 @@ function Notams({
     })
   }
 
+  const typesFormated = types.map((type, index) => {
+    let className;
+    if (selectedType) {
+      if (type === selectedType) {
+        className = 'button primary'
+      } else {
+        className = 'button secondary'
+      }
+    } else {
+      if (index === 0) {
+        className = 'button primary'
+      } else {
+        className = 'button secondary'
+      }
+    }
+
+    return <button className={ className } onClick={ () => onTypeSelection(type) } key={ type }>{type}</button>
+  })
+
   return (
-    <div className="Notams">{notams}</div>
+    <div className="col">
+      <div id="notam-header">
+        <div className="subtitle">NOTAM</div>
+        <div className="button-selection">
+          {typesFormated}
+        </div>
+      </div>
+      <div className="Notams">{notams}</div>
+    </div>
   )
 }
 
