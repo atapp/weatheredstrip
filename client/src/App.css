@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #73b2fb;
+  background-color: #6CA5F5;
 }
 
 time {
@@ -54,12 +54,59 @@ time {
   text-align: left;
 }
 
+.button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.50;
+  border-radius: 3px;
+  margin: 0 5px;
+  outline: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-selection {
+  margin: 0 5px;
+}
+
+.primary {
+  color: #fff;
+  background-color: #467fcf;
+  border-color: #467fcf;
+}
+
+.primary:hover {
+  background-color: #6099E9;
+  border-color: #6099E9;
+}
+
+.secondary {
+  color: #fff;
+  background-color: #868e96;
+  border-color: #868e96;
+}
+
+.secondary:hover {
+  background-color: #A0A8B0;
+  border-color: #A0A8B0;
+}
+
 .col {
   flex: 100% 1 1;
 }
 
 .content {
-  background-color: #73b2fb;
+  background-color: #6CA5F5;
   width: 90%;
   min-width: 440px;
   display: flex;
@@ -180,10 +227,10 @@ h3 {
   width: 80px;
   height: 80px;
   margin: 6px;
-  border: 6px solid #73b2fb;
+  border: 6px solid #6CA5F5;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #73b2fb transparent transparent transparent;
+  border-color: #6CA5F5 transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
@@ -218,6 +265,12 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+}
+
+#notam-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .notif-text {
@@ -305,7 +358,7 @@ p {
 .subtitle {
   text-align: left;
   font-family: monospace;
-  font-size: 30px;
+  font-size: 2.8rem;
 }
 
 .timestamp {
@@ -414,6 +467,10 @@ p {
     display: none;
   }
 
+  .button-selection {
+    margin: auto;
+  }
+
   .content {
     flex-direction: column;
     width: 100%;
@@ -441,6 +498,12 @@ p {
   .navbar-content {
     display: flex;
     flex-direction: row;
+  }
+
+  #notam-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .station {

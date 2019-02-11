@@ -5,10 +5,16 @@ class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stationSelection: null
+      stationSelection: null,
+      notamType: 'Aerodrome'
     }
 
     this.handleStationSelect = this.handleStationSelect.bind(this)
+    this.onNotamTypeSelection = this.onNotamTypeSelection.bind(this)
+  }
+
+  onNotamTypeSelection(type) {
+    this.setState({ ...this.state, notamType: type })
   }
 
   handleStationSelect(value) {
@@ -67,10 +73,7 @@ class Content extends Component {
                         <Tafs data={ data[ this.state.stationSelection ].taf }/>
                       </div>
                     </div>
-                    <div className="col">
-                      <div className="subtitle">AERODROME NOTAM</div>
-                      <Notams data={ data[ this.state.stationSelection ].notam } />
-                    </div>
+                    <Notams onTypeSelection={ this.onNotamTypeSelection } selectedType={ this.state.notamType } data={ this.state.notamType === 'GPS' ? data[ 'other_notam' ].KGPS : data[ this.state.stationSelection ].notam } />
                   </React.Fragment>
                 }
               </div>
