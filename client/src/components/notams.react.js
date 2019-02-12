@@ -6,11 +6,12 @@ function Notams({
   data,
   selectedType,
   onTypeSelection,
+  dataLength
 }) {
   let notams;
   const types = [
     'Aerodrome',
-    // 'FIR',
+    'FIR',
     'GPS'
   ]
 
@@ -27,6 +28,7 @@ function Notams({
 
   const typesFormated = types.map((type, index) => {
     let className;
+    const isDisabled = dataLength[ type ] ? false : true
     if (selectedType) {
       if (type === selectedType) {
         className = 'button primary'
@@ -41,7 +43,16 @@ function Notams({
       }
     }
 
-    return <button className={ className } onClick={ () => onTypeSelection(type) } key={ type }>{type}</button>
+    return (
+      <button
+        disabled={ isDisabled }
+        className={ className }
+        onClick={ () => onTypeSelection(type) }
+        key={ type }>
+        {`${ type } (${ dataLength[ type ] })`}
+      </button>
+    )
+
   })
 
   return (

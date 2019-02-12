@@ -186,22 +186,28 @@ const getIntlAirports = async stations => {
     }
   })
 
-  const metars = await getMetarIntl(stations.intl)
-  const tafs = await getTafIntl(stations.intl)
+  let metars
+  let tafs
+  if (stations.intl) {
+    metars = await getMetarIntl(stations.intl)
+    tafs = await getTafIntl(stations.intl)
+  }
   const notams = await getNotamIntl(searchables)
 
   let airportsInfo = new Object()
+
   stations.intl.forEach(airport => {
-    airportsInfo[airport] = {
-      metar: metars[airport],
-      taf: tafs[airport],
-      notam: notams[airport],
-      fir: notams[airportsData[airport].FIR]
+    if (airportsData[airport]) {
+      airportsInfo[airport] = {
+        metar: metars[airport],
+        taf: tafs[airport],
+        notam: notams[airport],
+        fir: notams[airportsData[airport].FIR]
+      }
     }
   })
 
-  airportsInfo['other_notam'] = { KGPS: notams['KGPS'] }
-
+  airportsInfo['other_notam'] = { ...notams.other_notam }
   return airportsInfo
 }
 
