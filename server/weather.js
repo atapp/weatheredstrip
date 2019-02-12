@@ -21,7 +21,8 @@ getAirports = async airports => {
   airports.intl.forEach(airport => {
     flightPlanInfo[airport] = intlAirports[airport]
   })
-  if (Object.keys(canAirports).length > 0) {
+
+  if (canAirports) {
     flightPlanInfo['other_notam'] = {...canAirports['other_notam'], ...intlAirports['other_notam']}
   } else {
     flightPlanInfo['other_notam'] = {...intlAirports['other_notam']}
