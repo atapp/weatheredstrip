@@ -4,41 +4,25 @@ const artoo = require("artoo-js");
 const cheerio = require('cheerio');
 
 const { logger } = require('./lib/logger')
-const { getTafIntl, getMetarIntl, getNotamIntl } = require('./lib/queryIntl');
+const { getIntlAirports } = require('./lib/queryIntl');
 const { getCanadianAirports } = require('./lib/queryCanada')
 
 /*  Request all reports from all the get[...] functions. Then returns a
     consolidated object. */
 getAirports = async airports => {
-  let metarsIntl
-  let tafsIntl
-  let notamsIntl
-
-  if (airports.intl.length > 0) {
-    metarsIntl = await getMetarIntl(airports.intl)
-    tafsIntl = await getTafIntl(airports.intl)
-  }
-  // notamsIntl must alwasy be called to get KGPS notams.
-  notamsIntl = await getNotamIntl(airports.intl)
-
   let flightPlanInfo = new Object()
-  airports.intl.forEach(airport => {
-    flightPlanInfo[airport] = {
-      "metar": metarsIntl[airport],
-      "taf": tafsIntl[airport],
-      "notam": notamsIntl[airport]
-    }
-  })
-
+  const intlAirports = await getIntlAirports(airports)
   const canAirports = await getCanadianAirports(airports)
 
   airports.canada.forEach(airport => {
     flightPlanInfo[airport] = canAirports[airport]
   })
 
-  flightPlanInfo['other_notam'] = {...canAirports['other_notam']}
+  airports.intl.forEach(airport => {
+    flightPlanInfo[airport] = intlAirports[airport]
+  })
 
-  flightPlanInfo['other_notam'].KGPS = notamsIntl['other_notam'].KGPS ? notamsIntl['other_notam'].KGPS : null
+  flightPlanInfo['other_notam'] = {...canAirports['other_notam'], ...intlAirports['other_notam']}
 
   flightPlanInfo.Timestamp = new Date()
 
