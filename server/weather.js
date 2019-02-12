@@ -21,8 +21,12 @@ getAirports = async airports => {
   airports.intl.forEach(airport => {
     flightPlanInfo[airport] = intlAirports[airport]
   })
+  if (Object.keys(canAirports).length > 0) {
+    flightPlanInfo['other_notam'] = {...canAirports['other_notam'], ...intlAirports['other_notam']}
+  } else {
+    flightPlanInfo['other_notam'] = {...intlAirports['other_notam']}
+  }
 
-  flightPlanInfo['other_notam'] = {...canAirports['other_notam'], ...intlAirports['other_notam']}
 
   flightPlanInfo.Timestamp = new Date()
 
