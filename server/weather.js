@@ -5,21 +5,15 @@ const cheerio = require('cheerio');
 
 const { logger } = require('./lib/logger')
 const { getTafIntl, getMetarIntl, getNotamIntl } = require('./lib/queryIntl');
-const { getMetarCanada, getNotamCanada, getRvrCanada } = require('./lib/queryCanada')
+const { getCanadianAirports } = require('./lib/queryCanada')
 
 /*  Request all reports from all the get[...] functions. Then returns a
     consolidated object. */
 getAirports = async airports => {
-  let metarsCAN
-  let notamsCAN
   let metarsIntl
   let tafsIntl
   let notamsIntl
 
-  if (airports.canada.length > 0) {
-    metarsCAN = await getMetarCanada(airports.canada)
-    notamsCAN = await getNotamCanada(airports.canada)
-  }
   if (airports.intl.length > 0) {
     metarsIntl = await getMetarIntl(airports.intl)
     tafsIntl = await getTafIntl(airports.intl)
@@ -27,31 +21,22 @@ getAirports = async airports => {
   // notamsIntl must alwasy be called to get KGPS notams.
   notamsIntl = await getNotamIntl(airports.intl)
 
-  allAirports = [...airports.canada, ...airports.intl]
   let flightPlanInfo = new Object()
-  allAirports.forEach(airport => {
-    if (airports.canada.indexOf(airport) > -1) {
-      flightPlanInfo[airport] = {
-        ...metarsCAN[airport],
-        notam: notamsCAN["Aerodrome NOTAM file"][airport]
-      }
-    } else {
-      flightPlanInfo[airport] = {
-        "metar": metarsIntl[airport],
-        "taf": tafsIntl[airport],
-        "notam": notamsIntl[airport]
-      }
+  airports.intl.forEach(airport => {
+    flightPlanInfo[airport] = {
+      "metar": metarsIntl[airport],
+      "taf": tafsIntl[airport],
+      "notam": notamsIntl[airport]
     }
   })
 
-  flightPlanInfo['other_notam'] = {}
-  if (airports.canada.length > 0) {
-    flightPlanInfo['other_notam'] = {
-      'fir': notamsCAN["FIR (Flight Information Region) NOTAM file"] ? notamsCAN["FIR (Flight Information Region) NOTAM file"] : null,
-      'cznb': notamsCAN["CZNB NOTAM file"]["CZNB"] ? notamsCAN["CZNB NOTAM file"]["CZNB"] : null,
-      'national': notamsCAN["National NOTAM file"]["CYHQ"] ? notamsCAN["National NOTAM file"]["CYHQ"] : null
-    }
-  }
+  const canAirports = await getCanadianAirports(airports)
+
+  airports.canada.forEach(airport => {
+    flightPlanInfo[airport] = canAirports[airport]
+  })
+
+  flightPlanInfo['other_notam'] = {...canAirports['other_notam']}
 
   flightPlanInfo['other_notam'].KGPS = notamsIntl['other_notam'].KGPS ? notamsIntl['other_notam'].KGPS : null
 

@@ -3,7 +3,9 @@ const artoo = require("artoo-js");
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
-const { logger } = require('./logger')
+const { logger } = require('./logger');
+
+const airportsData = require('../airports.json');
 
 artoo.bootstrap(cheerio);
 
@@ -165,6 +167,35 @@ const getRvrCanada = async station => {
   }
 }
 
-module.exports.getMetarCanada = getMetarCanada;
-module.exports.getNotamCanada = getNotamCanada;
-module.exports.getRvrCanada = getRvrCanada;
+const getCanadianAirports = async stations => {
+  if (stations.canada.length > 0) {
+    try {
+      const metars = await getMetarCanada(stations.canada)
+      const notams = await getNotamCanada(stations.canada)
+
+      let airportInfo = new Object()
+
+      stations.canada.forEach(airport => {
+        airportInfo[airport] = {
+          ...metars[airport],
+          notam: notams["Aerodrome NOTAM file"][airport],
+          fir: notams["FIR (Flight Information Region) NOTAM file"][airportsData[airport].FIR]
+        }
+      })
+
+      airportInfo['other_notam'] = {
+        'CZNB': notams["CZNB NOTAM file"]["CZNB"] ? notams["CZNB NOTAM file"]["CZNB"] : null,
+        'national': notams["National NOTAM file"]["CYHQ"] ? notams["National NOTAM file"]["CYHQ"] : null
+      }
+
+      return airportInfo
+    } catch (err){
+      logger(err)
+    }
+
+  } else {
+    return null
+  }
+}
+
+module.exports.getCanadianAirports = getCanadianAirports;
