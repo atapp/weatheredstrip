@@ -4,7 +4,9 @@ const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
 const xmlParser = require('xml2json');
+
 const { logger } = require('./logger')
+const airportsData = require('../airports.json')
 
 artoo.bootstrap(cheerio);
 
@@ -176,6 +178,37 @@ const getNotamIntl = async stations => {
   }
 }
 
-module.exports.getMetarIntl = getMetarIntl;
-module.exports.getTafIntl = getTafIntl;
-module.exports.getNotamIntl = getNotamIntl;
+const getIntlAirports = async stations => {
+  let searchables = [...stations.intl]
+  stations.intl.forEach(airport => {
+    if (searchables.indexOf(airportsData[airport].FIR) < 0) {
+      searchables.push(airportsData[airport].FIR)
+    }
+  })
+
+  let metars
+  let tafs
+  if (stations.intl) {
+    metars = await getMetarIntl(stations.intl)
+    tafs = await getTafIntl(stations.intl)
+  }
+  const notams = await getNotamIntl(searchables)
+
+  let airportsInfo = new Object()
+
+  stations.intl.forEach(airport => {
+    if (airportsData[airport]) {
+      airportsInfo[airport] = {
+        metar: metars[airport],
+        taf: tafs[airport],
+        notam: notams[airport],
+        fir: notams[airportsData[airport].FIR]
+      }
+    }
+  })
+
+  airportsInfo['other_notam'] = { ...notams.other_notam }
+  return airportsInfo
+}
+
+module.exports.getIntlAirports = getIntlAirports
