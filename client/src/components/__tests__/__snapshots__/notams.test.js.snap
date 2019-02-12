@@ -18,12 +18,17 @@ exports[`empty notam renders error 1`] = `
       <button
         class="button primary"
       >
-        Aerodrome
+        Aerodrome (null)
       </button>
       <button
         class="button secondary"
       >
-        GPS
+        FIR (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (null)
       </button>
     </div>
   </div>
@@ -51,12 +56,17 @@ exports[`empty notam renders error 2`] = `
       <button
         class="button primary"
       >
-        Aerodrome
+        Aerodrome (null)
       </button>
       <button
         class="button secondary"
       >
-        GPS
+        FIR (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (null)
       </button>
     </div>
   </div>
@@ -84,12 +94,17 @@ exports[`notam renders properly 1`] = `
       <button
         class="button primary"
       >
-        Aerodrome
+        Aerodrome (35)
       </button>
       <button
         class="button secondary"
       >
-        GPS
+        FIR (48)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (2)
       </button>
     </div>
   </div>
@@ -105,7 +120,7 @@ exports[`notam renders properly 1`] = `
         </strong>
       </div>
       <div>
-        CYMX RSC 06/24 100 PCT BARE AND DRY. 1902012007
+        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
       </div>
     </div>
     <div
@@ -176,19 +191,6 @@ ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
     >
       <div>
         <strong>
-          180806 CYMX MONTREAL INTL(MIRABEL)
-        </strong>
-      </div>
-      <div>
-        CYMX OBST LGT U/S TOWER 454214N 740759W (APRX 4 NM NW AD) 249 FT
-AGL 577 MSL 1812101630 TIL 1902102359
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
           190013 CYMX MONTREAL INTL(MIRABEL)
         </strong>
       </div>
@@ -211,36 +213,6 @@ EXTENDED RCL. 100 FT AGL 359 MSL. LGTD AND PAINTED. 1200-2300 DLY
 (APRX 4584 FT BEYOND THR 06 AND 2515 FT LEFT OF RCL)
 120 FT AGL 363 MSL. LGTD AND PAINTED.
 1901141100 TIL 1903300500
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          190088 CYMX MONTREAL INTL(MIRABEL)
-        </strong>
-      </div>
-      <div>
-        CYMX RWY 11/29 CLSD
-JAN 25 2028-2130
-JAN 25-27 SS-SR
-JAN 28 1300-2130
-JAN 28-MAR 28 SS-SR
-1901252028 TIL 1903281100
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          190091 CYMX MONTREAL INTL(MIRABEL)
-        </strong>
-      </div>
-      <div>
-        YMX- VOR 116.7 UNMONITORED
-1901291205 TIL 1902012359
       </div>
     </div>
     <div
@@ -319,16 +291,45 @@ SS-SR
     >
       <div>
         <strong>
-          190103 CYMX MONTREAL INTL(MIRABEL)
+          190117 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RWY 11/29 CLSD
+FEB 04 SS-SR
+FEB 05 1300-2130 SS-SR
+FEB 06-MAR 28 SS-SR
+1902041955 TIL 1903291100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190119 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX CRANE APRX 4215 FT BFR THR 29 AND 3420 FT RIGHT
+OF EXTENDED RCL 140 FT AGL 405 MSL. LGTD AND PAINTED.
+1902061100 TIL 1902282100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190137 CYMX MONTREAL INTL(MIRABEL)
         </strong>
       </div>
       <div>
         CYMX RWY 11/29 AVBL FOR MIL ACFT ONLY
 AVBL AS TWY FOR ALL ACFT
-JAN 30 2043-SS
-JAN 31 SR-1500 1830-SS
-FEB 01-MAR 28 SR-SS
-1901302058 TIL 1903282300
+FEB 12 1600-SS
+FEB 13-MAR 28 SR-SS
+1902121600 TIL 1903282300
       </div>
     </div>
   </div>
@@ -352,13 +353,801 @@ exports[`notam renders properly 2`] = `
     >
       <button
         class="button primary"
+        disabled=""
       >
-        Aerodrome
+        Aerodrome (null)
       </button>
       <button
         class="button secondary"
       >
-        GPS
+        FIR (13)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (25)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  >
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          000000 CYMX MONTREAL INTL (MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180368 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX AMEND CFS: COMM: GND ADV: TO READ MIRABEL 121.8 (E)
+(EMERGENCY ONLY 450-476-3141)
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180479 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX WEF 2018 AUG 16 1200 AMEND PUB: PRO: ADD:
+THE MINISTER HAS AUTH SPECIFIC OPR RESTRICTIONS REGARDING COM
+INTENDED FOR THE MF, AS WELL AS THE INTRODUCTION OF A GROUND
+ADVISORY FREQ (GND ADV) PURSUANT TO CAR 602.97 (2), 602.98 (1)
+AND 602.99.
+DEP PROC: TO READ: PRIOR TO TAXI FOR DEP: CTC GND ADV ON 121.8
+FOR CLR AND INITIAL ADVISORY INFO. AFTER RECEIVING INITIAL
+ADVISORY INFO, GND ADV WILL INITIATE COM TRANSFER TO RDO 119.1
+PRIOR TO ENTERING THE RUNWAY/DEP SURFACE.
+PILOTS ARE REQUIRED TO ASCERTAIN THAT THERE IS NO LIKELIHOOD OF
+COLLISION WITH ANOTHER ACFT OR A VEHICLE PRIOR TO DEP. (AS
+STATED IN CAR 602.96, 2A AND B)
+ADD: ARR PROC: AFTER EXITING THE RWY/ARR SURFACE AND REPORTING
+CLEAR ON THE RDO FREQ, PILOTS WILL BE DIRECTED TO CTC GND ADV
+ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180759 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX REDL 11/29 U/S 1811222050 TIL 1902221600
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180760 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX PAPI 29 U/S 1811222050 TIL 1902221600
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190013 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX MOBILE CRANE APRX 197 FT BFR THR 06 AND 3000 FT LEFT
+EXTENDED RCL. 100 FT AGL 359 MSL. LGTD AND PAINTED. 1200-2300 DLY
+1901071200 TIL 1902282300
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190054 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX MULTIPLE CRANES RADIUS 200 FT CENTRE 454103N 740057W
+(APRX 4584 FT BEYOND THR 06 AND 2515 FT LEFT OF RCL)
+120 FT AGL 363 MSL. LGTD AND PAINTED.
+1901141100 TIL 1903300500
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190096 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX TWY A CLSD BTN TWY H AND A5
+1901301153 TIL 1904292000
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190099 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX VOR/DME RWY 11 APCH: VOR/DME STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190100 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX ILS RWY 11 APCH: ILS AND LOC STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190101 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RNAV(GNSS) RWY 11 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190102 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RNAV(GNSS) RWY 29 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190117 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RWY 11/29 CLSD
+FEB 04 SS-SR
+FEB 05 1300-2130 SS-SR
+FEB 06-MAR 28 SS-SR
+1902041955 TIL 1903291100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190119 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX CRANE APRX 4215 FT BFR THR 29 AND 3420 FT RIGHT
+OF EXTENDED RCL 140 FT AGL 405 MSL. LGTD AND PAINTED.
+1902061100 TIL 1902282100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190137 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RWY 11/29 AVBL FOR MIL ACFT ONLY
+AVBL AS TWY FOR ALL ACFT
+FEB 12 1600-SS
+FEB 13-MAR 28 SR-SS
+1902121600 TIL 1903282300
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`notam renders properly 3`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (54)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        FIR (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (11)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  >
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          000000 CYMX MONTREAL INTL (MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180368 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX AMEND CFS: COMM: GND ADV: TO READ MIRABEL 121.8 (E)
+(EMERGENCY ONLY 450-476-3141)
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180479 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX WEF 2018 AUG 16 1200 AMEND PUB: PRO: ADD:
+THE MINISTER HAS AUTH SPECIFIC OPR RESTRICTIONS REGARDING COM
+INTENDED FOR THE MF, AS WELL AS THE INTRODUCTION OF A GROUND
+ADVISORY FREQ (GND ADV) PURSUANT TO CAR 602.97 (2), 602.98 (1)
+AND 602.99.
+DEP PROC: TO READ: PRIOR TO TAXI FOR DEP: CTC GND ADV ON 121.8
+FOR CLR AND INITIAL ADVISORY INFO. AFTER RECEIVING INITIAL
+ADVISORY INFO, GND ADV WILL INITIATE COM TRANSFER TO RDO 119.1
+PRIOR TO ENTERING THE RUNWAY/DEP SURFACE.
+PILOTS ARE REQUIRED TO ASCERTAIN THAT THERE IS NO LIKELIHOOD OF
+COLLISION WITH ANOTHER ACFT OR A VEHICLE PRIOR TO DEP. (AS
+STATED IN CAR 602.96, 2A AND B)
+ADD: ARR PROC: AFTER EXITING THE RWY/ARR SURFACE AND REPORTING
+CLEAR ON THE RDO FREQ, PILOTS WILL BE DIRECTED TO CTC GND ADV
+ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180759 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX REDL 11/29 U/S 1811222050 TIL 1902221600
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180760 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX PAPI 29 U/S 1811222050 TIL 1902221600
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190013 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX MOBILE CRANE APRX 197 FT BFR THR 06 AND 3000 FT LEFT
+EXTENDED RCL. 100 FT AGL 359 MSL. LGTD AND PAINTED. 1200-2300 DLY
+1901071200 TIL 1902282300
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190054 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX MULTIPLE CRANES RADIUS 200 FT CENTRE 454103N 740057W
+(APRX 4584 FT BEYOND THR 06 AND 2515 FT LEFT OF RCL)
+120 FT AGL 363 MSL. LGTD AND PAINTED.
+1901141100 TIL 1903300500
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190096 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX TWY A CLSD BTN TWY H AND A5
+1901301153 TIL 1904292000
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190099 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX VOR/DME RWY 11 APCH: VOR/DME STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190100 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX ILS RWY 11 APCH: ILS AND LOC STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190101 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RNAV(GNSS) RWY 11 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190102 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RNAV(GNSS) RWY 29 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190117 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RWY 11/29 CLSD
+FEB 04 SS-SR
+FEB 05 1300-2130 SS-SR
+FEB 06-MAR 28 SS-SR
+1902041955 TIL 1903291100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190119 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX CRANE APRX 4215 FT BFR THR 29 AND 3420 FT RIGHT
+OF EXTENDED RCL 140 FT AGL 405 MSL. LGTD AND PAINTED.
+1902061100 TIL 1902282100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190137 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RWY 11/29 AVBL FOR MIL ACFT ONLY
+AVBL AS TWY FOR ALL ACFT
+FEB 12 1600-SS
+FEB 13-MAR 28 SR-SS
+1902121600 TIL 1903282300
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`notam renders properly 4`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (87)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        GPS (null)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  >
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          000000 CYMX MONTREAL INTL (MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180368 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX AMEND CFS: COMM: GND ADV: TO READ MIRABEL 121.8 (E)
+(EMERGENCY ONLY 450-476-3141)
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180479 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX WEF 2018 AUG 16 1200 AMEND PUB: PRO: ADD:
+THE MINISTER HAS AUTH SPECIFIC OPR RESTRICTIONS REGARDING COM
+INTENDED FOR THE MF, AS WELL AS THE INTRODUCTION OF A GROUND
+ADVISORY FREQ (GND ADV) PURSUANT TO CAR 602.97 (2), 602.98 (1)
+AND 602.99.
+DEP PROC: TO READ: PRIOR TO TAXI FOR DEP: CTC GND ADV ON 121.8
+FOR CLR AND INITIAL ADVISORY INFO. AFTER RECEIVING INITIAL
+ADVISORY INFO, GND ADV WILL INITIATE COM TRANSFER TO RDO 119.1
+PRIOR TO ENTERING THE RUNWAY/DEP SURFACE.
+PILOTS ARE REQUIRED TO ASCERTAIN THAT THERE IS NO LIKELIHOOD OF
+COLLISION WITH ANOTHER ACFT OR A VEHICLE PRIOR TO DEP. (AS
+STATED IN CAR 602.96, 2A AND B)
+ADD: ARR PROC: AFTER EXITING THE RWY/ARR SURFACE AND REPORTING
+CLEAR ON THE RDO FREQ, PILOTS WILL BE DIRECTED TO CTC GND ADV
+ON 121.8 FOR GROUND TFC AND TAXIING INFO BFR ENTERING THE TWY.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180759 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX REDL 11/29 U/S 1811222050 TIL 1902221600
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          180760 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX PAPI 29 U/S 1811222050 TIL 1902221600
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190013 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX MOBILE CRANE APRX 197 FT BFR THR 06 AND 3000 FT LEFT
+EXTENDED RCL. 100 FT AGL 359 MSL. LGTD AND PAINTED. 1200-2300 DLY
+1901071200 TIL 1902282300
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190054 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX MULTIPLE CRANES RADIUS 200 FT CENTRE 454103N 740057W
+(APRX 4584 FT BEYOND THR 06 AND 2515 FT LEFT OF RCL)
+120 FT AGL 363 MSL. LGTD AND PAINTED.
+1901141100 TIL 1903300500
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190096 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX TWY A CLSD BTN TWY H AND A5
+1901301153 TIL 1904292000
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190099 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX VOR/DME RWY 11 APCH: VOR/DME STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190100 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX ILS RWY 11 APCH: ILS AND LOC STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190101 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RNAV(GNSS) RWY 11 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190102 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RNAV(GNSS) RWY 29 APCH:
+LPV, LNAV/VNAV AND LNAV STRAIGHT-IN MINIMA NOT AUTH
+SS-SR
+1901302045 TIL 1904250901
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190117 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RWY 11/29 CLSD
+FEB 04 SS-SR
+FEB 05 1300-2130 SS-SR
+FEB 06-MAR 28 SS-SR
+1902041955 TIL 1903291100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190119 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX CRANE APRX 4215 FT BFR THR 29 AND 3420 FT RIGHT
+OF EXTENDED RCL 140 FT AGL 405 MSL. LGTD AND PAINTED.
+1902061100 TIL 1902282100
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190137 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX RWY 11/29 AVBL FOR MIL ACFT ONLY
+AVBL AS TWY FOR ALL ACFT
+FEB 12 1600-SS
+FEB 13-MAR 28 SR-SS
+1902121600 TIL 1903282300
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`notam renders properly 5`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (35)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (48)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (2)
       </button>
     </div>
   </div>
@@ -421,6 +1210,38 @@ PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
 PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
 PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
 UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0344/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280000 C) PERM
+E) AMEND THE FOLLOWING SID CHARTS 
+AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
+AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
+AIP EGPK AD 2 6-1/6-2 REFERS
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0415/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280001 C) 1904302359
+E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
+7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
       </div>
     </div>
     <div
@@ -500,6 +1321,20 @@ CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
     >
       <div>
         <strong>
+          A0367/19 NOTAMR A0254/19
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
+A) EGPK B) 1902061337 C) 1902151700
+E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
           A0212/19 NOTAMN
         </strong>
       </div>
@@ -509,17 +1344,161 @@ A) EGPK B) 1902130800 C) 1902131800
 E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`notam renders properly 6`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+        disabled=""
+      >
+        Aerodrome (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (13)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (25)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  >
     <div
       class="notif-text"
     >
       <div>
         <strong>
-          A0213/19 NOTAMN
+          A4134/18 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280001 C) PERM
+E) FLIGHT PROCEDURES
+3 PROCEDURES FOR OUTBOUND AIRCRAFT. CHANGE TO READ
+(A) STANDARD INSTRUMENT DEPARTURES FROM PRESTWICK ARE AS FOLLOWS 
+(SEE AD2-EGPK-6-1/2):
+P600 VIA TRN
+N560 VIA TRN TO GOW
+L602 VIA TRN TO GOW
+UL612 NORTH VIA TRN TO GOW
+T256/UT256 DEPARTING RUNWAY 30, LUCCO Z248 OSMEG T256 DCS
+T256/UT256 DEPARTING RUNWAY 12, SUDBY Z249 OSMEG T256 DCS
+Y96 DEPARTING RUNWAY 30, LUCCO Z250 HAVEN
+Y96 DEPARTING RUNWAY 12, SUMIN Z250 HAVEN
+N562 DEPARTING RUNWAY 30, DAUNT Z246 HERON
+N562 DEPARTING RUNWAY 12, OKNOB Z247 HERON
+(B) NORTH ATLANTIC DEPARTURES.
+(I) DUE TO THE PROXIMITY OF THE SHANWICK OCEANIC BOUNDARY TO 
+PRESTWICK, PILOTS OF JET AIRCRAFT PLANNED TO ENTER SHANWICK AIRSPACE 
+AT GOMUP AND ETILO SHOULD CONTACT OCEAN DELIVERY PRIOR TO DEPARTURE. 
+ON ALL OTHER OCEANIC ROUTES THIS CLEARANCE CAN BE OBTAINED AFTER THE 
+AIRCRAFT IS AIRBORNE. ENR 2.2, PARAGRAPH 3.8.2 REFERS.
+(II) PILOTS ARE REMINDED THAT THE OCEANIC CLEARANCE (INCLUDING LEVEL 
+ALLOCATION) IS VALID ONLY FROM THE OCA ENTRY POINT.
+DOMESTIC ATC CLEARANCE TO THE OCA ENTRY POINT IS ISSUED SEPARATELY.
+(III) WHEN TRA 008 (ENR 5.2 AND ENR 6) IS ACTIVE, AIRCRAFT ENTERING 
+SHANWICK/REYKJAVIK AIRSPACE AT ETILO, ERAKA, ADODO, BALIX, ORTAV, 
+ATSIX, LUSEN OR RATSU SHOULD FILE VIA TRN GOW
+EGPK AD 2.22 REFERS
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A4190/18 NOTAMR A4130/18
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QCACF/IV/B  /AE/000/055/5530N00435W014
+A) EGPK B) 1812281146 C) PERM
+E) THE FOLLOWING FREQ ARE AMENDED DUE 8.33 MHZ CHANGES:
+PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
+PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
+PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
+UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0344/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280000 C) PERM
+E) AMEND THE FOLLOWING SID CHARTS 
+AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
+AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
+AIP EGPK AD 2 6-1/6-2 REFERS
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0415/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280001 C) 1904302359
+E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
+7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0116/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QFAHX/IV/NBO/A /000/999/5531N00436W005
+A) EGPK B) 1901141800 C) 1903141415
+E) HIGH BIRD ACTIVITY IN THE VICINITY AND EAST OF RWY03 APPROACH
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0210/19 NOTAMN
         </strong>
       </div>
       <div>
         Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902120800 C) 1902121800
+A) EGPK B) 1902270800 C) 1902271800
 E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
       </div>
     </div>
@@ -528,13 +1507,57 @@ E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
     >
       <div>
         <strong>
-          A0254/19 NOTAMN
+          A0211/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902260800 C) 1902261800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0217/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902250800 C) 1902251800
+E) CRANE OPR PSN 553339N 0043805W (TROON) HGT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0218/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902200800 C) 1902221800
+D) 0800-1800
+E) 
+CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0367/19 NOTAMR A0254/19
         </strong>
       </div>
       <div>
         Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
-A) EGPK B) 1901281130 C) 1902081700
-E) LINK JULLIET CLOSED DUE WORK IN PROGRESS
+A) EGPK B) 1902061337 C) 1902151700
+E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
       </div>
     </div>
     <div
@@ -542,67 +1565,20 @@ E) LINK JULLIET CLOSED DUE WORK IN PROGRESS
     >
       <div>
         <strong>
-          A0114/19 NOTAMN
+          A0212/19 NOTAMN
         </strong>
       </div>
       <div>
         Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1901141530 C) 1902071630
-E) CRANE OPERATING AT 553337N 0043809W BARASSIE, HEIGHT 132FT AGL,
-189FT AMSL
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0216/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902050800 C) 1902061800
-D) 0800-1800
-E) 
-CRANE OPR PSN 553339N 0043805W (TROON) MAX HGT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          SWEG0019 EGPK 02011845 
-        </strong>
-      </div>
-      <div>
-        (SNOWTAM 0019
-A) EGPK
-B) 02011845 C) 12 F) 2/2/2
-S) 02021200
-T) RWY 03/21 CLOSED DUE ICE)
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0314/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QMRLC/IV/NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902011830 C) 1902021200
-E) RWY 03/21 CLOSED DUE TO SNOW AND ICE
+A) EGPK B) 1902130800 C) 1902131800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`notam renders properly 3`] = `
+exports[`notam renders properly 7`] = `
 <div
   class="col"
 >
@@ -620,12 +1596,749 @@ exports[`notam renders properly 3`] = `
       <button
         class="button primary"
       >
-        Aerodrome
+        Aerodrome (54)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        FIR (null)
       </button>
       <button
         class="button secondary"
       >
-        GPS
+        GPS (11)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  >
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A4134/18 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280001 C) PERM
+E) FLIGHT PROCEDURES
+3 PROCEDURES FOR OUTBOUND AIRCRAFT. CHANGE TO READ
+(A) STANDARD INSTRUMENT DEPARTURES FROM PRESTWICK ARE AS FOLLOWS 
+(SEE AD2-EGPK-6-1/2):
+P600 VIA TRN
+N560 VIA TRN TO GOW
+L602 VIA TRN TO GOW
+UL612 NORTH VIA TRN TO GOW
+T256/UT256 DEPARTING RUNWAY 30, LUCCO Z248 OSMEG T256 DCS
+T256/UT256 DEPARTING RUNWAY 12, SUDBY Z249 OSMEG T256 DCS
+Y96 DEPARTING RUNWAY 30, LUCCO Z250 HAVEN
+Y96 DEPARTING RUNWAY 12, SUMIN Z250 HAVEN
+N562 DEPARTING RUNWAY 30, DAUNT Z246 HERON
+N562 DEPARTING RUNWAY 12, OKNOB Z247 HERON
+(B) NORTH ATLANTIC DEPARTURES.
+(I) DUE TO THE PROXIMITY OF THE SHANWICK OCEANIC BOUNDARY TO 
+PRESTWICK, PILOTS OF JET AIRCRAFT PLANNED TO ENTER SHANWICK AIRSPACE 
+AT GOMUP AND ETILO SHOULD CONTACT OCEAN DELIVERY PRIOR TO DEPARTURE. 
+ON ALL OTHER OCEANIC ROUTES THIS CLEARANCE CAN BE OBTAINED AFTER THE 
+AIRCRAFT IS AIRBORNE. ENR 2.2, PARAGRAPH 3.8.2 REFERS.
+(II) PILOTS ARE REMINDED THAT THE OCEANIC CLEARANCE (INCLUDING LEVEL 
+ALLOCATION) IS VALID ONLY FROM THE OCA ENTRY POINT.
+DOMESTIC ATC CLEARANCE TO THE OCA ENTRY POINT IS ISSUED SEPARATELY.
+(III) WHEN TRA 008 (ENR 5.2 AND ENR 6) IS ACTIVE, AIRCRAFT ENTERING 
+SHANWICK/REYKJAVIK AIRSPACE AT ETILO, ERAKA, ADODO, BALIX, ORTAV, 
+ATSIX, LUSEN OR RATSU SHOULD FILE VIA TRN GOW
+EGPK AD 2.22 REFERS
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A4190/18 NOTAMR A4130/18
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QCACF/IV/B  /AE/000/055/5530N00435W014
+A) EGPK B) 1812281146 C) PERM
+E) THE FOLLOWING FREQ ARE AMENDED DUE 8.33 MHZ CHANGES:
+PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
+PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
+PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
+UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0344/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280000 C) PERM
+E) AMEND THE FOLLOWING SID CHARTS 
+AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
+AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
+AIP EGPK AD 2 6-1/6-2 REFERS
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0415/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280001 C) 1904302359
+E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
+7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0116/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QFAHX/IV/NBO/A /000/999/5531N00436W005
+A) EGPK B) 1901141800 C) 1903141415
+E) HIGH BIRD ACTIVITY IN THE VICINITY AND EAST OF RWY03 APPROACH
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0210/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902270800 C) 1902271800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0211/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902260800 C) 1902261800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0217/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902250800 C) 1902251800
+E) CRANE OPR PSN 553339N 0043805W (TROON) HGT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0218/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902200800 C) 1902221800
+D) 0800-1800
+E) 
+CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0367/19 NOTAMR A0254/19
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
+A) EGPK B) 1902061337 C) 1902151700
+E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0212/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902130800 C) 1902131800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`notam renders properly 8`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (87)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        GPS (null)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  >
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A4134/18 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280001 C) PERM
+E) FLIGHT PROCEDURES
+3 PROCEDURES FOR OUTBOUND AIRCRAFT. CHANGE TO READ
+(A) STANDARD INSTRUMENT DEPARTURES FROM PRESTWICK ARE AS FOLLOWS 
+(SEE AD2-EGPK-6-1/2):
+P600 VIA TRN
+N560 VIA TRN TO GOW
+L602 VIA TRN TO GOW
+UL612 NORTH VIA TRN TO GOW
+T256/UT256 DEPARTING RUNWAY 30, LUCCO Z248 OSMEG T256 DCS
+T256/UT256 DEPARTING RUNWAY 12, SUDBY Z249 OSMEG T256 DCS
+Y96 DEPARTING RUNWAY 30, LUCCO Z250 HAVEN
+Y96 DEPARTING RUNWAY 12, SUMIN Z250 HAVEN
+N562 DEPARTING RUNWAY 30, DAUNT Z246 HERON
+N562 DEPARTING RUNWAY 12, OKNOB Z247 HERON
+(B) NORTH ATLANTIC DEPARTURES.
+(I) DUE TO THE PROXIMITY OF THE SHANWICK OCEANIC BOUNDARY TO 
+PRESTWICK, PILOTS OF JET AIRCRAFT PLANNED TO ENTER SHANWICK AIRSPACE 
+AT GOMUP AND ETILO SHOULD CONTACT OCEAN DELIVERY PRIOR TO DEPARTURE. 
+ON ALL OTHER OCEANIC ROUTES THIS CLEARANCE CAN BE OBTAINED AFTER THE 
+AIRCRAFT IS AIRBORNE. ENR 2.2, PARAGRAPH 3.8.2 REFERS.
+(II) PILOTS ARE REMINDED THAT THE OCEANIC CLEARANCE (INCLUDING LEVEL 
+ALLOCATION) IS VALID ONLY FROM THE OCA ENTRY POINT.
+DOMESTIC ATC CLEARANCE TO THE OCA ENTRY POINT IS ISSUED SEPARATELY.
+(III) WHEN TRA 008 (ENR 5.2 AND ENR 6) IS ACTIVE, AIRCRAFT ENTERING 
+SHANWICK/REYKJAVIK AIRSPACE AT ETILO, ERAKA, ADODO, BALIX, ORTAV, 
+ATSIX, LUSEN OR RATSU SHOULD FILE VIA TRN GOW
+EGPK AD 2.22 REFERS
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A4190/18 NOTAMR A4130/18
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QCACF/IV/B  /AE/000/055/5530N00435W014
+A) EGPK B) 1812281146 C) PERM
+E) THE FOLLOWING FREQ ARE AMENDED DUE 8.33 MHZ CHANGES:
+PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
+PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
+PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
+UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0344/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280000 C) PERM
+E) AMEND THE FOLLOWING SID CHARTS 
+AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
+AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
+AIP EGPK AD 2 6-1/6-2 REFERS
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0415/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
+A) EGPK B) 1902280001 C) 1904302359
+E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
+7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0116/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QFAHX/IV/NBO/A /000/999/5531N00436W005
+A) EGPK B) 1901141800 C) 1903141415
+E) HIGH BIRD ACTIVITY IN THE VICINITY AND EAST OF RWY03 APPROACH
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0210/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902270800 C) 1902271800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0211/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902260800 C) 1902261800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0217/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902250800 C) 1902251800
+E) CRANE OPR PSN 553339N 0043805W (TROON) HGT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0218/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902200800 C) 1902221800
+D) 0800-1800
+E) 
+CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0367/19 NOTAMR A0254/19
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
+A) EGPK B) 1902061337 C) 1902151700
+E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          A0212/19 NOTAMN
+        </strong>
+      </div>
+      <div>
+        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
+A) EGPK B) 1902130800 C) 1902131800
+E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`notam renders properly 9`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (35)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (48)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (2)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  />
+</div>
+`;
+
+exports[`notam renders properly 10`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+        disabled=""
+      >
+        Aerodrome (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (13)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (25)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  />
+</div>
+`;
+
+exports[`notam renders properly 11`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (54)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        FIR (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (11)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  />
+</div>
+`;
+
+exports[`notam renders properly 12`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (87)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        GPS (null)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  />
+</div>
+`;
+
+exports[`notam renders properly 13`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (35)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (48)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (2)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  />
+</div>
+`;
+
+exports[`notam renders properly 14`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+        disabled=""
+      >
+        Aerodrome (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (13)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (25)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  />
+</div>
+`;
+
+exports[`notam renders properly 15`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (54)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        FIR (null)
+      </button>
+      <button
+        class="button secondary"
+      >
+        GPS (11)
+      </button>
+    </div>
+  </div>
+  <div
+    class="Notams"
+  />
+</div>
+`;
+
+exports[`notam renders properly 16`] = `
+<div
+  class="col"
+>
+  <div
+    id="notam-header"
+  >
+    <div
+      class="subtitle"
+    >
+      NOTAM
+    </div>
+    <div
+      class="button-selection"
+    >
+      <button
+        class="button primary"
+      >
+        Aerodrome (87)
+      </button>
+      <button
+        class="button secondary"
+      >
+        FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        GPS (null)
       </button>
     </div>
   </div>
