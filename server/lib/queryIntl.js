@@ -8,6 +8,8 @@ const { get, set } = require('./redis')
 const { logger } = require('./logger')
 const airportsData = require('../airports.json')
 
+const NOTAM_TTL = process.env.NOTAM_TTL || 3600;
+
 artoo.bootstrap(cheerio);
 
 const getMetarIntl = async stations => {
@@ -106,7 +108,7 @@ const requestNotam = async (stations, offset = 0) => {
     return response.json();
     // get all content by adding offset.
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
 
@@ -118,10 +120,8 @@ const getNotamIntl = async stations => {
   await Promise.all(stations.map(async station => {
     const res = await get(`notamsIntl:${ station }`)
     if (res === null) {
-      console.log(`Fetch: ${ station }`)
       stationsToSearch.push(station)
     } else {
-      console.log(`Cached: ${ station }`)
       stationsCached[ station ] = JSON.parse(res)
     }
   }))
@@ -182,7 +182,7 @@ const getNotamIntl = async stations => {
         currentNumberNotam += notams.length
       }
       const results = Object.keys(airports).map(async key => {
-        await set(`notamsIntl:${ key }`, JSON.stringify(airports[ key ]), 'EX', 300)
+        await set(`notamsIntl:${ key }`, JSON.stringify(airports[ key ]), 'EX', NOTAM_TTL)
       })
       Promise.all(results)
     }
@@ -196,7 +196,7 @@ const getNotamIntl = async stations => {
 
     return results
   } catch (err) {
-    console.log(`getNotamIntl: ${ err }`)
+    console.error(`getNotamIntl: ${ err }`)
   }
 }
 
@@ -219,7 +219,6 @@ const getIntlAirports = async stations => {
   const airportsInfo = new Object()
 
   stations.intl.forEach(airport => {
-    console.log(notams)
     if (airportsData[ airport ]) {
       airportsInfo[ airport ] = {
         metar: metars[ airport ],
