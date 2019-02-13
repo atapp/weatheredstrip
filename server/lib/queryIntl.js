@@ -1,8 +1,9 @@
-const artoo = require("artoo-js");
+const artoo = require('artoo-js');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
 const xmlParser = require('xml2json');
+const { get, set } = require('./redis')
 
 const { logger } = require('./logger')
 const airportsData = require('../airports.json')
@@ -10,7 +11,7 @@ const airportsData = require('../airports.json')
 artoo.bootstrap(cheerio);
 
 const getMetarIntl = async stations => {
-  baseURL = `https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=${stations.join("%20")}&hoursBeforeNow=4`;
+  baseURL = `https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=${ stations.join('%20') }&hoursBeforeNow=4`;
 
   try {
     const response = await fetch(baseURL)
@@ -20,28 +21,28 @@ const getMetarIntl = async stations => {
       const json = await JSON.parse(stringMetars).response;
       const metars = json.data.METAR
 
-      let airports = new Object()
+      const airports = new Object()
       stations.forEach(airport => {
-        airports[airport] = []
+        airports[ airport ] = []
         metars.forEach(metar => {
           if (metar.station_id === airport) {
-            airports[airport].push(metar.metar_type + " " + metar.raw_text )
+            airports[ airport ].push(metar.metar_type + ' ' + metar.raw_text )
           }
         })
-        if (airports[airport].length === 0) {
-          airports[airport].push(`Error: ${airport} could not be found.`)
+        if (airports[ airport ].length === 0) {
+          airports[ airport ].push(`Error: ${ airport } could not be found.`)
         }
       })
       return airports
     }
   } catch (err) {
-    logger(`getMetarIntl: ${err}`)
+    logger(`getMetarIntl: ${ err }`)
     return null
   }
 }
 
 const getTafIntl = async stations => {
-  baseURL = `https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString=${stations.join("%20")}&hoursBeforeNow=0`;
+  baseURL = `https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString=${ stations.join('%20') }&hoursBeforeNow=0`;
 
   try {
     const response = await fetch(baseURL)
@@ -52,40 +53,40 @@ const getTafIntl = async stations => {
       const tafs = json.data.TAF
       const re = /\s*(?=FM\d{6}|RMK|PROB)/
 
-      let airports = new Object()
+      const airports = new Object()
       stations.forEach(airport => {
-        airports[airport] = []
+        airports[ airport ] = []
         tafs.forEach(taf => {
           if (taf.station_id === airport) {
-            airports[airport].push(taf.raw_text )
+            airports[ airport ].push(taf.raw_text )
           }
         })
-        if (airports[airport].length === 0) {
-          airports[airport].push(`Error: ${airport} could not be found.`)
+        if (airports[ airport ].length === 0) {
+          airports[ airport ].push(`Error: ${ airport } could not be found.`)
         } else {
-          airports[airport] = airports[airport][0].split(re)
+          airports[ airport ] = airports[ airport ][ 0 ].split(re)
         }
       })
       return airports
     }
 
   } catch (err) {
-    logger(`getTafIntl: ${err}`)
+    logger(`getTafIntl: ${ err }`)
     return null
   }
 }
 
 const requestNotam = async (stations, offset = 0) => {
-  const url = "https://notams.aim.faa.gov/notamSearch/search"
+  const url = 'https://notams.aim.faa.gov/notamSearch/search'
   const params = new URLSearchParams({
     searchType: 0,
-    designatorsForLocation: stations.join(","),
+    designatorsForLocation: stations.join(','),
     latMinutes: 0,
     latSeconds: 0,
     longMinutes: 0,
     longSeconds: 0,
     radius: 10,
-    sortColumns: "5 false",
+    sortColumns: '5 false',
     sortDirection: true,
     radiusSearchOnDesignator: false,
     latitudeDirection: 'N',
@@ -95,7 +96,7 @@ const requestNotam = async (stations, offset = 0) => {
     flightPathIncludeArtcc: false,
     flightPathIncludeTfr: true,
     flightPathIncludeRegulatory: false,
-    flightPathResultsType: "All NOTAMs",
+    flightPathResultsType: 'All NOTAMs',
     offset: offset,
     notamsOnly: false
   })
@@ -110,78 +111,100 @@ const requestNotam = async (stations, offset = 0) => {
 }
 
 const getNotamIntl = async stations => {
-  try {
-    const search =  [...stations, 'KGPS']
-    let body = await requestNotam(search);
-    if (body.error) {
-      let errorIndices = []
-      search.forEach((station, index) => {
-        if (station.indexOf(body.error) >= 0) {
-          errorIndices.push(index)
-        }
-      })
+  const stationsToSearch = []
+  const stationsCached = {}
+  stations.push('KGPS')
 
-      errorIndices.forEach(index => {
-        search.splice(index, 1)
-      })
+  await Promise.all(stations.map(async station => {
+    const res = await get(`notamsIntl:${ station }`)
+    if (res === null) {
+      console.log(`Fetch: ${ station }`)
+      stationsToSearch.push(station)
+    } else {
+      console.log(`Cached: ${ station }`)
+      stationsCached[ station ] = JSON.parse(res)
     }
-    let notams = body.notamList
+  }))
 
-    let currentNumberNotam = 0
-    const totalNumberNotam = body.totalNotamCount;
-    let airports = new Object()
-
-    search.forEach(station => {
-      airports[station] = []
-    })
-
-    while (currentNumberNotam < totalNumberNotam) {
-      if (currentNumberNotam != 0) {
-        body = await requestNotam(search, currentNumberNotam)
-        notams = body.notamList
-      }
-      search.forEach(airport => {
-        notams.forEach(notam => {
-          if (notam.icaoId === airport || notam.facilityDesignator === airport) {
-            const re = new RegExp("\\s(?=" + notam.facilityDesignator + ")", "g")
-            const splits = notam.traditionalMessage.search(re)
-
-            debugger;
-            if (notam.traditionalMessage !== " ") {
-              // North american airport do not have icaoMessage
-              airports[airport].push({
-                title: notam.traditionalMessage.slice(0, splits),
-                notam: notam.traditionalMessage.slice(splits + 1)
-              })
-            } else {
-              // International airport following ICAO stds does have icaoMessage
-              airports[airport].push({
-                title: notam.icaoMessage.slice(0, notam.icaoMessage.indexOf('\n')),
-                notam: notam.icaoMessage.slice(notam.icaoMessage.indexOf('\n') + 1)
-              })
-            }
+  try {
+    const airports = new Object()
+    if (stationsToSearch.length !== 0) {
+      let body = await requestNotam(stationsToSearch);
+      if (body.error) {
+        const errorIndices = []
+        stationsToSearch.forEach((station, index) => {
+          if (station.indexOf(body.error) >= 0) {
+            errorIndices.push(index)
           }
         })
+
+        errorIndices.forEach(index => {
+          stationsToSearch.splice(index, 1)
+        })
+      }
+      let notams = body.notamList
+
+      let currentNumberNotam = 0
+      const totalNumberNotam = body.totalNotamCount;
+
+      stationsToSearch.forEach(station => {
+        airports[ station ] = []
       })
-      currentNumberNotam += notams.length
+
+      while (currentNumberNotam < totalNumberNotam) {
+        if (currentNumberNotam != 0) {
+          body = await requestNotam(stationsToSearch, currentNumberNotam)
+          notams = body.notamList
+        }
+        stationsToSearch.forEach(airport => {
+          notams.forEach(notam => {
+            if (notam.icaoId === airport || notam.facilityDesignator === airport) {
+              const re = new RegExp('\\s(?=' + notam.facilityDesignator + ')', 'g')
+              const splits = notam.traditionalMessage.search(re)
+
+              debugger;
+              if (notam.traditionalMessage !== ' ') {
+                // North american airport do not have icaoMessage
+                airports[ airport ].push({
+                  title: notam.traditionalMessage.slice(0, splits),
+                  notam: notam.traditionalMessage.slice(splits + 1)
+                })
+              } else {
+                // International airport following ICAO stds does have icaoMessage
+                airports[ airport ].push({
+                  title: notam.icaoMessage.slice(0, notam.icaoMessage.indexOf('\n')),
+                  notam: notam.icaoMessage.slice(notam.icaoMessage.indexOf('\n') + 1)
+                })
+              }
+            }
+          })
+        })
+        currentNumberNotam += notams.length
+      }
+      const results = Object.keys(airports).map(async key => {
+        await set(`notamsIntl:${ key }`, JSON.stringify(airports[ key ]), 'EX', 300)
+      })
+      Promise.all(results)
     }
 
-    airports["other_notam"] = {
-      "KGPS": airports["KGPS"]
+    const results = Object.assign({}, airports, stationsCached)
+    // Moving KGPS under other_notam
+    results[ 'other_notam' ] = {
+      'KGPS': results[ 'KGPS' ]
     }
+    delete results.KGPS
 
-    delete airports.KGPS
-    return airports
+    return results
   } catch (err) {
-    console.log(`getNotamIntl: ${err}`)
+    console.log(`getNotamIntl: ${ err }`)
   }
 }
 
 const getIntlAirports = async stations => {
-  let searchables = [...stations.intl]
+  const searchables = [...stations.intl]
   stations.intl.forEach(airport => {
-    if (searchables.indexOf(airportsData[airport].FIR) < 0) {
-      searchables.push(airportsData[airport].FIR)
+    if (searchables.indexOf(airportsData[ airport ].FIR) < 0) {
+      searchables.push(airportsData[ airport ].FIR)
     }
   })
 
@@ -193,20 +216,21 @@ const getIntlAirports = async stations => {
   }
   const notams = await getNotamIntl(searchables)
 
-  let airportsInfo = new Object()
+  const airportsInfo = new Object()
 
   stations.intl.forEach(airport => {
-    if (airportsData[airport]) {
-      airportsInfo[airport] = {
-        metar: metars[airport],
-        taf: tafs[airport],
-        notam: notams[airport],
-        fir: notams[airportsData[airport].FIR]
+    console.log(notams)
+    if (airportsData[ airport ]) {
+      airportsInfo[ airport ] = {
+        metar: metars[ airport ],
+        taf: tafs[ airport ],
+        notam: notams[ airport ],
+        fir: notams[ airportsData[ airport ].FIR ]
       }
     }
   })
 
-  airportsInfo['other_notam'] = { ...notams.other_notam }
+  airportsInfo[ 'other_notam' ] = { ...notams.other_notam }
   return airportsInfo
 }
 

@@ -7,6 +7,7 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
     "node-fetch": "^2.3.0",
+    "redis": "^2.8.0",
     "request": "^2.88.0",
     "xml2json": "^0.11.2"
   },
@@ -14,6 +15,12 @@
     "start": "node weather.js",
     "debug": "node --inspect weather.js"
   },
-  "engines" : { "node" : ">=11.6.0" },
-  "os" : [ "darwin", "linux", "!win32" ]
+  "engines": {
+    "node": ">=11.6.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "!win32"
+  ]
 }
