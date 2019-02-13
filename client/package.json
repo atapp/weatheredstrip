@@ -1,5 +1,5 @@
 {
-  "name": "Weatheredstrip-client",
+  "name": "client",
   "version": "0.9.0",
   "author": "Greg Hamel <hamegreg@gmail.com>",
   "license": "MIT",
@@ -41,6 +41,5 @@
       "!<rootDir>/node_modules/"
     ]
   },
-  "homepage": "http://www.greghamel.com/weatheredstrip",
-  "proxy": "http://localhost:3001/"
+  "homepage": "http://www.greghamel.com/weatheredstrip"
 }

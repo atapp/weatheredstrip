@@ -1,5 +1,5 @@
 {
-  "name": "Weatheredstrip",
+  "name": "weatheredstrip",
   "description": "A client/server app which provide Aerodrome status by providing METARs/TAFs as well as NOTAMs scrapped from NAV Canada Flight Planning webpages.",
   "version": "1.0.0",
   "main": "server/weather.js",
@@ -9,12 +9,15 @@
   "devDependencies": {
     "@commitlint/cli": "^7.5.0",
     "@commitlint/config-conventional": "^7.5.0",
+    "commitizen": "^3.0.5",
     "cz-conventional-changelog": "2.1.0",
     "husky": "^1.3.1"
   },
   "scripts": {
+    "cm": "git-cz",
     "test": "cd ./client && yarn test",
-    "start": "node server/weather.js",
+    "start-server": "node server/weather.js",
+    "start-client": "cd client && react-scripts start",
     "pushit": "git push origin master",
     "deploy": "git push deploy master"
   },
@@ -27,5 +30,10 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  }
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "private": true
 }

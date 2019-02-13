@@ -1,5 +1,6 @@
 {
-  "name": "Weatheredstrip-server",
+  "name": "server",
+  "version": "1.0.0",
   "dependencies": {
     "artoo-js": "^0.4.0",
     "body-parser": "^1.18.3",
