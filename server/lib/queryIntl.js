@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const artoo = require("artoo-js");
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
