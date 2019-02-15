@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer-content">
-        <div className="footer-item">Data from <a href="https://flightplanning.navcanada.ca">NAV CANADA</a>&#8480;</div>
+        <div className="footer-item">Data from <a href="https://flightplanning.navcanada.ca">NAV CANADA</a>&#8480;, <a href="https://www.aviationweather.gov">AWC</a>&#8480; and <a href="https://notams.aim.faa.gov">FAA</a>&#8480;</div>
         <div className="footer-item">
           <div>
             <a href="https://github.com/GregoryHamel/weatheredstrip/issues">Report an Issue</a>
