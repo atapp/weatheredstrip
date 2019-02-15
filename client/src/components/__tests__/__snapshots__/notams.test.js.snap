@@ -18,17 +18,17 @@ exports[`empty notam renders error 1`] = `
       <button
         class="button primary"
       >
-        Aerodrome (null)
+        Aerodrome (0)
       </button>
       <button
         class="button secondary"
       >
-        FIR (null)
+        FIR (0)
       </button>
       <button
         class="button secondary"
       >
-        GPS (null)
+        GPS (0)
       </button>
     </div>
   </div>
@@ -56,17 +56,17 @@ exports[`empty notam renders error 2`] = `
       <button
         class="button primary"
       >
-        Aerodrome (null)
+        Aerodrome (0)
       </button>
       <button
         class="button secondary"
       >
-        FIR (null)
+        FIR (0)
       </button>
       <button
         class="button secondary"
       >
-        GPS (null)
+        GPS (0)
       </button>
     </div>
   </div>
@@ -371,7 +371,7 @@ exports[`notam renders properly 2`] = `
         class="button primary"
         disabled=""
       >
-        Aerodrome (null)
+        Aerodrome (0)
       </button>
       <button
         class="button secondary"
@@ -653,7 +653,7 @@ exports[`notam renders properly 3`] = `
         class="button secondary"
         disabled=""
       >
-        FIR (null)
+        FIR (0)
       </button>
       <button
         class="button secondary"
@@ -935,7 +935,7 @@ exports[`notam renders properly 4`] = `
         class="button secondary"
         disabled=""
       >
-        GPS (null)
+        GPS (0)
       </button>
     </div>
   </div>
@@ -1240,7 +1240,7 @@ exports[`notam renders properly 6`] = `
         class="button primary"
         disabled=""
       >
-        Aerodrome (null)
+        Aerodrome (0)
       </button>
       <button
         class="button secondary"
@@ -1284,7 +1284,7 @@ exports[`notam renders properly 7`] = `
         class="button secondary"
         disabled=""
       >
-        FIR (null)
+        FIR (0)
       </button>
       <button
         class="button secondary"
@@ -1328,7 +1328,7 @@ exports[`notam renders properly 8`] = `
         class="button secondary"
         disabled=""
       >
-        GPS (null)
+        GPS (0)
       </button>
     </div>
   </div>
@@ -1395,7 +1395,7 @@ exports[`notam renders properly 10`] = `
         class="button primary"
         disabled=""
       >
-        Aerodrome (null)
+        Aerodrome (0)
       </button>
       <button
         class="button secondary"
@@ -1439,7 +1439,7 @@ exports[`notam renders properly 11`] = `
         class="button secondary"
         disabled=""
       >
-        FIR (null)
+        FIR (0)
       </button>
       <button
         class="button secondary"
@@ -1483,7 +1483,7 @@ exports[`notam renders properly 12`] = `
         class="button secondary"
         disabled=""
       >
-        GPS (null)
+        GPS (0)
       </button>
     </div>
   </div>
@@ -1550,7 +1550,7 @@ exports[`notam renders properly 14`] = `
         class="button primary"
         disabled=""
       >
-        Aerodrome (null)
+        Aerodrome (0)
       </button>
       <button
         class="button secondary"
@@ -1594,7 +1594,7 @@ exports[`notam renders properly 15`] = `
         class="button secondary"
         disabled=""
       >
-        FIR (null)
+        FIR (0)
       </button>
       <button
         class="button secondary"
@@ -1638,7 +1638,7 @@ exports[`notam renders properly 16`] = `
         class="button secondary"
         disabled=""
       >
-        GPS (null)
+        GPS (0)
       </button>
     </div>
   </div>
