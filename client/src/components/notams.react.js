@@ -19,7 +19,12 @@ function Notams({
     notams = data.map((notam, index) => {
       return (
         <div className="notif-text" key={ index }>
-          <div><strong>{notam.title}</strong></div>
+          { notam && notam.link ?
+            <div><a href={ notam.link } rel="noopener noreferrer" target="_blank"><strong>{notam.title} - </strong><i className="fas fa-external-link-alt"></i></a></div>
+            :
+            <div><strong>{notam.title}</strong></div>
+          }
+
           <div>{notam.notam}</div>
         </div>
       )
