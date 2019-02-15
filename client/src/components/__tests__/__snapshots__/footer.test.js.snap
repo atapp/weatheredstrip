@@ -16,6 +16,18 @@ exports[`footer renders properly 1`] = `
       >
         NAV CANADA
       </a>
+      ℠, 
+      <a
+        href="https://www.aviationweather.gov"
+      >
+        AWC
+      </a>
+      ℠ and 
+      <a
+        href="https://notams.aim.faa.gov"
+      >
+        FAA
+      </a>
       ℠
     </div>
     <div
