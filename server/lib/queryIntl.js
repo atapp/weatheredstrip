@@ -8,7 +8,7 @@ const { get, set } = require('./redis')
 const { logger } = require('./logger')
 const airportsData = require('../airports.json')
 
-const NOTAM_TTL = process.env.NOTAM_TTL || 3600;
+const NOTAM_TTL = process.env.NOTAM_TTL || 60;
 
 artoo.bootstrap(cheerio);
 
@@ -162,18 +162,29 @@ const getNotamIntl = async stations => {
               const re = new RegExp('\\s(?=' + notam.facilityDesignator + ')', 'g')
               const splits = notam.traditionalMessage.search(re)
 
-              debugger;
               if (notam.traditionalMessage !== ' ') {
                 // North american airport do not have icaoMessage
+                let title
+                let notamText
+                if (notam.comment) {
+                  title = notam.traditionalMessage
+                  notamText = null
+                } else {
+                  title = notam.traditionalMessage.slice(0, splits)
+                  notamText = notam.traditionalMessage.slice(splits + 1)
+                }
+
                 airports[ airport ].push({
-                  title: notam.traditionalMessage.slice(0, splits),
-                  notam: notam.traditionalMessage.slice(splits + 1)
+                  title: title,
+                  notam: notamText,
+                  link: notam.comment
                 })
               } else {
                 // International airport following ICAO stds does have icaoMessage
                 airports[ airport ].push({
                   title: notam.icaoMessage.slice(0, notam.icaoMessage.indexOf('\n')),
-                  notam: notam.icaoMessage.slice(notam.icaoMessage.indexOf('\n') + 1)
+                  notam: notam.icaoMessage.slice(notam.icaoMessage.indexOf('\n') + 1),
+                  link: notam.comment
                 })
               }
             }
@@ -203,7 +214,7 @@ const getNotamIntl = async stations => {
 const getIntlAirports = async stations => {
   const searchables = [...stations.intl]
   stations.intl.forEach(airport => {
-    if (searchables.indexOf(airportsData[ airport ].FIR) < 0) {
+    if (airportsData[ airport ] && searchables.indexOf(airportsData[ airport ].FIR) < 0) {
       searchables.push(airportsData[ airport ].FIR)
     }
   })
