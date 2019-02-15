@@ -57,7 +57,7 @@ function Notams({
         className={ className }
         onClick={ () => onTypeSelection(type) }
         key={ type }>
-        {`${ type } (${ dataLength && dataLength[ type ] ? dataLength[ type ] : null })`}
+        {`${ type } (${ dataLength && dataLength[ type ] ? dataLength[ type ] : 0 })`}
       </button>
     )
 
