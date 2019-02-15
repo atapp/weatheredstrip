@@ -120,7 +120,9 @@ exports[`notam renders properly 1`] = `
         </strong>
       </div>
       <div>
-        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
+        CYMX RSC 06/24 180 FT CL 20 PCT WET SN TRACE, 80 PCT BARE AND DRY.
+REMAINING WID 100 PCT DRY SN 1 INS. RMK: SLIPPERY PORTIONS TWYS AND
+APRONS. 1902141821
       </div>
     </div>
     <div
@@ -330,6 +332,20 @@ AVBL AS TWY FOR ALL ACFT
 FEB 12 1600-SS
 FEB 13-MAR 28 SR-SS
 1902121600 TIL 1903282300
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190142 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX FIREWORKS ACT RADIUS 0.1 NM CENTRE 454100N 735229W
+(APRX 7 NM ESE CYMX, 2 NM ESE CSW5) SFC TO 200 FT AGL
+1902170000 TIL 1902170015
       </div>
     </div>
   </div>
@@ -381,7 +397,9 @@ exports[`notam renders properly 2`] = `
         </strong>
       </div>
       <div>
-        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
+        CYMX RSC 06/24 180 FT CL 20 PCT WET SN TRACE, 80 PCT BARE AND DRY.
+REMAINING WID 100 PCT DRY SN 1 INS. RMK: SLIPPERY PORTIONS TWYS AND
+APRONS. 1902141821
       </div>
     </div>
     <div
@@ -591,6 +609,20 @@ AVBL AS TWY FOR ALL ACFT
 FEB 12 1600-SS
 FEB 13-MAR 28 SR-SS
 1902121600 TIL 1903282300
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190142 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX FIREWORKS ACT RADIUS 0.1 NM CENTRE 454100N 735229W
+(APRX 7 NM ESE CYMX, 2 NM ESE CSW5) SFC TO 200 FT AGL
+1902170000 TIL 1902170015
       </div>
     </div>
   </div>
@@ -642,7 +674,9 @@ exports[`notam renders properly 3`] = `
         </strong>
       </div>
       <div>
-        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
+        CYMX RSC 06/24 180 FT CL 20 PCT WET SN TRACE, 80 PCT BARE AND DRY.
+REMAINING WID 100 PCT DRY SN 1 INS. RMK: SLIPPERY PORTIONS TWYS AND
+APRONS. 1902141821
       </div>
     </div>
     <div
@@ -852,6 +886,20 @@ AVBL AS TWY FOR ALL ACFT
 FEB 12 1600-SS
 FEB 13-MAR 28 SR-SS
 1902121600 TIL 1903282300
+      </div>
+    </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190142 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX FIREWORKS ACT RADIUS 0.1 NM CENTRE 454100N 735229W
+(APRX 7 NM ESE CYMX, 2 NM ESE CSW5) SFC TO 200 FT AGL
+1902170000 TIL 1902170015
       </div>
     </div>
   </div>
@@ -903,7 +951,9 @@ exports[`notam renders properly 4`] = `
         </strong>
       </div>
       <div>
-        CYMX RSC 06/24 10 PCT DRY SN TRACE, 90 PCT BARE AND DRY. 1902122210
+        CYMX RSC 06/24 180 FT CL 20 PCT WET SN TRACE, 80 PCT BARE AND DRY.
+REMAINING WID 100 PCT DRY SN 1 INS. RMK: SLIPPERY PORTIONS TWYS AND
+APRONS. 1902141821
       </div>
     </div>
     <div
@@ -1115,6 +1165,20 @@ FEB 13-MAR 28 SR-SS
 1902121600 TIL 1903282300
       </div>
     </div>
+    <div
+      class="notif-text"
+    >
+      <div>
+        <strong>
+          190142 CYMX MONTREAL INTL(MIRABEL)
+        </strong>
+      </div>
+      <div>
+        CYMX FIREWORKS ACT RADIUS 0.1 NM CENTRE 454100N 735229W
+(APRX 7 NM ESE CYMX, 2 NM ESE CSW5) SFC TO 200 FT AGL
+1902170000 TIL 1902170015
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -1153,198 +1217,7 @@ exports[`notam renders properly 5`] = `
   </div>
   <div
     class="Notams"
-  >
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4134/18 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) PERM
-E) FLIGHT PROCEDURES
-3 PROCEDURES FOR OUTBOUND AIRCRAFT. CHANGE TO READ
-(A) STANDARD INSTRUMENT DEPARTURES FROM PRESTWICK ARE AS FOLLOWS 
-(SEE AD2-EGPK-6-1/2):
-P600 VIA TRN
-N560 VIA TRN TO GOW
-L602 VIA TRN TO GOW
-UL612 NORTH VIA TRN TO GOW
-T256/UT256 DEPARTING RUNWAY 30, LUCCO Z248 OSMEG T256 DCS
-T256/UT256 DEPARTING RUNWAY 12, SUDBY Z249 OSMEG T256 DCS
-Y96 DEPARTING RUNWAY 30, LUCCO Z250 HAVEN
-Y96 DEPARTING RUNWAY 12, SUMIN Z250 HAVEN
-N562 DEPARTING RUNWAY 30, DAUNT Z246 HERON
-N562 DEPARTING RUNWAY 12, OKNOB Z247 HERON
-(B) NORTH ATLANTIC DEPARTURES.
-(I) DUE TO THE PROXIMITY OF THE SHANWICK OCEANIC BOUNDARY TO 
-PRESTWICK, PILOTS OF JET AIRCRAFT PLANNED TO ENTER SHANWICK AIRSPACE 
-AT GOMUP AND ETILO SHOULD CONTACT OCEAN DELIVERY PRIOR TO DEPARTURE. 
-ON ALL OTHER OCEANIC ROUTES THIS CLEARANCE CAN BE OBTAINED AFTER THE 
-AIRCRAFT IS AIRBORNE. ENR 2.2, PARAGRAPH 3.8.2 REFERS.
-(II) PILOTS ARE REMINDED THAT THE OCEANIC CLEARANCE (INCLUDING LEVEL 
-ALLOCATION) IS VALID ONLY FROM THE OCA ENTRY POINT.
-DOMESTIC ATC CLEARANCE TO THE OCA ENTRY POINT IS ISSUED SEPARATELY.
-(III) WHEN TRA 008 (ENR 5.2 AND ENR 6) IS ACTIVE, AIRCRAFT ENTERING 
-SHANWICK/REYKJAVIK AIRSPACE AT ETILO, ERAKA, ADODO, BALIX, ORTAV, 
-ATSIX, LUSEN OR RATSU SHOULD FILE VIA TRN GOW
-EGPK AD 2.22 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4190/18 NOTAMR A4130/18
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QCACF/IV/B  /AE/000/055/5530N00435W014
-A) EGPK B) 1812281146 C) PERM
-E) THE FOLLOWING FREQ ARE AMENDED DUE 8.33 MHZ CHANGES:
-PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
-PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
-PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
-UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0344/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280000 C) PERM
-E) AMEND THE FOLLOWING SID CHARTS 
-AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
-AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
-AIP EGPK AD 2 6-1/6-2 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0415/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) 1904302359
-E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
-7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0116/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QFAHX/IV/NBO/A /000/999/5531N00436W005
-A) EGPK B) 1901141800 C) 1903141415
-E) HIGH BIRD ACTIVITY IN THE VICINITY AND EAST OF RWY03 APPROACH
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0210/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902270800 C) 1902271800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0211/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902260800 C) 1902261800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0217/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902250800 C) 1902251800
-E) CRANE OPR PSN 553339N 0043805W (TROON) HGT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0218/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902200800 C) 1902221800
-D) 0800-1800
-E) 
-CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0367/19 NOTAMR A0254/19
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
-A) EGPK B) 1902061337 C) 1902151700
-E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0212/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902130800 C) 1902131800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-  </div>
+  />
 </div>
 `;
 
@@ -1383,198 +1256,7 @@ exports[`notam renders properly 6`] = `
   </div>
   <div
     class="Notams"
-  >
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4134/18 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) PERM
-E) FLIGHT PROCEDURES
-3 PROCEDURES FOR OUTBOUND AIRCRAFT. CHANGE TO READ
-(A) STANDARD INSTRUMENT DEPARTURES FROM PRESTWICK ARE AS FOLLOWS 
-(SEE AD2-EGPK-6-1/2):
-P600 VIA TRN
-N560 VIA TRN TO GOW
-L602 VIA TRN TO GOW
-UL612 NORTH VIA TRN TO GOW
-T256/UT256 DEPARTING RUNWAY 30, LUCCO Z248 OSMEG T256 DCS
-T256/UT256 DEPARTING RUNWAY 12, SUDBY Z249 OSMEG T256 DCS
-Y96 DEPARTING RUNWAY 30, LUCCO Z250 HAVEN
-Y96 DEPARTING RUNWAY 12, SUMIN Z250 HAVEN
-N562 DEPARTING RUNWAY 30, DAUNT Z246 HERON
-N562 DEPARTING RUNWAY 12, OKNOB Z247 HERON
-(B) NORTH ATLANTIC DEPARTURES.
-(I) DUE TO THE PROXIMITY OF THE SHANWICK OCEANIC BOUNDARY TO 
-PRESTWICK, PILOTS OF JET AIRCRAFT PLANNED TO ENTER SHANWICK AIRSPACE 
-AT GOMUP AND ETILO SHOULD CONTACT OCEAN DELIVERY PRIOR TO DEPARTURE. 
-ON ALL OTHER OCEANIC ROUTES THIS CLEARANCE CAN BE OBTAINED AFTER THE 
-AIRCRAFT IS AIRBORNE. ENR 2.2, PARAGRAPH 3.8.2 REFERS.
-(II) PILOTS ARE REMINDED THAT THE OCEANIC CLEARANCE (INCLUDING LEVEL 
-ALLOCATION) IS VALID ONLY FROM THE OCA ENTRY POINT.
-DOMESTIC ATC CLEARANCE TO THE OCA ENTRY POINT IS ISSUED SEPARATELY.
-(III) WHEN TRA 008 (ENR 5.2 AND ENR 6) IS ACTIVE, AIRCRAFT ENTERING 
-SHANWICK/REYKJAVIK AIRSPACE AT ETILO, ERAKA, ADODO, BALIX, ORTAV, 
-ATSIX, LUSEN OR RATSU SHOULD FILE VIA TRN GOW
-EGPK AD 2.22 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4190/18 NOTAMR A4130/18
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QCACF/IV/B  /AE/000/055/5530N00435W014
-A) EGPK B) 1812281146 C) PERM
-E) THE FOLLOWING FREQ ARE AMENDED DUE 8.33 MHZ CHANGES:
-PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
-PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
-PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
-UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0344/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280000 C) PERM
-E) AMEND THE FOLLOWING SID CHARTS 
-AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
-AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
-AIP EGPK AD 2 6-1/6-2 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0415/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) 1904302359
-E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
-7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0116/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QFAHX/IV/NBO/A /000/999/5531N00436W005
-A) EGPK B) 1901141800 C) 1903141415
-E) HIGH BIRD ACTIVITY IN THE VICINITY AND EAST OF RWY03 APPROACH
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0210/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902270800 C) 1902271800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0211/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902260800 C) 1902261800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0217/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902250800 C) 1902251800
-E) CRANE OPR PSN 553339N 0043805W (TROON) HGT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0218/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902200800 C) 1902221800
-D) 0800-1800
-E) 
-CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0367/19 NOTAMR A0254/19
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
-A) EGPK B) 1902061337 C) 1902151700
-E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0212/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902130800 C) 1902131800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-  </div>
+  />
 </div>
 `;
 
@@ -1613,198 +1295,7 @@ exports[`notam renders properly 7`] = `
   </div>
   <div
     class="Notams"
-  >
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4134/18 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) PERM
-E) FLIGHT PROCEDURES
-3 PROCEDURES FOR OUTBOUND AIRCRAFT. CHANGE TO READ
-(A) STANDARD INSTRUMENT DEPARTURES FROM PRESTWICK ARE AS FOLLOWS 
-(SEE AD2-EGPK-6-1/2):
-P600 VIA TRN
-N560 VIA TRN TO GOW
-L602 VIA TRN TO GOW
-UL612 NORTH VIA TRN TO GOW
-T256/UT256 DEPARTING RUNWAY 30, LUCCO Z248 OSMEG T256 DCS
-T256/UT256 DEPARTING RUNWAY 12, SUDBY Z249 OSMEG T256 DCS
-Y96 DEPARTING RUNWAY 30, LUCCO Z250 HAVEN
-Y96 DEPARTING RUNWAY 12, SUMIN Z250 HAVEN
-N562 DEPARTING RUNWAY 30, DAUNT Z246 HERON
-N562 DEPARTING RUNWAY 12, OKNOB Z247 HERON
-(B) NORTH ATLANTIC DEPARTURES.
-(I) DUE TO THE PROXIMITY OF THE SHANWICK OCEANIC BOUNDARY TO 
-PRESTWICK, PILOTS OF JET AIRCRAFT PLANNED TO ENTER SHANWICK AIRSPACE 
-AT GOMUP AND ETILO SHOULD CONTACT OCEAN DELIVERY PRIOR TO DEPARTURE. 
-ON ALL OTHER OCEANIC ROUTES THIS CLEARANCE CAN BE OBTAINED AFTER THE 
-AIRCRAFT IS AIRBORNE. ENR 2.2, PARAGRAPH 3.8.2 REFERS.
-(II) PILOTS ARE REMINDED THAT THE OCEANIC CLEARANCE (INCLUDING LEVEL 
-ALLOCATION) IS VALID ONLY FROM THE OCA ENTRY POINT.
-DOMESTIC ATC CLEARANCE TO THE OCA ENTRY POINT IS ISSUED SEPARATELY.
-(III) WHEN TRA 008 (ENR 5.2 AND ENR 6) IS ACTIVE, AIRCRAFT ENTERING 
-SHANWICK/REYKJAVIK AIRSPACE AT ETILO, ERAKA, ADODO, BALIX, ORTAV, 
-ATSIX, LUSEN OR RATSU SHOULD FILE VIA TRN GOW
-EGPK AD 2.22 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4190/18 NOTAMR A4130/18
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QCACF/IV/B  /AE/000/055/5530N00435W014
-A) EGPK B) 1812281146 C) PERM
-E) THE FOLLOWING FREQ ARE AMENDED DUE 8.33 MHZ CHANGES:
-PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
-PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
-PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
-UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0344/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280000 C) PERM
-E) AMEND THE FOLLOWING SID CHARTS 
-AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
-AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
-AIP EGPK AD 2 6-1/6-2 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0415/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) 1904302359
-E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
-7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0116/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QFAHX/IV/NBO/A /000/999/5531N00436W005
-A) EGPK B) 1901141800 C) 1903141415
-E) HIGH BIRD ACTIVITY IN THE VICINITY AND EAST OF RWY03 APPROACH
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0210/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902270800 C) 1902271800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0211/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902260800 C) 1902261800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0217/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902250800 C) 1902251800
-E) CRANE OPR PSN 553339N 0043805W (TROON) HGT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0218/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902200800 C) 1902221800
-D) 0800-1800
-E) 
-CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0367/19 NOTAMR A0254/19
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
-A) EGPK B) 1902061337 C) 1902151700
-E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0212/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902130800 C) 1902131800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-  </div>
+  />
 </div>
 `;
 
@@ -1843,198 +1334,7 @@ exports[`notam renders properly 8`] = `
   </div>
   <div
     class="Notams"
-  >
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4134/18 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) PERM
-E) FLIGHT PROCEDURES
-3 PROCEDURES FOR OUTBOUND AIRCRAFT. CHANGE TO READ
-(A) STANDARD INSTRUMENT DEPARTURES FROM PRESTWICK ARE AS FOLLOWS 
-(SEE AD2-EGPK-6-1/2):
-P600 VIA TRN
-N560 VIA TRN TO GOW
-L602 VIA TRN TO GOW
-UL612 NORTH VIA TRN TO GOW
-T256/UT256 DEPARTING RUNWAY 30, LUCCO Z248 OSMEG T256 DCS
-T256/UT256 DEPARTING RUNWAY 12, SUDBY Z249 OSMEG T256 DCS
-Y96 DEPARTING RUNWAY 30, LUCCO Z250 HAVEN
-Y96 DEPARTING RUNWAY 12, SUMIN Z250 HAVEN
-N562 DEPARTING RUNWAY 30, DAUNT Z246 HERON
-N562 DEPARTING RUNWAY 12, OKNOB Z247 HERON
-(B) NORTH ATLANTIC DEPARTURES.
-(I) DUE TO THE PROXIMITY OF THE SHANWICK OCEANIC BOUNDARY TO 
-PRESTWICK, PILOTS OF JET AIRCRAFT PLANNED TO ENTER SHANWICK AIRSPACE 
-AT GOMUP AND ETILO SHOULD CONTACT OCEAN DELIVERY PRIOR TO DEPARTURE. 
-ON ALL OTHER OCEANIC ROUTES THIS CLEARANCE CAN BE OBTAINED AFTER THE 
-AIRCRAFT IS AIRBORNE. ENR 2.2, PARAGRAPH 3.8.2 REFERS.
-(II) PILOTS ARE REMINDED THAT THE OCEANIC CLEARANCE (INCLUDING LEVEL 
-ALLOCATION) IS VALID ONLY FROM THE OCA ENTRY POINT.
-DOMESTIC ATC CLEARANCE TO THE OCA ENTRY POINT IS ISSUED SEPARATELY.
-(III) WHEN TRA 008 (ENR 5.2 AND ENR 6) IS ACTIVE, AIRCRAFT ENTERING 
-SHANWICK/REYKJAVIK AIRSPACE AT ETILO, ERAKA, ADODO, BALIX, ORTAV, 
-ATSIX, LUSEN OR RATSU SHOULD FILE VIA TRN GOW
-EGPK AD 2.22 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A4190/18 NOTAMR A4130/18
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QCACF/IV/B  /AE/000/055/5530N00435W014
-A) EGPK B) 1812281146 C) PERM
-E) THE FOLLOWING FREQ ARE AMENDED DUE 8.33 MHZ CHANGES:
-PRESTWICK RAD STANDBY FREQ 124.625 REPLACED BY 124.630 MHZ
-PRESTWICK TWR STANDBY FREQ 127.150 REPLACED BY 127.155 MHZ
-PRESTWICK ATIS FREQ 121.125 REPLACED BY 121.130 MHZ
-UK AIP AD 2.18 AND ALL RELEVANT IAC REFER
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0344/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPDCH/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280000 C) PERM
-E) AMEND THE FOLLOWING SID CHARTS 
-AD 2 EGPK 6-1 AMEND NOTE 2 CRITICAL NAVAID DND TO READ DUD.
-AD 2 EGPK 6-2 AMEND NOTE 1 CRITICAL NAVAID DND TO READ DUD.
-AIP EGPK AD 2 6-1/6-2 REFERS
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0415/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QPIAU/I /NBO/A /000/999/5531N00436W005
-A) EGPK B) 1902280001 C) 1904302359
-E) WITH REFERENCE TO THE RNAV 1 APPROACH TRANSITION CHARTS. AD2 EGPK
-7-3, AD2 EGPK 7-4 AND AD2 EGPK 7-5 ARE NOT AVAILABLE.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0116/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QFAHX/IV/NBO/A /000/999/5531N00436W005
-A) EGPK B) 1901141800 C) 1903141415
-E) HIGH BIRD ACTIVITY IN THE VICINITY AND EAST OF RWY03 APPROACH
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0210/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902270800 C) 1902271800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0211/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902260800 C) 1902261800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0217/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902250800 C) 1902251800
-E) CRANE OPR PSN 553339N 0043805W (TROON) HGT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0218/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902200800 C) 1902221800
-D) 0800-1800
-E) 
-CRANE OPR AT 553339N 0043805W (TROON). HEIGHT 115FT AGL, 176FT AMSL.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0367/19 NOTAMR A0254/19
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QMXLC/IV/M  /A /000/999/5531N00436W005
-A) EGPK B) 1902061337 C) 1902151700
-E) LINK JULLIET CLOSED DUE WORK IN PROGRESS.
-      </div>
-    </div>
-    <div
-      class="notif-text"
-    >
-      <div>
-        <strong>
-          A0212/19 NOTAMN
-        </strong>
-      </div>
-      <div>
-        Q) EGPX/QOBCE/IV/M  /AE/000/002/5534N00438W001
-A) EGPK B) 1902130800 C) 1902131800
-E) CRANE OPR 553339N 0043805W TROON. HEIGHT 115FT AGL/176FT AMSL.
-      </div>
-    </div>
-  </div>
+  />
 </div>
 `;
 
