@@ -13,6 +13,10 @@ const NOTAM_TTL = process.env.NOTAM_TTL || 60;
 artoo.bootstrap(cheerio);
 
 const getMetarIntl = async stations => {
+  if (stations.length === 0) {
+    return null;
+  }
+
   baseURL = `https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=${ stations.join('%20') }&hoursBeforeNow=4`;
 
   try {
@@ -44,6 +48,10 @@ const getMetarIntl = async stations => {
 }
 
 const getTafIntl = async stations => {
+  if (stations.length === 0) {
+    return null;
+  }
+  
   baseURL = `https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString=${ stations.join('%20') }&hoursBeforeNow=0`;
 
   try {
