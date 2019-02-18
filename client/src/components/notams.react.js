@@ -64,14 +64,14 @@ function Notams({
   })
 
   return (
-    <div className="col">
+    <div id="notams">
       <div id="notam-header">
         <div className="subtitle">NOTAM</div>
         <div className="button-selection">
           {typesFormated}
         </div>
       </div>
-      <div className="Notams">{notams}</div>
+      <div className="notams">{notams}</div>
     </div>
   )
 }

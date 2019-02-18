@@ -2,7 +2,7 @@
 
 exports[`empty notam renders error 1`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -33,14 +33,14 @@ exports[`empty notam renders error 1`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`empty notam renders error 2`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -71,14 +71,14 @@ exports[`empty notam renders error 2`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 1`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -109,7 +109,7 @@ exports[`notam renders properly 1`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   >
     <div
       class="notif-text"
@@ -354,7 +354,7 @@ FEB 13-MAR 28 SR-SS
 
 exports[`notam renders properly 2`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -386,7 +386,7 @@ exports[`notam renders properly 2`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   >
     <div
       class="notif-text"
@@ -631,7 +631,7 @@ FEB 13-MAR 28 SR-SS
 
 exports[`notam renders properly 3`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -663,7 +663,7 @@ exports[`notam renders properly 3`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   >
     <div
       class="notif-text"
@@ -908,7 +908,7 @@ FEB 13-MAR 28 SR-SS
 
 exports[`notam renders properly 4`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -940,7 +940,7 @@ exports[`notam renders properly 4`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   >
     <div
       class="notif-text"
@@ -1185,7 +1185,7 @@ FEB 13-MAR 28 SR-SS
 
 exports[`notam renders properly 5`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1216,14 +1216,14 @@ exports[`notam renders properly 5`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 6`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1255,14 +1255,14 @@ exports[`notam renders properly 6`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 7`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1294,14 +1294,14 @@ exports[`notam renders properly 7`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 8`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1333,14 +1333,14 @@ exports[`notam renders properly 8`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 9`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1371,14 +1371,14 @@ exports[`notam renders properly 9`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 10`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1410,14 +1410,14 @@ exports[`notam renders properly 10`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 11`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1449,14 +1449,14 @@ exports[`notam renders properly 11`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 12`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1488,14 +1488,14 @@ exports[`notam renders properly 12`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 13`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1526,14 +1526,14 @@ exports[`notam renders properly 13`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 14`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1565,14 +1565,14 @@ exports[`notam renders properly 14`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 15`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1604,14 +1604,14 @@ exports[`notam renders properly 15`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;
 
 exports[`notam renders properly 16`] = `
 <div
-  class="col"
+  id="notams"
 >
   <div
     id="notam-header"
@@ -1643,7 +1643,7 @@ exports[`notam renders properly 16`] = `
     </div>
   </div>
   <div
-    class="Notams"
+    class="notams"
   />
 </div>
 `;

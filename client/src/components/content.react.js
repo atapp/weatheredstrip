@@ -64,7 +64,7 @@ class Content extends Component {
                 <div className="station-name">{ selected }</div>
                 <Timestamp dataTime={ data.Timestamp } />
               </div>
-              <div className="SelectedContent">
+              <div className="selected-content">
                 { this.errorExists() ?
                   <React.Fragment>
                     <h2>Error...</h2>
