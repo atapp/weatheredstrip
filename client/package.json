@@ -16,6 +16,7 @@
   "devDependencies": {
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
+    "firebase": "^5.8.3",
     "jest-dom": "^3.0.0",
     "react-test-renderer": "^16.7.0",
     "react-testing-library": "^5.7.0"
@@ -40,6 +41,5 @@
       "!<rootDir>/src/index.js",
       "!<rootDir>/node_modules/"
     ]
-  },
-  "homepage": "http://www.greghamel.com/weatheredstrip"
+  }
 }
