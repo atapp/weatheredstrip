@@ -73,7 +73,7 @@ class Content extends Component {
                   :
                   <React.Fragment>
                     <div className="metar-rvr">
-                      <Rvr data={ data[ selected ].RVR } />
+                      <Rvr data={ data[ selected ].rvr } />
                       <div className="col">
                         <div>
                           <div className="subtitle">METAR</div>

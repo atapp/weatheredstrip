@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import queryString from 'query-string';
 import './App.css';
+import Firebase from './components/Firebase/firebase';
 
 // Import of Components
 import { Footer, Header, Home, Content } from './components';
@@ -36,7 +37,7 @@ class App extends Component {
     });
 
     if (process.env.NODE_ENV === 'production') {
-      xhr.open('GET', `/api/airport?q=${ stations }`);
+      xhr.open('GET', `https://api.weatheredstrip.com/airport?q=${ stations }`);
     } else if (process.env.NODE_ENV === 'development') {
       xhr.open('GET', `http://localhost:3001/airport?q=${ stations }`);
     }

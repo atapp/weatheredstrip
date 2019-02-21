@@ -259,11 +259,12 @@ h3 {
   flex: 1;
   display: flex;
   padding-left: 10px;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 #navbar {
-  flex: 95px 0 0;
+  flex: 100px 0 0;
   flex-shrink: 0;
   border-right: 1px #D1D1D1 solid;
   background-color: #F1F1F1;
@@ -294,7 +295,7 @@ h3 {
   font-size: .9em;
   font-family: 'Source Code Pro', monospace;
   text-align: left;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
 }
 
 p {
@@ -311,7 +312,7 @@ p {
   flex-shrink: 0;
   max-height: 300px;
   max-width: 300px;
-  margin-left: 10px;
+  margin: 0 auto;
 }
 
 .searchbox {
