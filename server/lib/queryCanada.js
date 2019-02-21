@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-const artoo = require("artoo-js");
+const artoo = require('artoo-js');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
@@ -36,13 +36,13 @@ const getMetarCanada = async stations => {
   try {
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     const body = await response.text()
-    let $ = await cheerio.load(body);
+    const $ = await cheerio.load(body);
 
     const error = await $(errorParser).scrape('text');
     const errorExists = error.length > 0 ? true : false;
 
     if (errorExists) {
-      return { ERROR: "Invalid ICAO identifier" }
+      return { ERROR: 'Invalid ICAO identifier' }
     }
 
     const taf_reg = /\n\s*(?=FM\d{6}|RMK|PROB)/
@@ -51,24 +51,23 @@ const getMetarCanada = async stations => {
     const metarData = await $(metarParser).scrape('html');
     const tafData = await $(tafParser).scrape('text');
 
-
     const metars = await Promise.all(metarData.map(async metar => {
-      let $ = await cheerio.load(metar);
+      const $ = await cheerio.load(metar);
       return await $('div').scrape('text').map(metar => metar.slice(1, metar.indexOf('=')))
     }))
 
-    let metarInfo = {}
+    const metarInfo = {}
     stationName.forEach((name, index) => {
-      metarInfo[stations[index]] = {
+      metarInfo[ stations[ index ] ] = {
         stationName: name.trimEnd(),
-        metar: metars[index],
-        taf: tafData[index].slice(1, tafData[index].indexOf('=')).split(taf_reg)
+        metar: metars[ index ],
+        taf: tafData[ index ].slice(1, tafData[ index ].indexOf('=')).split(taf_reg)
       }
     })
 
     return metarInfo
   } catch (err) {
-    logger(`GetMetarData: ${err}`)
+    logger(`GetMetarData: ${ err }`)
     return null
   }
 }
@@ -95,76 +94,82 @@ const getNotamCanada = async stations => {
 
   const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/notam.cgi'
   // this is the query for all notam products
-  const FullNotamParser = "#notam_all_whole_section"
+  const FullNotamParser = '#notam_all_whole_section'
   // this is the query to separate the types of notam requested.
-  const notamSectionParser = "#notam_title_whole_section"
+  const notamSectionParser = '#notam_title_whole_section'
   // this is the query to separate the stations within the types of notams
-  const notamStationParser = "#notam_station_whole_section"
+  const notamStationParser = '#notam_station_whole_section'
   // this is the query to get all station's NOTAM bulletin:
-  const notamBulletinParser = "#notam_bulletin"
+  const notamBulletinParser = '#notam_bulletin'
 
   let body
   try {
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     body = await response.text()
   } catch (err) {
-    logger(`GetNotamData: ${err}`)
+    logger(`GetNotamData: ${ err }`)
     return null
   }
 
   try {
-    let $ = await cheerio.load(body);
+    const $ = await cheerio.load(body);
     const notamTypesSections = await $(notamSectionParser).scrape('html');
 
-    let data = new Object()
+    const data = new Object()
     for (const notamSection of notamTypesSections) {
-      let $ = await cheerio.load(notamSection)
-      const notamType = await $("#notam_print_item").scrapeOne('text');
+      const $ = await cheerio.load(notamSection)
+      const notamType = await $('#notam_print_item').scrapeOne('text');
       const notamStationsBlock = await $(notamStationParser).scrape('html');
 
       const notamBulletins = new Object()
       for (const notamStationBlock of notamStationsBlock) {
-        let $ = await cheerio.load(notamStationBlock)
-        const stationName = await $("#notam_print_item").scrapeOne('text');
+        const $ = await cheerio.load(notamStationBlock)
+        const stationName = await $('#notam_print_item').scrapeOne('text');
         const notamBulletin = await  $(notamBulletinParser).scrape('text').map(notam => {
           // add a filter for extra '\n' that cause impromptu line return
           const trimmedNotam = notam.substring(1, notam.length - 1)
           // split title and bulletin into two field.
-          const titleEnd = trimmedNotam.indexOf("\n")
+          const titleEnd = trimmedNotam.indexOf('\n')
           return {
             title: trimmedNotam.slice(1, titleEnd),
             notam: trimmedNotam.slice(titleEnd + 1, trimmedNotam.length - 1)
           }
         })
 
-        notamBulletins[stationName.slice(2, stationName.length - 1)] = notamBulletin
+        notamBulletins[ stationName.slice(2, stationName.length - 1) ] = notamBulletin
       }
-      data[notamType.slice(3, notamType.length - 1)] = notamBulletins
+      data[ notamType.slice(3, notamType.length - 1) ] = notamBulletins
     }
 
     return data
   } catch (err) {
-    logger(`GetNotamData: ${err}`)
+    logger(`GetNotamData: ${ err }`)
   }
 }
 
 /*  Makes a request to NAV Canada for the specified station RVR webpage. Then
     returns the RVR image link as an object */
-const getRvrCanada = async station => {
+const getRvrCanada = async stations => {
   const baseURL = 'http://atm.navcanada.ca'
   const rvrParser = 'img[alt="Aerodrome chart"]'
-  try {
-    const response = await fetch(baseURL + '/atm/iwv/' + station)
-    const body = await response.text()
-    let $ = await cheerio.load(body);
-    const data = await $('img[alt="Aerodrome chart"]').scrapeOne('src');
+  const airportsRVR = new Object()
 
-    const RVR = data === undefined ? { RVR: null } : { RVR: baseURL + data }
-    return RVR
-  } catch (err) {
-    logger(`GetRVRData: ${err}`)
-    return null
-  }
+  await Promise.all(stations.map(async station => {
+    try {
+      const response = await fetch(baseURL + '/atm/iwv/' + station)
+      const body = await response.text()
+      const $ = await cheerio.load(body);
+      const data = await $('img[alt="Aerodrome chart"]').scrapeOne('src');
+
+      const RVR = data === undefined ? { rvr: null } : { rvr: baseURL + data }
+      airportsRVR[ station ] = RVR
+    } catch (err) {
+      logger(`GetRVRData: ${ err }`)
+      return null
+    }
+  }))
+
+  return airportsRVR
 }
 
 const getCanadianAirports = async stations => {
@@ -172,25 +177,27 @@ const getCanadianAirports = async stations => {
     try {
       const metars = await getMetarCanada(stations.canada)
       const notams = await getNotamCanada(stations.canada)
+      const rvr = await getRvrCanada(stations.canada)
 
-      let airportInfo = new Object()
+      const airportInfo = new Object()
 
       stations.canada.forEach(airport => {
-        airportInfo[airport] = {
-          ...metars[airport],
-          notam: notams["Aerodrome NOTAM file"][airport],
-          fir: notams["FIR (Flight Information Region) NOTAM file"][airportsData[airport].FIR]
+        airportInfo[ airport ] = {
+          ...metars[ airport ],
+          notam: notams[ 'Aerodrome NOTAM file' ][ airport ],
+          fir: notams[ 'FIR (Flight Information Region) NOTAM file' ][ airportsData[ airport ].FIR ],
+          rvr: rvr[ airport ].rvr
         }
       })
 
-      airportInfo['other_notam'] = {
-        'CZNB': notams["CZNB NOTAM file"]["CZNB"] ? notams["CZNB NOTAM file"]["CZNB"] : null,
-        'national': notams["National NOTAM file"]["CYHQ"] ? notams["National NOTAM file"]["CYHQ"] : null
+      airportInfo[ 'other_notam' ] = {
+        'CZNB': notams[ 'CZNB NOTAM file' ][ 'CZNB' ] ? notams[ 'CZNB NOTAM file' ][ 'CZNB' ] : null,
+        'national': notams[ 'National NOTAM file' ][ 'CYHQ' ] ? notams[ 'National NOTAM file' ][ 'CYHQ' ] : null
       }
 
       return airportInfo
     } catch (err){
-      logger(err)
+      throw err
     }
 
   } else {
