@@ -37,7 +37,7 @@ class App extends Component {
     });
 
     if (process.env.NODE_ENV === 'production') {
-      xhr.open('GET', `https://greghamel.com/api/airport?q=${ stations }`);
+      xhr.open('GET', `https://api.weatheredstrip.com/airport?q=${ stations }`);
     } else if (process.env.NODE_ENV === 'development') {
       xhr.open('GET', `http://localhost:3001/airport?q=${ stations }`);
     }
