@@ -19,4 +19,4 @@ Once all requests are resolved, the server responds to the client's request with
 The client merely dispatches the user's request to the server and, once resolved, display them in the current format.
 
 ## Demo
-This is a live application which can be accessed at the following link: [Weathered Strip](https://www.greghamel.com/weatheredstrip)
+A live app can be accessed at the following link: [Weathered Strip](https://www.weatheredstrip.com)
