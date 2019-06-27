@@ -3,13 +3,21 @@
 exports[`empty taf renders empty 1`] = `
 <div
   class="tafs"
-/>
+>
+  <div>
+    No TAF is issued for this station.
+  </div>
+</div>
 `;
 
 exports[`no taf renders empty 1`] = `
 <div
   class="tafs"
-/>
+>
+  <div>
+    No TAF is issued for this station.
+  </div>
+</div>
 `;
 
 exports[`taf renders properly 1`] = `
@@ -71,11 +79,19 @@ exports[`taf renders properly 2`] = `
 exports[`taf renders properly 3`] = `
 <div
   class="tafs"
-/>
+>
+  <div>
+    No TAF is issued for this station.
+  </div>
+</div>
 `;
 
 exports[`taf renders properly 4`] = `
 <div
   class="tafs"
-/>
+>
+  <div>
+    No TAF is issued for this station.
+  </div>
+</div>
 `;

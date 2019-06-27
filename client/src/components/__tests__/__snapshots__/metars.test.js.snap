@@ -3,13 +3,21 @@
 exports[`empty metar renders nothing 1`] = `
 <div
   class="Metars"
-/>
+>
+  <div>
+    No METAR is issued for this station.
+  </div>
+</div>
 `;
 
 exports[`empty metar renders nothing 2`] = `
 <div
   class="Metars"
-/>
+>
+  <div>
+    No METAR is issued for this station.
+  </div>
+</div>
 `;
 
 exports[`metar renders properly 1`] = `
@@ -84,11 +92,19 @@ exports[`metar renders properly 2`] = `
 exports[`metar renders properly 3`] = `
 <div
   class="Metars"
-/>
+>
+  <div>
+    No METAR is issued for this station.
+  </div>
+</div>
 `;
 
 exports[`metar renders properly 4`] = `
 <div
   class="Metars"
-/>
+>
+  <div>
+    No METAR is issued for this station.
+  </div>
+</div>
 `;
