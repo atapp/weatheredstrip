@@ -14,7 +14,6 @@ time {
 }
 
 .app {
-
 }
 
 .app-header {
@@ -424,6 +423,8 @@ p {
   flex-direction: column;
   align-content: center;
   padding: 0 10px;
+  min-height: calc(100vh - 40px - 10px - 55px);
+  padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -445,7 +446,7 @@ p {
     padding-right: 0;
   }
   .user-content {
-    justify-content:
+    min-height: calc(100vh - 40px - 10px - 90px)
   }
 }
 
@@ -507,7 +508,7 @@ p {
     flex-direction: column;
     width: 100%;
     min-width: inherit;
-    padding-bottom: 79px;
+    padding-bottom: 74px;
   }
 
   .footer-content {
@@ -598,5 +599,6 @@ p {
 
   .user-content {
     border: none;
+    min-height: calc(100vh - 74px - 37px - 10px - 90px)
   }
 }
