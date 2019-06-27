@@ -12,3 +12,6 @@ node_modules
 # Logs
 *.log
 yarn-error.log
+
+# Workspace
+*.code-workspace
