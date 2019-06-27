@@ -28,50 +28,57 @@ const getMetarCanada = async stations => {
   };
 
   const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi'
+
+  // Parser the station Names
   const stationNameParser = 'body > h2'
+
+  // Parser for a block containing metars <table />
   const metarParser = 'body > p'
+
+  // Parser for a block containing all TAF lines separated by <br />
   const tafParser = 'body > font'
-  const errorParser = 'FONT:contains("Invalid or unknown aerodrome ID")'
-  const noMetarParser = 'FONT:contains("No METAR is issued for this station")'
 
   try {
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     const body = await response.text()
     const $ = await cheerio.load(body);
 
-    // Check for ICAO Id error
-    const error = await $(errorParser).scrape('text');
-    const errorExists = error.length > 0 ? true : false;
-
-    if (errorExists) {
-      return { ERROR: 'Invalid ICAO identifier' }
-    }
-
-    // Check for ICAO ID no-metar issued
-    let noMetar = await $(noMetarParser).scrape('text');
-    noMetar = noMetar.length > 0 ? true : false;
-
-    if (noMetar) {
-      return { ERROR: 'No METAR/TAF issued for this station.' }
-    }
-
     const taf_reg = /\n\s*(?=FM\d{6}|RMK|PROB)/
 
+    // Scrape all lines related to the metar and taf info.
     const stationName = await $(stationNameParser).scrape('text');
     const metarData = await $(metarParser).scrape('html');
     const tafData = await $(tafParser).scrape('text');
 
-    const metars = await Promise.all(metarData.map(async metar => {
+    const cleanedMetars = metarData.filter(item => item.indexOf('No TAF') < 0)
+
+    const metars = await Promise.all(cleanedMetars.map(async metar => {
+      // Goes through each <div /> within the metars table.
       const $ = await cheerio.load(metar);
       return await $('div').scrape('text').map(metar => metar.slice(1, metar.indexOf('=')))
     }))
+
+    const newTafArray = new Array(cleanedMetars.length)
+
+    /* Replicate the tafData into the same length as metarData
+       while keepin the same relations to indexes. */
+
+    let tafDataIndex = 0
+    cleanedMetars.forEach((metarBlock, index) => {
+      if (metarBlock.indexOf('No METAR') < 0) {
+        newTafArray[index] = tafData[tafDataIndex]
+        tafDataIndex++
+      } else {
+        newTafArray[index] = null
+      }
+    })
 
     const metarInfo = {}
     stationName.forEach((name, index) => {
       metarInfo[ stations[ index ] ] = {
         stationName: name.trimEnd(),
         metar: metars[ index ],
-        taf: tafData[ index ].slice(1, tafData[ index ].indexOf('=')).split(taf_reg)
+        taf: newTafArray[index] ? newTafArray[ index ].slice(1, newTafArray[ index ].indexOf('=')).split(taf_reg) : []
       }
     })
 
@@ -112,7 +119,11 @@ const getNotamCanada = async stations => {
   // this is the query to get all station's NOTAM bulletin:
   const notamBulletinParser = '#notam_bulletin'
 
-  let body
+  const firs = ['CZUL', 'CZEG', 'CZQM', 'CZQX', 'CZVR', 'CZWG', 'CZYZ']
+  const otherStations = ['CZNB', 'CYHQ']
+
+  let body;
+
   try {
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     body = await response.text()
@@ -121,34 +132,58 @@ const getNotamCanada = async stations => {
     return null
   }
 
+  let allStations = stations.slice() // Unlinked-copy of stations
+
   try {
     const $ = await cheerio.load(body);
     const notamTypesSections = await $(notamSectionParser).scrape('html');
 
     const data = new Object()
+
+    // for ... of is used instead of a forEach because of the asyncronous nature of this loop. Prevents the use of Promise.all(array.map(...))
     for (const notamSection of notamTypesSections) {
       const $ = await cheerio.load(notamSection)
-      const notamType = await $('#notam_print_item').scrapeOne('text');
+      const notamType = await $('#notam_print_item').scrapeOne('text').trim();
       const notamStationsBlock = await $(notamStationParser).scrape('html');
 
       const notamBulletins = new Object()
       for (const notamStationBlock of notamStationsBlock) {
         const $ = await cheerio.load(notamStationBlock)
-        const stationName = await $('#notam_print_item').scrapeOne('text');
-        const notamBulletin = await  $(notamBulletinParser).scrape('text').map(notam => {
+
+        const notamBulletin = await $(notamBulletinParser).scrape('text').map(notam => {
           // add a filter for extra '\n' that cause impromptu line return
-          const trimmedNotam = notam.substring(1, notam.length - 1)
+          const trimmedNotam = notam.trim()
           // split title and bulletin into two field.
           const titleEnd = trimmedNotam.indexOf('\n')
           return {
             title: trimmedNotam.slice(1, titleEnd),
-            notam: trimmedNotam.slice(titleEnd + 1, trimmedNotam.length - 1)
+            notam: trimmedNotam.slice(titleEnd + 1, trimmedNotam.length)
           }
         })
 
-        notamBulletins[ stationName.slice(2, stationName.length - 1) ] = notamBulletin
+
+        let stationName = await $('#notam_print_item').scrapeOne('text').trim();
+        if (
+          notamType === 'Aerodrome NOTAM file' &&
+          firs.indexOf(stationName) < 0 &&
+          otherStations.indexOf(stationName) < 0
+          ) {
+          allStations.forEach(station => {
+            if (station !== stationName) {
+              notamBulletin.forEach(notam => {
+                if (notam.notam.indexOf(station) >= 0) {
+                  notamBulletins[ station ] = notamBulletin
+                }
+              })
+            } else {
+              notamBulletins[ stationName ] = notamBulletin
+            }
+          })
+        } else {
+          notamBulletins[ stationName ] = notamBulletin
+        }
       }
-      data[ notamType.slice(3, notamType.length - 1) ] = notamBulletins
+      data[ notamType ] = notamBulletins
     }
 
     return data
@@ -189,14 +224,12 @@ const getCanadianAirports = async stations => {
       const notams = await getNotamCanada(stations.canada)
       const rvr = await getRvrCanada(stations.canada)
 
-      const airportInfo = new Object()
+      let airportInfo = new Object()
 
       stations.canada.forEach(airport => {
-        console.log(notams[ 'Aerodrome NOTAM file' ])
-        console.log(notams[ 'Aerodrome NOTAM file' ][airport][0].title)
         if (notams[ 'Aerodrome NOTAM file' ][airport][0].title === "INVALID IDENTIFIER, PLEASE VERIFY AND TRY AGAIN.") {
           airportInfo[ airport ] = {
-            ...metars[ airport ],
+            metars: null,
             notam: null,
             fir: null,
             rvr: null,
@@ -206,7 +239,7 @@ const getCanadianAirports = async stations => {
           airportInfo[ airport ] = {
             ...metars[ airport ],
             notam: notams[ 'Aerodrome NOTAM file' ][ airport ],
-            fir: notams[ 'FIR (Flight Information Region) NOTAM file' ][ airportsData[ airport ].FIR ],
+            fir: airportsData[ airport ] ? notams[ 'FIR (Flight Information Region) NOTAM file' ][ airportsData[ airport ].FIR ] : [],
             rvr: rvr[ airport ].rvr
           }
         }
