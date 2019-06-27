@@ -7,10 +7,12 @@ function Metars({
 }) {
   let metars;
 
-  if (data) {
+  if (data && data.length > 0) {
     metars = data.map((metar, index) => {
       return (<div className="notif-text" key={ index }>{ metar }</div>)
     })
+  } else {
+    metars = <div>No METAR is issued for this station.</div>
   }
 
   return (
