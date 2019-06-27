@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import queryString from 'query-string';
 import './App.css';
-import Firebase from './components/Firebase/firebase';
 
 // Import of Components
 import { Footer, Header, Home, Content } from './components';
