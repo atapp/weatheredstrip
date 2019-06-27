@@ -28,21 +28,31 @@ const getMetarCanada = async stations => {
   };
 
   const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi'
-  const stationNameParser = 'body > h2' // [style="text-align: left;"]
+  const stationNameParser = 'body > h2'
   const metarParser = 'body > p'
-  const tafParser = 'body > font' // [style="font-family: ARIAL; font-size: small;"]
+  const tafParser = 'body > font'
   const errorParser = 'FONT:contains("Invalid or unknown aerodrome ID")'
+  const noMetarParser = 'FONT:contains("No METAR is issued for this station")'
 
   try {
     const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
     const body = await response.text()
     const $ = await cheerio.load(body);
 
+    // Check for ICAO Id error
     const error = await $(errorParser).scrape('text');
     const errorExists = error.length > 0 ? true : false;
 
     if (errorExists) {
       return { ERROR: 'Invalid ICAO identifier' }
+    }
+
+    // Check for ICAO ID no-metar issued
+    let noMetar = await $(noMetarParser).scrape('text');
+    noMetar = noMetar.length > 0 ? true : false;
+
+    if (noMetar) {
+      return { ERROR: 'No METAR/TAF issued for this station.' }
     }
 
     const taf_reg = /\n\s*(?=FM\d{6}|RMK|PROB)/
@@ -182,11 +192,23 @@ const getCanadianAirports = async stations => {
       const airportInfo = new Object()
 
       stations.canada.forEach(airport => {
-        airportInfo[ airport ] = {
-          ...metars[ airport ],
-          notam: notams[ 'Aerodrome NOTAM file' ][ airport ],
-          fir: notams[ 'FIR (Flight Information Region) NOTAM file' ][ airportsData[ airport ].FIR ],
-          rvr: rvr[ airport ].rvr
+        console.log(notams[ 'Aerodrome NOTAM file' ])
+        console.log(notams[ 'Aerodrome NOTAM file' ][airport][0].title)
+        if (notams[ 'Aerodrome NOTAM file' ][airport][0].title === "INVALID IDENTIFIER, PLEASE VERIFY AND TRY AGAIN.") {
+          airportInfo[ airport ] = {
+            ...metars[ airport ],
+            notam: null,
+            fir: null,
+            rvr: null,
+            ERROR: "Invalid Identifier"
+          }
+        } else {
+          airportInfo[ airport ] = {
+            ...metars[ airport ],
+            notam: notams[ 'Aerodrome NOTAM file' ][ airport ],
+            fir: notams[ 'FIR (Flight Information Region) NOTAM file' ][ airportsData[ airport ].FIR ],
+            rvr: rvr[ airport ].rvr
+          }
         }
       })
 
