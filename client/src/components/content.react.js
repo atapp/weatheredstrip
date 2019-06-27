@@ -8,16 +8,13 @@ class Content extends Component {
       stationSelection: null,
       notamType: 'Aerodrome'
     }
-
-    this.handleStationSelect = this.handleStationSelect.bind(this)
-    this.onNotamTypeSelection = this.onNotamTypeSelection.bind(this)
   }
 
-  onNotamTypeSelection(type) {
+  onNotamTypeSelection = (type) => {
     this.setState({ ...this.state, notamType: type })
   }
 
-  handleStationSelect(value) {
+  handleStationSelect = (value) => {
     this.setState({ ...this.state, stationSelection: value })
   }
 
@@ -50,9 +47,10 @@ class Content extends Component {
 
     if (data && data[ this.state.stationSelection ]) {
       const selected = this.state.stationSelection
+      const stationData = data[selected]
       const lengths = {
-        'Aerodrome': data[ selected ].notam.length,
-        'FIR': data[ selected ].fir.length,
+        'Aerodrome': stationData.notam ? stationData.notam.length : null,
+        'FIR': stationData.fir ? stationData.fir.length : null,
         'GPS': data[ 'other_notam' ].KGPS.length
       }
       content =
@@ -67,8 +65,12 @@ class Content extends Component {
               <div className="selected-content">
                 { this.errorExists() ?
                   <React.Fragment>
-                    <h2>Error...</h2>
-                    <p>This ICAO identifier does not seem to be valid or it is an international identifier which are not currently supported.</p>
+                    <div id="notams">
+                      <div id="notam-header">
+                        <div className="subtitle">Error...</div>
+                      </div>
+                      This ICAO identifier does not seem to be valid...
+                    </div>
                   </React.Fragment>
                   :
                   <React.Fragment>
