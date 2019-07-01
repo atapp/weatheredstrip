@@ -16,7 +16,7 @@
     "debug": "node --inspect weather.js"
   },
   "engines": {
-    "node": ">=11.6.0"
+    "node": "=11.15.0"
   },
   "os": [
     "darwin",
