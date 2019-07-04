@@ -23,7 +23,17 @@ exports[`empty notam renders error 1`] = `
       <button
         class="button secondary"
       >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
+      >
         FIR (0)
+      </button>
+      <button
+        class="button secondary"
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -61,7 +71,17 @@ exports[`empty notam renders error 2`] = `
       <button
         class="button secondary"
       >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
+      >
         FIR (0)
+      </button>
+      <button
+        class="button secondary"
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -98,8 +118,20 @@ exports[`notam renders properly 1`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (48)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -375,8 +407,20 @@ exports[`notam renders properly 2`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (13)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -653,7 +697,19 @@ exports[`notam renders properly 3`] = `
         class="button secondary"
         disabled=""
       >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
         FIR (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -928,8 +984,20 @@ exports[`notam renders properly 4`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1205,8 +1273,20 @@ exports[`notam renders properly 5`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (48)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1244,8 +1324,20 @@ exports[`notam renders properly 6`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (13)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1284,7 +1376,19 @@ exports[`notam renders properly 7`] = `
         class="button secondary"
         disabled=""
       >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
         FIR (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1321,8 +1425,20 @@ exports[`notam renders properly 8`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1360,8 +1476,20 @@ exports[`notam renders properly 9`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (48)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1399,8 +1527,20 @@ exports[`notam renders properly 10`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (13)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1439,7 +1579,19 @@ exports[`notam renders properly 11`] = `
         class="button secondary"
         disabled=""
       >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
         FIR (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1476,8 +1628,20 @@ exports[`notam renders properly 12`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1515,8 +1679,20 @@ exports[`notam renders properly 13`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (48)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1554,8 +1730,20 @@ exports[`notam renders properly 14`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (13)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1594,7 +1782,19 @@ exports[`notam renders properly 15`] = `
         class="button secondary"
         disabled=""
       >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
         FIR (0)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"
@@ -1631,8 +1831,20 @@ exports[`notam renders properly 16`] = `
       </button>
       <button
         class="button secondary"
+        disabled=""
+      >
+        Area (0)
+      </button>
+      <button
+        class="button secondary"
       >
         FIR (32)
+      </button>
+      <button
+        class="button secondary"
+        disabled=""
+      >
+        National (0)
       </button>
       <button
         class="button secondary"

@@ -4,22 +4,22 @@
   "author": "Greg Hamel <hamegreg@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@testing-library/react": "^8.0.4",
     "moment": "^2.23.0",
     "query-string": "^6.2.0",
     "react": "^16.6.3",
-    "react-app-polyfill": "^0.2.0",
+    "react-app-polyfill": "^1.0.1",
     "react-dom": "^16.6.3",
     "react-live-clock": "^3.0.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
-    "firebase": "^5.8.3",
+    "firebase": "^6.2.4",
     "jest-dom": "^3.0.0",
-    "react-test-renderer": "^16.7.0",
-    "react-testing-library": "^6.0.0"
+    "react-test-renderer": "^16.7.0"
   },
   "scripts": {
     "start": "react-scripts start",

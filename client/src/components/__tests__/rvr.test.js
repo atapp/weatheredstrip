@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, cleanup } from 'react-testing-library'
-import ReactDOM from 'react-dom';
+import { render, cleanup } from '@testing-library/react'
 import Rvr from '../rvr.react';
-import moment from 'moment';
 import 'jest-dom/extend-expect';
 afterEach(cleanup)
 

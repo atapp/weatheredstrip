@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`header renders properly 1`] = `undefined`;
+exports[`header renders properly 1`] = `
+<header
+  class="app-header"
+>
+  <div
+    class="app-header-content"
+  >
+    <a
+      href="/"
+    >
+      <div
+        id="app-info"
+      >
+        <img
+          alt="App Logo"
+          id="app-logo"
+          src="logo.svg"
+        />
+        <div
+          class="app-title"
+        >
+          Weathered Strip
+        </div>
+      </div>
+    </a>
+    <form
+      class="searchbox"
+    >
+      <input
+        class="searchbox-input"
+        placeholder="CYMX CYUL..."
+        type="text"
+        value=""
+      />
+      <button
+        class="searchbox-button"
+        type="submit"
+      >
+        Get Info
+      </button>
+    </form>
+  </div>
+</header>
+`;
