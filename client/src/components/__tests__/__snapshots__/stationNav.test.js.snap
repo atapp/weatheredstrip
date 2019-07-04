@@ -7,16 +7,16 @@ exports[`stationNav renders properly 1`] = `
   <div
     class="navbar-content"
   >
-    <div
+    <button
       class="station"
     >
       CYMX
-    </div>
-    <div
+    </button>
+    <button
       class="station"
     >
       EGPK
-    </div>
+    </button>
   </div>
 </div>
 `;
