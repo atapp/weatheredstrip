@@ -357,7 +357,11 @@ p {
 }
 
 .station {
-  left: 2px;
+  margin: 0;
+  left: 0px;
+  border: none;
+  border-left: 4px #F1F1F1 solid;
+  border-bottom: 1px rgb(204, 204, 204) solid;
   padding: 0 10px;
   font-family: 'Mukta', sans-serif;
   font-size: 1.8rem;
@@ -367,11 +371,14 @@ p {
   justify-content: center;
   position: relative;
   color: #444;
+  background-color: #F1F1F1;
   z-index: 1;
 }
 
 .station:hover {
-  background-color: #F9F9F9;
+  background-color: #FCFCFC;
+  color: #467fcf;
+  border-left: 4px #FCFCFC solid;
 }
 
 .station-selected {
@@ -386,6 +393,7 @@ p {
 
 .station-selected:hover {
   background-color: #FFF;
+  border-left: 4px #467fcf solid;
 }
 
 .station-name {
