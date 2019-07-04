@@ -11,7 +11,9 @@ function Notams({
   let notams;
   const types = [
     'Aerodrome',
+    'Area',
     'FIR',
+    'National',
     'GPS'
   ]
 

@@ -79,12 +79,13 @@ time {
 }
 
 .button-selection {
-  margin-bottom: 5px;
+  margin: 5px auto;
+  margin-top: 0px;
   width: 100%;
-  max-width: 270px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .primary {

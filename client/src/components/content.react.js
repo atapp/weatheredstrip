@@ -50,9 +50,33 @@ class Content extends Component {
       const stationData = data[selected]
       const lengths = {
         'Aerodrome': stationData.notam ? stationData.notam.length : null,
+        'Area': stationData.area ? stationData.area.length : null,
         'FIR': stationData.fir ? stationData.fir.length : null,
-        'GPS': data[ 'other_notam' ].KGPS.length
+        'GPS': data[ 'other_notam' ].KGPS.length,
+        'National': data[ 'other_notam' ].national.length,
       }
+
+      let selectedData;
+      switch(this.state.notamType) {
+        case 'GPS':
+          selectedData = data[ 'other_notam' ].KGPS
+          break;
+        case 'FIR':
+          selectedData = data[ selected ].fir
+          break;
+        case 'Aerodrome':
+          selectedData = data[ selected ].notam
+          break;
+        case 'Area':
+          selectedData = data[ selected ].area
+          break;
+        case 'National':
+          selectedData = data[ 'other_notam' ].national
+          break;
+        default:
+          selectedData = data[ 'other_notam' ].KGPS
+      }
+
       content =
         <div className="content">
           <React.Fragment>
@@ -91,7 +115,7 @@ class Content extends Component {
                       onTypeSelection={ this.onNotamTypeSelection }
                       selectedType={ this.state.notamType }
                       dataLength={ lengths }
-                      data={ this.state.notamType === 'GPS' ? data[ 'other_notam' ].KGPS : this.state.notamType === 'FIR' ? data[ selected ].fir : data[ selected ].notam } />
+                      data={ selectedData } />
                   </React.Fragment>
                 }
               </div>
