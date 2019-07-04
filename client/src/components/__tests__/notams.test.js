@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, cleanup } from 'react-testing-library'
-import ReactDOM from 'react-dom';
+import { render, cleanup } from '@testing-library/react'
 import Notams from '../notams.react';
 import 'jest-dom/extend-expect';
 import testData from './test_data.json';

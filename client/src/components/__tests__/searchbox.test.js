@@ -1,7 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { shallow, mount } from 'enzyme';
-import ReactDOM from 'react-dom';
+import renderer from '@testing-library/react';
+import { shallow } from 'enzyme';
 import Searchbox from '../searchbox.react';
 import 'jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
