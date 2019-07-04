@@ -217,12 +217,30 @@ const getRvrCanada = async stations => {
   return airportsRVR
 }
 
+const separateLocalAndArea = (notams) => {
+  notams[ 'Area NOTAM' ] = {}
+  const notamFile = notams[ 'Aerodrome NOTAM file' ]
+  Object.keys(notamFile).forEach(station => {
+    const currentNotams = notamFile[station]
+    const stationNotams = currentNotams.filter(notam => {
+      return notam.notam.slice(0, 4) === station ? true : false
+    })
+    const areaNotams = currentNotams.filter(notam => {
+      return notam.notam.slice(0, 4) === station ? false : true
+    })
+    notams[ 'Aerodrome NOTAM file' ][station] = stationNotams
+    notams[ 'Area NOTAM' ][station] = areaNotams
+  })
+}
+
 const getCanadianAirports = async stations => {
   if (stations.canada.length > 0) {
     try {
       const metars = await getMetarCanada(stations.canada)
       const notams = await getNotamCanada(stations.canada)
       const rvr = await getRvrCanada(stations.canada)
+
+      separateLocalAndArea(notams)
 
       let airportInfo = new Object()
 
@@ -240,6 +258,7 @@ const getCanadianAirports = async stations => {
             ...metars[ airport ],
             notam: notams[ 'Aerodrome NOTAM file' ][ airport ],
             fir: airportsData[ airport ] ? notams[ 'FIR (Flight Information Region) NOTAM file' ][ airportsData[ airport ].FIR ] : [],
+            area: notams[ 'Area NOTAM'][airport],
             rvr: rvr[ airport ].rvr
           }
         }
