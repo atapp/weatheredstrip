@@ -53,7 +53,7 @@ class Content extends Component {
         'Area': stationData.area ? stationData.area.length : null,
         'FIR': stationData.fir ? stationData.fir.length : null,
         'GPS': data[ 'other_notam' ].KGPS.length,
-        'National': data[ 'other_notam' ].national.length,
+        'National': data[ 'other_notam' ].national ? data[ 'other_notam' ].national.length : null,
       }
 
       let selectedData;
