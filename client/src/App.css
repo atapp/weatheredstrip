@@ -14,9 +14,6 @@ time {
   display: block;
 }
 
-.app {
-}
-
 .app-header {
   background-color: #282c34;
   height: calc(40px + 2vmin);
@@ -592,6 +589,14 @@ p {
     -moz-box-shadow:    none;
     -webkit-box-shadow: none;
     box-shadow:         none;
+  }
+
+  .station:hover {
+    border-left: none;
+  }
+
+  .station-selected:hover {
+    border-left: none;
   }
 
   .subtitle {
