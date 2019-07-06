@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/Greg-Hamel/weatheredstrip.svg?branch=master)](https://travis-ci.com/Greg-Hamel/weatheredstrip)
-[![codecov](https://codecov.io/gh/GregoryHamel/weatheredstrip/branch/master/graph/badge.svg)](https://codecov.io/gh/GregoryHamel/weatheredstrip) [![Greenkeeper badge](https://badges.greenkeeper.io/Greg-Hamel/weatheredstrip.svg)](https://greenkeeper.io/)
+[![codecov](https://codecov.io/gh/Greg-Hamel/weatheredstrip/branch/master/graph/badge.svg)](https://codecov.io/gh/GregoryHamel/weatheredstrip) [![Greenkeeper badge](https://badges.greenkeeper.io/Greg-Hamel/weatheredstrip.svg)](https://greenkeeper.io/)
 
 # Weathered-Strip
 ## Intro
