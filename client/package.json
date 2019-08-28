@@ -4,7 +4,7 @@
   "author": "Greg Hamel <hamegreg@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@testing-library/react": "^8.0.4",
+    "@testing-library/react": "^9.0.1",
     "moment": "^2.23.0",
     "query-string": "^6.2.0",
     "react": "^16.6.3",
