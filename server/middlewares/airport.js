@@ -32,7 +32,6 @@ getAirports = async airports => {
 /*  Transform the provided array into a list containing a Promises for each
     airport.  */
 const getInfo = async airports => {
-
   const validAirports = airports.filter(airport => airport.length === 4)
   const intlAirports = validAirports.filter(icao => icao.slice(0, 2) !== "CY" && icao.slice(0, 2) !== "CZ")
   const canadianAirports = validAirports.filter(icao => icao.slice(0, 2) === "CY" || icao.slice(0, 2) === "CZ")
@@ -45,7 +44,8 @@ module.exports = function airport() {
     // Mark a time
     const requestReceived = new Date();
     let isResponseGood = false;
-    const airportsRequest = req.query.q.split(/(\s|,)/).filter(item => item !== " " && item !== ",");
+    let airportsRequest = req.query.q.split(/(\s|,)/).filter(item => item !== " " && item !== ",");
+    airportsRequest = airportsRequest.map(airport => airport.toUpperCase())
     const airportsInfo = await getInfo(airportsRequest);
 
     // Ensure requested number of items are all present in the report.
