@@ -156,7 +156,7 @@ const getNotamCanada = async stations => {
           // split title and bulletin into two field.
           const titleEnd = trimmedNotam.indexOf('\n')
           return {
-            title: trimmedNotam.slice(1, titleEnd),
+            title: trimmedNotam.slice(0, titleEnd),
             notam: trimmedNotam.slice(titleEnd + 1, trimmedNotam.length)
           }
         })
