@@ -9,6 +9,9 @@ node_modules
 # Code Coverage
 /client/coverage
 
+# DS_store
+.DS_Store
+
 # Logs
 *.log
 yarn-error.log

@@ -6,7 +6,7 @@ const xmlParser = require('xml2json');
 const { get, set } = require('./redis')
 
 const { logger } = require('./logger')
-const airportsData = require('../airports.json')
+const airportsData = require('../world-airports.json')
 
 const NOTAM_TTL = process.env.NOTAM_TTL || 60;
 
@@ -220,31 +220,32 @@ const getNotamIntl = async stations => {
 }
 
 const getIntlAirports = async stations => {
-  const searchables = [...stations.intl]
-  stations.intl.forEach(airport => {
-    if (airportsData[ airport ] && searchables.indexOf(airportsData[ airport ].FIR) < 0) {
-      searchables.push(airportsData[ airport ].FIR)
+  const searchables = []
+  stations.intl.forEach(station => {
+    searchables.push(station.icao_code)
+    if (station && searchables.indexOf(station.FIR) < 0) {
+      searchables.push(station.FIR)
     }
   })
 
   let metars
   let tafs
   if (stations.intl) {
-    metars = await getMetarIntl(stations.intl)
-    tafs = await getTafIntl(stations.intl)
+    stations_ICAO = stations.intl.map(airport => airport.icao_code)
+    metars = await getMetarIntl(stations_ICAO)
+    tafs = await getTafIntl(stations_ICAO)
   }
   const notams = await getNotamIntl(searchables)
 
   const airportsInfo = new Object()
+  console.log(notams)
 
-  stations.intl.forEach(airport => {
-    if (airportsData[ airport ]) {
-      airportsInfo[ airport ] = {
-        metar: metars[ airport ],
-        taf: tafs[ airport ],
-        notam: notams[ airport ],
-        fir: notams[ airportsData[ airport ].FIR ]
-      }
+  stations.intl.forEach(station => {
+    airportsInfo[ station.icao_code ] = {
+      metar: metars[ station.icao_code ],
+      taf: tafs[ station.icao_code ],
+      notam: notams[ station.icao_code ],
+      fir: notams[ station.FIR ]
     }
   })
 

@@ -81,7 +81,6 @@ const getMetarCanada = async stations => {
         taf: newTafArray[index] ? newTafArray[ index ].slice(1, newTafArray[ index ].indexOf('=')).split(taf_reg) : []
       }
     })
-
     return metarInfo
   } catch (err) {
     logger(`GetMetarData: ${ err }`)
@@ -236,15 +235,16 @@ const separateLocalAndArea = (notams) => {
 const getCanadianAirports = async stations => {
   if (stations.canada.length > 0) {
     try {
-      const metars = await getMetarCanada(stations.canada)
-      const notams = await getNotamCanada(stations.canada)
-      const rvr = await getRvrCanada(stations.canada)
+      stations_ICAO = stations.canada.map(airport => airport.icao_code)
+      const metars = await getMetarCanada(stations_ICAO)
+      const notams = await getNotamCanada(stations_ICAO)
+      const rvr = await getRvrCanada(stations_ICAO)
 
       separateLocalAndArea(notams)
 
       let airportInfo = new Object()
 
-      stations.canada.forEach(airport => {
+      stations_ICAO.forEach(airport => {
         if (notams[ 'Aerodrome NOTAM file' ][airport][0].title === "INVALID IDENTIFIER, PLEASE VERIFY AND TRY AGAIN.") {
           airportInfo[ airport ] = {
             metars: null,
