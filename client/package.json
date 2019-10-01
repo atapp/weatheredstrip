@@ -12,7 +12,7 @@
     "react-dom": "^16.6.3",
     "react-live-clock": "^3.0.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.1.2"
   },
   "devDependencies": {
     "enzyme": "^3.8.0",
