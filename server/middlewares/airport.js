@@ -7,8 +7,7 @@ const worldAirportData = require('../world-airports.json')
     consolidated object. */
 getAirports = async airports => {
   let flightPlanInfo = new Object()
-  const intlAirports = await getIntlAirports(airports)
-  const canAirports = await getCanadianAirports(airports)
+  const [intlAirports, canAirports] = await Promise.all([getIntlAirports(airports), getCanadianAirports(airports)])
 
   airports.canada.forEach(airport => {
     flightPlanInfo[airport.icao_code] = canAirports[airport.icao_code]
@@ -38,8 +37,6 @@ const getInfo = async airports => {
       return null
     }
   })
-
-  console.log(validAirports)
   const intlAirports = validAirports.filter(airport => airport.iso_country !== 'CA')
   const canadianAirports = validAirports.filter(airport => airport.iso_country === 'CA')
 
@@ -55,10 +52,6 @@ module.exports = function airport() {
     airportsRequest = airportsRequest.map(airport => airport.toUpperCase())
     const airportsInfo = await getInfo(airportsRequest);
 
-    // Ensure requested number of items are all present in the report.
-    // if (airportsInfo.length === airportsRequest.length) {
-    //   isResponseGood = true;
-    // }
     isResponseGood = true;
     const requestSent = new Date();
     logger(`Request received for: ${req.query.q} [${isResponseGood ? 'PASS' : 'FAIL'}] - ${requestSent - requestReceived}ms - IP: ${req.headers['x-forwarded-for']}`);

@@ -1,195 +1,7 @@
 const bodyParser = require('body-parser');
-const artoo = require('artoo-js');
-const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 const { URLSearchParams } = require('url');
 const { logger } = require('./logger');
-
-const airportsData = require('../airports.json');
-
-artoo.bootstrap(cheerio);
-
-/*  Makes a request to NAV Canada for the specified station METAR webpage. Then
-    returns the METARs and TAFs as an object. */
-const getMetarCanada = async stations => {
-
-  const params = new URLSearchParams({
-    NoSession: 'NS_Inconnu',
-    Stations: stations.join(' '),
-    format: 'raw',
-    Langue: 'anglais',
-    Region: 'can',
-    Location: ''
-  })
-
-  const options = {
-    method: 'POST',
-    body: params
-  };
-
-  const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/metar.cgi'
-
-  // Parser the station Names
-  const stationNameParser = 'body > h2'
-
-  // Parser for a block containing metars <table />
-  const metarParser = 'body > p'
-
-  // Parser for a block containing all TAF lines separated by <br />
-  const tafParser = 'body > font'
-
-  try {
-    const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-    const body = await response.text()
-    const $ = await cheerio.load(body);
-
-    const taf_reg = /\n\s*(?=FM\d{6}|RMK|PROB)/
-
-    // Scrape all lines related to the metar and taf info.
-    const stationName = await $(stationNameParser).scrape('text');
-    const metarData = await $(metarParser).scrape('html');
-    const tafData = await $(tafParser).scrape('text');
-
-    const cleanedMetars = metarData.filter(item => item.indexOf('No TAF') < 0)
-
-    const metars = await Promise.all(cleanedMetars.map(async metar => {
-      // Goes through each <div /> within the metars table.
-      const $ = await cheerio.load(metar);
-      return await $('div').scrape('text').map(metar => metar.slice(1, metar.indexOf('=')))
-    }))
-
-    const newTafArray = new Array(cleanedMetars.length)
-
-    /* Replicate the tafData into the same length as metarData
-       while keepin the same relations to indexes. */
-
-    let tafDataIndex = 0
-    cleanedMetars.forEach((metarBlock, index) => {
-      if (metarBlock.indexOf('No METAR') < 0) {
-        newTafArray[index] = tafData[tafDataIndex]
-        tafDataIndex++
-      } else {
-        newTafArray[index] = null
-      }
-    })
-
-    const metarInfo = {}
-    stationName.forEach((name, index) => {
-      metarInfo[ stations[ index ] ] = {
-        stationName: name.trimEnd(),
-        metar: metars[ index ],
-        taf: newTafArray[index] ? newTafArray[ index ].slice(1, newTafArray[ index ].indexOf('=')).split(taf_reg) : []
-      }
-    })
-    return metarInfo
-  } catch (err) {
-    logger(`GetMetarData: ${ err }`)
-    return null
-  }
-}
-
-/*  Makes a request to NAV Canada for the specified station NOTAM webpage. Then
-    returns the NOTAMs as an object. */
-const getNotamCanada = async stations => {
-  const params = new URLSearchParams({
-    Langue: 'anglais',
-    TypeBrief: 'N',
-    NoSession: 'NS_Inconnu',
-    Stations: stations.join(' '),
-    Location: '',
-    ni_File: 'on',
-    ni_FIR: 'on',
-    ni_CZNB: 'on',
-    ni_HQ: 'on'
-  })
-
-  const options = {
-    method: 'POST',
-    body: params
-  };
-
-  const url = 'https://flightplanning.navcanada.ca/cgi-bin/Fore-obs/notam.cgi'
-  // this is the query for all notam products
-  const FullNotamParser = '#notam_all_whole_section'
-  // this is the query to separate the types of notam requested.
-  const notamSectionParser = '#notam_title_whole_section'
-  // this is the query to separate the stations within the types of notams
-  const notamStationParser = '#notam_station_whole_section'
-  // this is the query to get all station's NOTAM bulletin:
-  const notamBulletinParser = '#notam_bulletin'
-
-  const firs = ['CZUL', 'CZEG', 'CZQM', 'CZQX', 'CZVR', 'CZWG', 'CZYZ']
-  const otherStations = ['CZNB', 'CYHQ']
-
-  let body;
-
-  try {
-    const response = await fetch(url, { method: 'POST', body: params, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-    body = await response.text()
-  } catch (err) {
-    logger(`GetNotamData: ${ err }`)
-    return null
-  }
-
-  let allStations = stations.slice() // Unlinked-copy of stations
-
-  try {
-    const $ = await cheerio.load(body);
-    const notamTypesSections = await $(notamSectionParser).scrape('html');
-
-    const data = new Object()
-
-    // for ... of is used instead of a forEach because of the asyncronous nature of this loop. Prevents the use of Promise.all(array.map(...))
-    for (const notamSection of notamTypesSections) {
-      const $ = await cheerio.load(notamSection)
-      const notamType = await $('#notam_print_item').scrapeOne('text').trim();
-      const notamStationsBlock = await $(notamStationParser).scrape('html');
-
-      const notamBulletins = new Object()
-      for (const notamStationBlock of notamStationsBlock) {
-        const $ = await cheerio.load(notamStationBlock)
-
-        const notamBulletin = await $(notamBulletinParser).scrape('text').map(notam => {
-          // add a filter for extra '\n' that cause impromptu line return
-          const trimmedNotam = notam.trim()
-          // split title and bulletin into two field.
-          const titleEnd = trimmedNotam.indexOf('\n')
-          return {
-            title: trimmedNotam.slice(0, titleEnd),
-            notam: trimmedNotam.slice(titleEnd + 1, trimmedNotam.length)
-          }
-        })
-
-
-        let stationName = await $('#notam_print_item').scrapeOne('text').trim();
-        if (
-          notamType === 'Aerodrome NOTAM file' &&
-          firs.indexOf(stationName) < 0 &&
-          otherStations.indexOf(stationName) < 0
-          ) {
-          allStations.forEach(station => {
-            if (station !== stationName) {
-              notamBulletin.forEach(notam => {
-                if (notam.notam.indexOf(station) >= 0) {
-                  notamBulletins[ station ] = notamBulletin
-                }
-              })
-            } else {
-              notamBulletins[ stationName ] = notamBulletin
-            }
-          })
-        } else {
-          notamBulletins[ stationName ] = notamBulletin
-        }
-      }
-      data[ notamType ] = notamBulletins
-    }
-
-    return data
-  } catch (err) {
-    logger(`GetNotamData: ${ err }`)
-  }
-}
 
 /*  Makes a request to NAV Canada for the specified station RVR webpage. Then
     returns the RVR image link as an object */
@@ -216,60 +28,53 @@ const getRvrCanada = async stations => {
   return airportsRVR
 }
 
-const separateLocalAndArea = (notams) => {
-  notams[ 'Area NOTAM' ] = {}
-  const notamFile = notams[ 'Aerodrome NOTAM file' ]
-  Object.keys(notamFile).forEach(station => {
-    const currentNotams = notamFile[station]
-    const stationNotams = currentNotams.filter(notam => {
-      return notam.notam.slice(0, 4) === station ? true : false
-    })
-    const areaNotams = currentNotams.filter(notam => {
-      return notam.notam.slice(0, 4) === station ? false : true
-    })
-    notams[ 'Aerodrome NOTAM file' ][station] = stationNotams
-    notams[ 'Area NOTAM' ][station] = areaNotams
-  })
-}
-
 const getCanadianAirports = async stations => {
   if (stations.canada.length > 0) {
     try {
       stations_ICAO = stations.canada.map(airport => airport.icao_code)
-      const metars = await getMetarCanada(stations_ICAO)
-      const notams = await getNotamCanada(stations_ICAO)
-      const rvr = await getRvrCanada(stations_ICAO)
+      points = stations.canada.map(airport => `point=${airport.longitude_deg},${airport.latitude_deg},${airport.icao_code},site`)
+      url = `https://plan.navcanada.ca/weather/api/alpha/?${points.join('&')}&alpha=sigmet&alpha=airmet&alpha=notam&alpha=metar&alpha=taf&alpha=pirep&alpha=upperwind&alpha=vfr_route&image=GFA/CLDWX&image=GFA/TURBC&image=TURBULENCE&image=LOW_LEVEL_WIND/FL030&image=LOW_LEVEL_WIND/FL060&image=LOW_LEVEL_WIND/FL090&image=LOW_LEVEL_WIND/FL120&image=LOW_LEVEL_WIND/FL180&image=HIGH_LEVEL_WIND/FL_240&image=HIGH_LEVEL_WIND/FL_340&image=HIGH_LEVEL_WIND/FL390&image=HIGH_LEVEL_WIND/FL450&metar_historical_hours=1`
 
-      separateLocalAndArea(notams)
+      try {
+        //TODO: Catch request errors
+        const response = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+        const res_json = await response.json()
 
-      let airportInfo = new Object()
+        let airportInfo = new Object()
 
-      stations_ICAO.forEach(airport => {
-        if (notams[ 'Aerodrome NOTAM file' ][airport][0].title === "INVALID IDENTIFIER, PLEASE VERIFY AND TRY AGAIN.") {
-          airportInfo[ airport ] = {
-            metars: null,
-            notam: null,
-            fir: null,
-            rvr: null,
-            ERROR: "Invalid Identifier"
+        stations.canada.forEach(station => {
+          allNotams = res_json.data.filter(res_item => res_item.type === 'notam' && res_item.pointReference === station.icao_code).map(notam => {
+            title = notam.text.substring(0, notam.text.indexOf('\n'))
+            text = notam.text.substring(notam.text.indexOf('\n') + 1).replace(/\r|\n/g, 
+            ' ')
+            type = notam.location === notam.pointReference ? 'aerodrome' : title.indexOf(station.icao_code) > 0 ? 'area' : title.indexOf('CYHQ') > 0 ? 'national' : 'FIR'
+            return {
+              type: type,
+              startValidity: notam.startValidity,
+              title: title,
+              notam: text,
+              radialDistance: notam.radialDistance
+            }
+          })
+
+          en_notam_regex = /^\d{6} /g
+          fr_notam_regex = /^\d{6}F /g
+
+          airportInfo[station.icao_code] = {
+            ...station,
+            notam_EN: allNotams.filter(notam => en_notam_regex.test(notam.title)),
+            notam_FR: allNotams.filter(notam => fr_notam_regex.test(notam.title)),
+            metar: res_json.data.filter(res_item => res_item.type === 'metar'),
+            taf: res_json.data.filter(res_item => res_item.type === 'taf'),
           }
-        } else {
-          airportInfo[ airport ] = {
-            ...metars[ airport ],
-            notam: notams[ 'Aerodrome NOTAM file' ][ airport ],
-            fir: airportsData[ airport ] ? notams[ 'FIR (Flight Information Region) NOTAM file' ][ airportsData[ airport ].FIR ] : [],
-            area: notams[ 'Area NOTAM'][airport],
-            rvr: rvr[ airport ].rvr
-          }
-        }
-      })
-
-      airportInfo[ 'other_notam' ] = {
-        'CZNB': notams[ 'CZNB NOTAM file' ][ 'CZNB' ] ? notams[ 'CZNB NOTAM file' ][ 'CZNB' ] : null,
-        'national': notams[ 'National NOTAM file' ][ 'CYHQ' ] ? notams[ 'National NOTAM file' ][ 'CYHQ' ] : null
+        })
+        return airportInfo
+      } catch (err) {
+        logger(`GetData: ${ err }`)
+        return null
       }
 
-      return airportInfo
+      // const rvr = await getRvrCanada(stations_ICAO)
     } catch (err){
       throw err
     }
