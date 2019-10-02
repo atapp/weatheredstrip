@@ -30,7 +30,7 @@ getAirports = async airports => {
     airport.  */
 const getInfo = async airports => {
   const validAirports = airports.map(airport => {
-    airportData = worldAirportData.filter(item => item.icao_code === airport || item.iata === airport)[0]
+    airportData = worldAirportData.filter(item => item.icao_code === airport || item.iata_code === airport)[0]
     if (airportData) {
       return airportData
     } else {
