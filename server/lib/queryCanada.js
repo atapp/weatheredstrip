@@ -1,6 +1,4 @@
-const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const { URLSearchParams } = require('url');
 const { logger } = require('./logger');
 
 /*  Makes a request to NAV Canada for the specified station RVR webpage. Then
@@ -63,7 +61,7 @@ const getCanadianAirports = async stations => {
             title = notam.text.substring(0, notam.text.indexOf('\n'))
             text = notam.text.substring(notam.text.indexOf('\n') + 1).replace(/\r|\n/g,
             ' ')
-            type = notam.location === notam.pointReference ? 'aerodrome' : title.indexOf(station.icao_code) > 0 ? 'area' : title.indexOf('CYHQ') > 0 ? 'national' : 'FIR'
+            type = notam.location === notam.pointReference ? 'aerodrome' : title.indexOf(station.FIR) > 0 ? 'FIR' : title.indexOf('CYHQ') > 0 ? 'national' : 'area'
             return {
               type: type,
               startValidity: notam.startValidity,
