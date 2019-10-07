@@ -7,6 +7,7 @@ const { get, set } = require('./redis')
 
 const { logger } = require('./logger')
 const airportsData = require('../world-airports.json')
+const FIRs = require('../FIRs.json')
 
 const NOTAM_TTL = process.env.NOTAM_TTL || 60;
 
@@ -32,7 +33,7 @@ const getMetarIntl = async stations => {
         airports[ airport ] = []
         metars.forEach(metar => {
           if (metar.station_id === airport) {
-            airports[ airport ].push(metar.metar_type + ' ' + metar.raw_text )
+            airports[ airport ].push({type: 'metar', text: metar.metar_type + ' ' + metar.raw_text })
           }
         })
         if (airports[ airport ].length === 0) {
@@ -51,7 +52,7 @@ const getTafIntl = async stations => {
   if (stations.length === 0) {
     return null;
   }
-  
+
   baseURL = `https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=tafs&requestType=retrieve&format=xml&stationString=${ stations.join('%20') }&hoursBeforeNow=0`;
 
   try {
@@ -68,13 +69,16 @@ const getTafIntl = async stations => {
         airports[ airport ] = []
         tafs.forEach(taf => {
           if (taf.station_id === airport) {
-            airports[ airport ].push(taf.raw_text )
+            airports[ airport ].push({type: 'taf', text: taf.raw_text })
           }
         })
         if (airports[ airport ].length === 0) {
           airports[ airport ].push(`Error: ${ airport } could not be found.`)
         } else {
-          airports[ airport ] = airports[ airport ][ 0 ].split(re)
+          airports[ airport ] = {
+            type: 'taf',
+            text: airports[ airport ][ 0 ].text.split(re)
+          }
         }
       })
       return airports
@@ -169,6 +173,7 @@ const getNotamIntl = async stations => {
             if (notam.icaoId === airport || notam.facilityDesignator === airport) {
               const re = new RegExp('\\s(?=' + notam.facilityDesignator + ')', 'g')
               const splits = notam.traditionalMessage.search(re)
+              const type = FIRs.indexOf(airport) > 0 ? 'FIR' : 'aerodrome'
 
               if (notam.traditionalMessage !== ' ') {
                 // North american airport do not have icaoMessage
@@ -181,9 +186,9 @@ const getNotamIntl = async stations => {
                   title = notam.traditionalMessage.slice(0, splits)
                   notamText = notam.traditionalMessage.slice(splits + 1)
                 }
-
                 airports[ airport ].push({
                   title: title,
+                  type: type,
                   notam: notamText,
                   link: notam.comment
                 })
@@ -191,6 +196,7 @@ const getNotamIntl = async stations => {
                 // International airport following ICAO stds does have icaoMessage
                 airports[ airport ].push({
                   title: notam.icaoMessage.slice(0, notam.icaoMessage.indexOf('\n')),
+                  type: type,
                   notam: notam.icaoMessage.slice(notam.icaoMessage.indexOf('\n') + 1),
                   link: notam.comment
                 })
@@ -228,24 +234,21 @@ const getIntlAirports = async stations => {
     }
   })
 
-  let metars
-  let tafs
-  if (stations.intl) {
-    stations_ICAO = stations.intl.map(airport => airport.icao_code)
-    metars = await getMetarIntl(stations_ICAO)
-    tafs = await getTafIntl(stations_ICAO)
+  stations_ICAO = stations.intl.map(airport => airport.icao_code)
+  const [metars, tafs, notams] = await Promise.all([getMetarIntl(stations_ICAO), getTafIntl(stations_ICAO), getNotamIntl(searchables)])
+
+  if (!notams) {
+    notams = await getNotamIntl(searchables)
   }
-  const notams = await getNotamIntl(searchables)
 
   const airportsInfo = new Object()
-  console.log(notams)
 
   stations.intl.forEach(station => {
     airportsInfo[ station.icao_code ] = {
+      ...station,
       metar: metars[ station.icao_code ],
       taf: tafs[ station.icao_code ],
-      notam: notams[ station.icao_code ],
-      fir: notams[ station.FIR ]
+      notam_EN: [ ...notams[station.icao_code], ...notams[station.FIR] ],
     }
   })
 

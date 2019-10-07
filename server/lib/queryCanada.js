@@ -28,13 +28,19 @@ const getRvrCanada = async stations => {
   return airportsRVR
 }
 
+const formatTAF = taf => {
+  const re = /\s*(?=FM\d{6}|RMK|PROB)/
+  newTAF = {...taf[0]}
+  newTAF.text = taf[0].text.replace('=', '').replace(/\s{6}/g, ' ').substring(0,taf[0].text.length - 1).split(re)
+  return newTAF
+}
+
 const getCanadianAirports = async stations => {
   if (stations.canada.length > 0) {
     try {
       stations_ICAO = stations.canada.map(airport => airport.icao_code)
       points = stations.canada.map(airport => `point=${airport.longitude_deg},${airport.latitude_deg},${airport.icao_code},site`)
       url = `https://plan.navcanada.ca/weather/api/alpha/?${points.join('&')}&alpha=sigmet&alpha=airmet&alpha=notam&alpha=metar&alpha=taf&alpha=pirep&alpha=upperwind&alpha=vfr_route&image=GFA/CLDWX&image=GFA/TURBC&image=TURBULENCE&image=LOW_LEVEL_WIND/FL030&image=LOW_LEVEL_WIND/FL060&image=LOW_LEVEL_WIND/FL090&image=LOW_LEVEL_WIND/FL120&image=LOW_LEVEL_WIND/FL180&image=HIGH_LEVEL_WIND/FL_240&image=HIGH_LEVEL_WIND/FL_340&image=HIGH_LEVEL_WIND/FL390&image=HIGH_LEVEL_WIND/FL450&metar_historical_hours=1`
-
       try {
         //TODO: Catch request errors
         const response = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
@@ -45,7 +51,7 @@ const getCanadianAirports = async stations => {
         stations.canada.forEach(station => {
           allNotams = res_json.data.filter(res_item => res_item.type === 'notam' && res_item.pointReference === station.icao_code).map(notam => {
             title = notam.text.substring(0, notam.text.indexOf('\n'))
-            text = notam.text.substring(notam.text.indexOf('\n') + 1).replace(/\r|\n/g, 
+            text = notam.text.substring(notam.text.indexOf('\n') + 1).replace(/\r|\n/g,
             ' ')
             type = notam.location === notam.pointReference ? 'aerodrome' : title.indexOf(station.icao_code) > 0 ? 'area' : title.indexOf('CYHQ') > 0 ? 'national' : 'FIR'
             return {
@@ -60,12 +66,14 @@ const getCanadianAirports = async stations => {
           en_notam_regex = /^\d{6} /g
           fr_notam_regex = /^\d{6}F /g
 
+          taf = formatTAF(res_json.data.filter(res_item => res_item.type === 'taf'))
+
           airportInfo[station.icao_code] = {
             ...station,
             notam_EN: allNotams.filter(notam => en_notam_regex.test(notam.title)),
             notam_FR: allNotams.filter(notam => fr_notam_regex.test(notam.title)),
             metar: res_json.data.filter(res_item => res_item.type === 'metar'),
-            taf: res_json.data.filter(res_item => res_item.type === 'taf'),
+            taf: taf,
           }
         })
         return airportInfo
