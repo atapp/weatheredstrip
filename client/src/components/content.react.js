@@ -86,7 +86,7 @@ class Content extends Component {
             <StationNav data={ data } selected={ selected } onClick={ this.handleStationSelect } />
             <div className="user-content">
               <div className="content-header">
-                <div className="station-name">{ selected }</div>
+                <div className="station-name">{ data[ selected ].name.length > 40 ? data[ selected ].name.substring(0, 41) + "..." : data[ selected ].name }</div>
                 <Timestamp dataTime={ data.Timestamp } />
               </div>
               <div className="selected-content">
