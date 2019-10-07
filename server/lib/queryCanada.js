@@ -35,12 +35,22 @@ const formatTAF = taf => {
   return newTAF
 }
 
+const formatMETAR = metar => {
+  newMETAR = [...metar]
+  newMETAR = newMETAR.map(metar => {
+    metar.text = metar.text.replace('=', '')
+    return metar
+  })
+
+  return newMETAR
+}
+
 const getCanadianAirports = async stations => {
   if (stations.canada.length > 0) {
     try {
       stations_ICAO = stations.canada.map(airport => airport.icao_code)
       points = stations.canada.map(airport => `point=${airport.longitude_deg},${airport.latitude_deg},${airport.icao_code},site`)
-      url = `https://plan.navcanada.ca/weather/api/alpha/?${points.join('&')}&alpha=sigmet&alpha=airmet&alpha=notam&alpha=metar&alpha=taf&alpha=pirep&alpha=upperwind&alpha=vfr_route&image=GFA/CLDWX&image=GFA/TURBC&image=TURBULENCE&image=LOW_LEVEL_WIND/FL030&image=LOW_LEVEL_WIND/FL060&image=LOW_LEVEL_WIND/FL090&image=LOW_LEVEL_WIND/FL120&image=LOW_LEVEL_WIND/FL180&image=HIGH_LEVEL_WIND/FL_240&image=HIGH_LEVEL_WIND/FL_340&image=HIGH_LEVEL_WIND/FL390&image=HIGH_LEVEL_WIND/FL450&metar_historical_hours=1`
+      url = `https://plan.navcanada.ca/weather/api/alpha/?${points.join('&')}&alpha=sigmet&alpha=airmet&alpha=notam&alpha=metar&alpha=taf&alpha=pirep&alpha=upperwind&alpha=vfr_route&image=GFA/CLDWX&image=GFA/TURBC&image=TURBULENCE&image=LOW_LEVEL_WIND/FL030&image=LOW_LEVEL_WIND/FL060&image=LOW_LEVEL_WIND/FL090&image=LOW_LEVEL_WIND/FL120&image=LOW_LEVEL_WIND/FL180&image=HIGH_LEVEL_WIND/FL_240&image=HIGH_LEVEL_WIND/FL_340&image=HIGH_LEVEL_WIND/FL390&image=HIGH_LEVEL_WIND/FL450&metar_historical_hours=3`
       try {
         //TODO: Catch request errors
         const response = await fetch(url, { method: 'GET', headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
@@ -66,13 +76,15 @@ const getCanadianAirports = async stations => {
           en_notam_regex = /^\d{6} /g
           fr_notam_regex = /^\d{6}F /g
 
-          taf = formatTAF(res_json.data.filter(res_item => res_item.type === 'taf'))
+          const taf = formatTAF(res_json.data.filter(res_item => res_item.type === 'taf'))
+
+          const metar = formatMETAR(res_json.data.filter(res_item => res_item.type === 'metar'))
 
           airportInfo[station.icao_code] = {
             ...station,
             notam_EN: allNotams.filter(notam => en_notam_regex.test(notam.title)),
             notam_FR: allNotams.filter(notam => fr_notam_regex.test(notam.title)),
-            metar: res_json.data.filter(res_item => res_item.type === 'metar'),
+            metar: metar,
             taf: taf,
           }
         })
