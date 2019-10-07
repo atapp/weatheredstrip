@@ -51,12 +51,13 @@ class Content extends Component {
       const stationAerodrome = stationData.notam_EN.filter(notam => notam.type === 'aerodrome')
       const stationFIR = stationData.notam_EN.filter(notam => notam.type === 'FIR')
       const stationArea = stationData.notam_EN.filter(notam => notam.type === 'area')
+      const stationNational = stationData.notam_EN.filter(notam => notam.type === 'national')
       const lengths = {
         'Aerodrome': stationAerodrome ? stationAerodrome.length : null,
         'Area': stationArea ? stationArea.length : null,
         'FIR': stationFIR ? stationFIR.length : null,
         'GPS': data[ 'other_notam' ].KGPS.length,
-        'National': data[ 'other_notam' ].national ? data[ 'other_notam' ].national.length : null,
+        'National': stationNational ? stationNational.length : null,
       }
 
       let selectedData;
@@ -65,16 +66,16 @@ class Content extends Component {
           selectedData = data[ 'other_notam' ].KGPS
           break;
         case 'FIR':
-          selectedData = data[ selected ].notam_EN.filter(notam => notam.type === 'FIR')
+          selectedData = stationFIR
           break;
         case 'Aerodrome':
-          selectedData = data[ selected ].notam_EN.filter(notam => notam.type === 'aerodrome')
+          selectedData = stationAerodrome
           break;
         case 'Area':
-          selectedData = data[ selected ].notam_EN.filter(notam => notam.type === 'area')
+          selectedData = stationArea
           break;
         case 'National':
-          selectedData = data[ 'other_notam' ].national
+          selectedData = stationNational
           break;
         default:
           selectedData = data[ 'other_notam' ].KGPS
