@@ -122,7 +122,6 @@ time {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 .dot-loader{
@@ -397,8 +396,9 @@ p {
 
 .station-name {
   font-family: 'Mukta', sans-serif;
-  font-size: 3vw;
+  font-size: 2.3vw;
   color: #333;
+  flex: 1;
 }
 
 .subtitle {
@@ -409,10 +409,12 @@ p {
 }
 
 .timestamp {
-  margin: auto 0;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   z-index: 0;
+  flex: 1;
 }
 
 .timestamp-names {
@@ -453,6 +455,21 @@ p {
     flex: auto;
     padding-right: 0;
   }
+
+  .timestamp {
+    margin: auto;
+    position: inherit;
+  }
+
+  .content-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .station-name {
+    font-size: 4vw;
+  }
+
   .user-content {
     min-height: calc(100vh - 40px - 10px - 90px)
   }
@@ -482,15 +499,7 @@ p {
 }
 
 @media only screen and (max-width: 550px) {
-  .timestamp {
-    margin: auto;
-    position: inherit;
-  }
 
-  .content-header {
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 @media only screen and (max-width: 450px) {
