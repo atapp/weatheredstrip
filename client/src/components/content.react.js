@@ -48,10 +48,13 @@ class Content extends Component {
     if (data && data[ this.state.stationSelection ]) {
       const selected = this.state.stationSelection
       const stationData = data[selected]
+      const stationAerodrome = stationData.notam_EN.filter(notam => notam.type === 'aerodrome')
+      const stationFIR = stationData.notam_EN.filter(notam => notam.type === 'FIR')
+      const stationArea = stationData.notam_EN.filter(notam => notam.type === 'area')
       const lengths = {
-        'Aerodrome': stationData.notam ? stationData.notam.length : null,
-        'Area': stationData.area ? stationData.area.length : null,
-        'FIR': stationData.fir ? stationData.fir.length : null,
+        'Aerodrome': stationAerodrome ? stationAerodrome.length : null,
+        'Area': stationArea ? stationArea.length : null,
+        'FIR': stationFIR ? stationFIR.length : null,
         'GPS': data[ 'other_notam' ].KGPS.length,
         'National': data[ 'other_notam' ].national ? data[ 'other_notam' ].national.length : null,
       }
@@ -62,13 +65,13 @@ class Content extends Component {
           selectedData = data[ 'other_notam' ].KGPS
           break;
         case 'FIR':
-          selectedData = data[ selected ].fir
+          selectedData = data[ selected ].notam_EN.filter(notam => notam.type === 'FIR')
           break;
         case 'Aerodrome':
-          selectedData = data[ selected ].notam
+          selectedData = data[ selected ].notam_EN.filter(notam => notam.type === 'aerodrome')
           break;
         case 'Area':
-          selectedData = data[ selected ].area
+          selectedData = data[ selected ].notam_EN.filter(notam => notam.type === 'area')
           break;
         case 'National':
           selectedData = data[ 'other_notam' ].national
