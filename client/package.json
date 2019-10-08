@@ -38,6 +38,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!src/components/Firebase/"
       "!<rootDir>/src/includes-polyfill.js",
       "!<rootDir>/src/serviceWorker.js",
       "!<rootDir>/src/index.js",
