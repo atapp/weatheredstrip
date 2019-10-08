@@ -74,9 +74,9 @@ const getCanadianAirports = async stations => {
           en_notam_regex = /^\d{6} /g
           fr_notam_regex = /^\d{6}F /g
 
-          const taf = formatTAF(res_json.data.filter(res_item => res_item.type === 'taf'))
+          const taf = formatTAF(res_json.data.filter(res_item => res_item.type === 'taf' && res_item.pointReference === station.icao_code))
 
-          const metar = formatMETAR(res_json.data.filter(res_item => res_item.type === 'metar'))
+          const metar = formatMETAR(res_json.data.filter(res_item => res_item.type === 'metar' && res_item.pointReference === station.icao_code))
 
           airportInfo[station.icao_code] = {
             ...station,
