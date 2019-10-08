@@ -4,7 +4,10 @@ function Tafs({
   data,
 }) {
   let tafs;
-  const textData = data.text
+  let textData = null
+  if (data && data.text && data.text.length > 0) {
+    textData = data.text
+  }
 
   if (textData && textData.length > 0) {
     tafs = textData.map((taf, index) => {
