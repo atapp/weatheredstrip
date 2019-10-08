@@ -26,6 +26,11 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "resolutions": {
+    "**/**/lodash": "^4.17.12",
+    "**/**/set-value": "^2.0.1",
+    "**/**/handlebars": "^4.3.0"
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
