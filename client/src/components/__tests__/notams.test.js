@@ -32,7 +32,7 @@ const typeLengths = [
 airports.map(airport => {
   typeLengths.map(lengths => {
     it('notam renders properly', () => {
-      const { container } = render(<Notams dataLength={ lengths } data={ testData[ airport ].notam }/>)
+      const { container } = render(<Notams dataLength={ lengths } data={ testData[ airport ].notam_EN }/>)
       const notams = container.firstChild
       expect(notams).toMatchSnapshot()
     });
