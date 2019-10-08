@@ -10,12 +10,17 @@ exports[`stationNav renders properly 1`] = `
     <button
       class="station"
     >
-      CYMX
+      CYUL
     </button>
     <button
       class="station"
     >
-      EGPK
+      KJFK
+    </button>
+    <button
+      class="station"
+    >
+      EGLL
     </button>
   </div>
 </div>

@@ -4,9 +4,13 @@ function Tafs({
   data,
 }) {
   let tafs;
+  let textData = null
+  if (data && data.text && data.text.length > 0) {
+    textData = data.text
+  }
 
-  if (data && data.length > 0) {
-    tafs = data.map((taf, index) => {
+  if (textData && textData.length > 0) {
+    tafs = textData.map((taf, index) => {
       return (<div className="notif-text" key={ index }>{ taf }</div>)
     })
   } else {

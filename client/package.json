@@ -15,6 +15,8 @@
     "react-scripts": "3.1.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "firebase": "^6.2.4",
@@ -36,6 +38,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
+      "!<rootDir>/src/components/Firebase/",
       "!<rootDir>/src/includes-polyfill.js",
       "!<rootDir>/src/serviceWorker.js",
       "!<rootDir>/src/index.js",

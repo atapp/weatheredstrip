@@ -27,34 +27,22 @@ exports[`taf renders properly 1`] = `
   <div
     class="notif-text"
   >
-    TAF CYMX 141738Z 1418/1518 24012G22KT P6SM SCT020 TEMPO 1418/1422
-     BKN020
-     BECMG 1419/1421 22007KT
+    TAF CYUL 071739Z 0718/0818 22012G22KT P6SM SCT020 BKN120 TEMPO 0718/0724 BKN020 OVC120
   </div>
   <div
     class="notif-text"
   >
-    FM142200 VRB03KT P6SM FEW030
+    FM080000 23012G22KT P6SM −SHRA BKN020 OVC220
   </div>
   <div
     class="notif-text"
   >
-    FM150600 05005KT 3SM -SN BKN050 OVC100
+    FM080300 26008KT P6SM FEW050
   </div>
   <div
     class="notif-text"
   >
-    FM150900 06007KT 11/2SM -SN VV020
-  </div>
-  <div
-    class="notif-text"
-  >
-    FM151100 05010KT 1/2SM SN VV005
-  </div>
-  <div
-    class="notif-text"
-  >
-    RMK NXT FCST BY 150000Z
+    RMK NXT FCST BY 072100Z
   </div>
 </div>
 `;
@@ -66,17 +54,59 @@ exports[`taf renders properly 2`] = `
   <div
     class="notif-text"
   >
-    TAF EGPK 141653Z 1418/1518 18009KT 9999 FEW030
+    KJFK 071720Z 0718/0824 19016G22KT P6SM SCT025 BKN100
   </div>
   <div
     class="notif-text"
   >
-    PROB40 TEMPO 1512/1518 19015G25KT
+    FM072300 25010KT P6SM VCSH SCT035 BKN050
+  </div>
+  <div
+    class="notif-text"
+  >
+    FM080100 34010KT 3SM SHRA BR FEW008 OVC025
+  </div>
+  <div
+    class="notif-text"
+  >
+    FM080600 36009KT 6SM BR VCSH SCT015 OVC050
+  </div>
+  <div
+    class="notif-text"
+  >
+    FM080900 01008KT P6SM BKN050
+  </div>
+  <div
+    class="notif-text"
+  >
+    FM081500 03012G18KT P6SM SCT030 BKN060
+  </div>
+  <div
+    class="notif-text"
+  >
+    FM082000 04012KT P6SM SCT100
   </div>
 </div>
 `;
 
 exports[`taf renders properly 3`] = `
+<div
+  class="tafs"
+>
+  <div
+    class="notif-text"
+  >
+    TAF EGLL 071656Z 0718/0824 19012KT 9999 BKN010 TEMPO 0718/0722 3000 RADZ BKN005 BECMG 0720/0723 25008KT FEW030 TEMPO 0813/0819 25016G26KT 7000 SHRA
+  </div>
+  <div
+    class="notif-text"
+  >
+    PROB30 TEMPO 0814/0818 3500 +SHRA
+  </div>
+</div>
+`;
+
+exports[`taf renders properly 4`] = `
 <div
   class="tafs"
 >
@@ -86,7 +116,7 @@ exports[`taf renders properly 3`] = `
 </div>
 `;
 
-exports[`taf renders properly 4`] = `
+exports[`taf renders properly 5`] = `
 <div
   class="tafs"
 >

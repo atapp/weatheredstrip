@@ -7,7 +7,7 @@ afterEach(cleanup)
 
 const airports = Object.keys(testData)
 
-airports.map(airport => {
+airports.forEach(airport => {
   it('taf renders properly', () => {
     const { container } = render(<Tafs data={ testData[ airport ].taf }/>)
     const tafs = container.firstChild

@@ -1,20 +1,20 @@
 const { logger } = require('../lib/logger');
 const { getIntlAirports } = require('../lib/queryIntl');
 const { getCanadianAirports } = require('../lib/queryCanada');
+const worldAirportData = require('../world-airports.json')
 
 /*  Request all reports from all the get[...] functions. Then returns a
     consolidated object. */
 getAirports = async airports => {
   let flightPlanInfo = new Object()
-  const intlAirports = await getIntlAirports(airports)
-  const canAirports = await getCanadianAirports(airports)
+  const [intlAirports, canAirports] = await Promise.all([getIntlAirports(airports), getCanadianAirports(airports)])
 
   airports.canada.forEach(airport => {
-    flightPlanInfo[airport] = canAirports[airport]
+    flightPlanInfo[airport.icao_code] = canAirports[airport.icao_code]
   })
 
   airports.intl.forEach(airport => {
-    flightPlanInfo[airport] = intlAirports[airport]
+    flightPlanInfo[airport.icao_code] = intlAirports[airport.icao_code]
   })
 
   if (canAirports) {
@@ -22,19 +22,23 @@ getAirports = async airports => {
   } else {
     flightPlanInfo['other_notam'] = { ...intlAirports['other_notam'] }
   }
-
-
   flightPlanInfo.Timestamp = new Date()
-
   return flightPlanInfo
 }
 
 /*  Transform the provided array into a list containing a Promises for each
     airport.  */
 const getInfo = async airports => {
-  const validAirports = airports.filter(airport => airport.length === 4)
-  const intlAirports = validAirports.filter(icao => icao.slice(0, 2) !== "CY" && icao.slice(0, 2) !== "CZ")
-  const canadianAirports = validAirports.filter(icao => icao.slice(0, 2) === "CY" || icao.slice(0, 2) === "CZ")
+  const validAirports = airports.map(airport => {
+    airportData = worldAirportData.filter(item => item.icao_code === airport || item.iata_code === airport)[0]
+    if (airportData) {
+      return airportData
+    } else {
+      return null
+    }
+  })
+  const intlAirports = validAirports.filter(airport => airport.iso_country !== 'CA')
+  const canadianAirports = validAirports.filter(airport => airport.iso_country === 'CA')
 
   return await getAirports({ intl: intlAirports, canada: canadianAirports })
 }
@@ -48,10 +52,6 @@ module.exports = function airport() {
     airportsRequest = airportsRequest.map(airport => airport.toUpperCase())
     const airportsInfo = await getInfo(airportsRequest);
 
-    // Ensure requested number of items are all present in the report.
-    // if (airportsInfo.length === airportsRequest.length) {
-    //   isResponseGood = true;
-    // }
     isResponseGood = true;
     const requestSent = new Date();
     logger(`Request received for: ${req.query.q} [${isResponseGood ? 'PASS' : 'FAIL'}] - ${requestSent - requestReceived}ms - IP: ${req.headers['x-forwarded-for']}`);
